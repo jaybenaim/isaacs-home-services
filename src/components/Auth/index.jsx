@@ -3,7 +3,6 @@ import { logoutUser } from "../../redux/actions/authActions";
 import { withRouter, Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { Dropdown } from "react-bootstrap";
 import "../../assets/stylesheets/auth.css";
 
 const Auth = (props) => {

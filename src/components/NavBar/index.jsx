@@ -9,8 +9,6 @@ import "../../assets/stylesheets/navbar.css";
 //TODO Add a new link in the NavBar for your page here.
 // A skip link is included as an accessibility best practice. For more information visit https://www.w3.org/WAI/WCAG21/Techniques/general/G1.
 const NavBar = () => {
-  const [showDropdown, setShowDropdown] = useState(false);
-
   return (
     <React.Fragment>
       <div className={styles.skipLink}>
@@ -24,21 +22,12 @@ const NavBar = () => {
           <Link className="nav-item nav-link active " to="/">
             Home
           </Link>
-          {/* Dropdown */}
           <Dropdown>
             <Dropdown.Toggle id="navbar-toggle">Account</Dropdown.Toggle>
             <Dropdown.Menu>
               <Auth />
             </Dropdown.Menu>
           </Dropdown>
-          {/* <div
-            className="nav-item nav-link"
-            onClick={() => setShowDropdown(!showDropdown)}
-          >
-            Account
-          </div>
-          {showDropdown && <Auth />} */}
-          {/* End dropdown  */}
         </div>
       </nav>
     </React.Fragment>
