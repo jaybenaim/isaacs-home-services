@@ -60,7 +60,7 @@ app.use("/api", indexRouter);
 app.use("/api/users", users);
 
 app.get("*", (req, res) => {
-  res.sendFile("dist/index.html", { root: __dirname });
+  res.sendFile("build/index.html", { root: __dirname });
 });
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
