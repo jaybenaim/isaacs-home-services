@@ -1,0 +1,21 @@
+.auth-content {
+  display: flex;
+  flex-direction: column;
+}
+.auth-content a {
+  color: #000;
+  padding: 10%;
+  min-width: 100%;
+}
+.auth-content a:hover {
+  text-decoration: none;
+  color: initial;
+  background: rgba(0, 0, 0, 0.07);
+}
+.dropdown-menu {
+  padding: 0 !important;
+}
+@media (min-width: 450px) {
+}
+@media (max-width: 451px) {
+}

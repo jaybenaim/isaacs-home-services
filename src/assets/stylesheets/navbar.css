@@ -1,0 +1,11 @@
+.dropdown-toggle {
+  border: none !important;
+  background-color: transparent !important;
+  color: #000 !important;
+  font-size: 0.9em !important;
+  box-shadow: none !important;
+  margin-top: 10%;
+  font-family: Arial, sans-serif !important;
+}
+@media (max-width: 450px) {
+}
