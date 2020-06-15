@@ -1,6 +1,5 @@
 ﻿import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./navbar.module.css";
 import Auth from "../Auth";
 
 import { Dropdown } from "react-bootstrap";
