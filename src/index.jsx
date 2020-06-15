@@ -33,7 +33,7 @@ initializeReactGA();
 ReactSEO.startMagic(
   [
     {
-      url: "/services",
+      url: "https://isaacs-home-services.herokuapp.com/#/services",
       isFullMatch: false,
     },
     {
