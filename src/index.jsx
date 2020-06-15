@@ -19,6 +19,10 @@ ReactSEO.startMagic(
       url: "/services",
       isFullMatch: false,
     },
+    {
+      url: "/404",
+      isFullMatch: false,
+    },
   ],
   renderDOM
 );
