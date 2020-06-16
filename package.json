@@ -40,20 +40,21 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "concurrently": "^5.2.0"
+    "concurrently": "^5.2.0",
+    "gh-pages": "^3.0.0"
   },
   "scripts": {
     "start": "node server/server.js",
     "start-all": "concurrently \"npm run start-frontend\" \"npm run start-backend\"",
     "start-backend": "node server/server.js",
     "start-frontend": "react-scripts start",
-    "build": "node ./buildScript",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.js src/**/*.jsx",
-    "heroku-postbuild": "node ./buildScript; cd server && npm install && cd .."
+    "deploy": "gh-pages -d build"
   },
-  "proxy": "http://localhost:3001",
+  "homepage": "https://jaybenaim.github.io/isaacs-home-services/",
   "browserslist": [
     ">0.2%",
     "not dead",
