@@ -1,10 +1,10 @@
 import setAuthToken from "../../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
-import local from "../../api/local";
+import backend from "../../api/backend";
 // Register User
 export const registerUser = (userData, history) => (dispatch) => {
-  local
+  backend
     .post("/users/register", userData)
     .then((res) => {
       dispatch(loginUser(userData));
@@ -21,7 +21,7 @@ export const registerUser = (userData, history) => (dispatch) => {
 
 // Login - get user token
 export const loginUser = (userData) => (dispatch) => {
-  local
+  backend
     .post("/users/login", userData)
     .then((res) => {
       // Save to localStorage

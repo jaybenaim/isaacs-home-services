@@ -10,6 +10,7 @@ const CONSTANTS = require("./constants");
 const { PORT: port } = CONSTANTS;
 const passport = require("passport");
 const indexRouter = require("./routes");
+const services = require("./routes/api/services");
 
 require("dotenv").config();
 require("./config/db");
@@ -58,6 +59,7 @@ require("./config/passport")(passport);
 // Routes
 app.use("/api", indexRouter);
 app.use("/api/users", users);
+app.use("/api/services", services);
 
 // app.get("*", (req, res) => {
 //   res.sendFile("build/index.html", { root: __dirname });

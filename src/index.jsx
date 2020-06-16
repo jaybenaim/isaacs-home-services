@@ -37,7 +37,7 @@ ReactSEO.startMagic(
       isFullMatch: false,
     },
     {
-      url: "/404",
+      url: "https://isaacs-home-services.herokuapp.com/#/404",
       isFullMatch: false,
     },
   ],
