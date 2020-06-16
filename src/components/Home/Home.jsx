@@ -3,7 +3,7 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-import { refreshData } from "../../redux/actions/dataActions";
+import { refreshData, getData } from "../../redux/actions/dataActions";
 
 const Home = (props) => {
   return (
@@ -12,6 +12,7 @@ const Home = (props) => {
         <div className="row justify-content-center mt-5 p-0">
           <h3>Home</h3>
           <button onClick={() => props.refreshData()}> Refresh Data</button>
+          <button onClick={() => props.getData()}> Get Data</button>
         </div>
       </div>
     </main>
@@ -23,4 +24,6 @@ const mapStateToProps = (state) => {
     services: state.services,
   };
 };
-export default withRouter(connect(mapStateToProps, { refreshData })(Home));
+export default withRouter(
+  connect(mapStateToProps, { refreshData, getData })(Home)
+);
