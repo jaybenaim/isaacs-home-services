@@ -2,6 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ServiceSchema = new Schema({
+  firebaseID: {
+    type: String,
+  },
   title: {
     type: String,
     style: String,

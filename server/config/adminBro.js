@@ -2,6 +2,7 @@
 const AdminBro = require("admin-bro");
 const User = require("../models/User");
 const Service = require("../models/Service");
+const axios = require("axios");
 
 AdminBro.registerAdapter(require("admin-bro-mongoose"));
 
@@ -17,6 +18,41 @@ const adminBro = new AdminBro({
   resources: [
     {
       resource: Service,
+      options: {
+        actions: {
+          new: {
+            before: async (request) => {
+              let data = request.payload;
+
+              await axios
+                .post(
+                  "https://network-king-5740f.firebaseio.com/services.json",
+                  data
+                )
+                .then((res) => {
+                  data.firebaseID = res.data.name;
+                })
+                .catch((err) => console.log(err));
+              return request;
+            },
+          },
+          edit: {
+            before: async (request) => {
+              let { firebaseID } = request.payload;
+              await axios
+                .patch(
+                  `https://network-king-5740f.firebaseio.com/services/${firebaseID}.json`,
+                  request.payload
+                )
+                .then((res) => {
+                  console.log(res.data);
+                })
+                .catch((err) => console.log(err));
+              return request;
+            },
+          },
+        },
+      },
     },
     // Show users on sidebar
     // {
