@@ -4,6 +4,9 @@ const router = express.Router();
 const Service = require("../../models/Service");
 
 router.get("/", (req, res) => {
-  res.send("service route ");
+  Service.find()
+    .then((response) => res.send(response))
+    .catch((err) => res.send(err));
 });
+
 module.exports = router;
