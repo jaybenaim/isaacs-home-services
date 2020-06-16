@@ -1,13 +1,13 @@
 import { SET_DATA, GET_ERRORS } from "./types";
 import local from "../../api/local";
-
-import services from "../../data/services/services.json";
+import axios from "axios";
 
 export const refreshData = () => (dispatch) => {
   local
     .get("/services")
     .then((res) => {
-      dispatch(convertToJson(res.data));
+      console.log(res.data);
+      dispatch(getData(res.data));
     })
     .catch((err) => {
       dispatch({
@@ -17,14 +17,15 @@ export const refreshData = () => (dispatch) => {
     });
 };
 
-export const getData = () => (dispatch) => {
-  dispatch(setData(services));
+export const getData = (data) => (dispatch) => {
+  // get data from firebase
+  axios
+    .get("https://network-king-5740f.firebaseio.com/services.json")
+    .then((res) => dispatch(setData(res.data)))
+    .catch((err) => console.log(err));
+  // dispatch(setData(services));
 };
-const convertToJson = (data) => (dispatch) => {
-  // write to json here
 
-  dispatch(setData(data));
-};
 export const setData = (data) => {
   return {
     type: SET_DATA,

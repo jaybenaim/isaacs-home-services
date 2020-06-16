@@ -5,10 +5,9 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case SET_DATA:
-      return {
-        ...state,
+      return Object.assign({}, state, {
         services: action.payload,
-      };
+      });
     default:
       return state;
   }
