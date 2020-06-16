@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.733a21e3.chunk.css",
-    "main.js": "/static/js/main.dd13002e.chunk.js",
-    "main.js.map": "/static/js/main.dd13002e.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.40b9b3db.js",
-    "runtime-main.js.map": "/static/js/runtime-main.40b9b3db.js.map",
-    "static/css/2.0161871a.chunk.css": "/static/css/2.0161871a.chunk.css",
-    "static/js/2.e899e52d.chunk.js": "/static/js/2.e899e52d.chunk.js",
-    "static/js/2.e899e52d.chunk.js.map": "/static/js/2.e899e52d.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.98bb0ce9f1ba6bb64f40bd1529f9fc15.js": "/precache-manifest.98bb0ce9f1ba6bb64f40bd1529f9fc15.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.0161871a.chunk.css.map": "/static/css/2.0161871a.chunk.css.map",
-    "static/css/main.733a21e3.chunk.css.map": "/static/css/main.733a21e3.chunk.css.map",
-    "static/js/2.e899e52d.chunk.js.LICENSE.txt": "/static/js/2.e899e52d.chunk.js.LICENSE.txt"
+    "main.css": "/isaacs-home-services/static/css/main.733a21e3.chunk.css",
+    "main.js": "/isaacs-home-services/static/js/main.29c8895a.chunk.js",
+    "main.js.map": "/isaacs-home-services/static/js/main.29c8895a.chunk.js.map",
+    "runtime-main.js": "/isaacs-home-services/static/js/runtime-main.938063d9.js",
+    "runtime-main.js.map": "/isaacs-home-services/static/js/runtime-main.938063d9.js.map",
+    "static/css/2.0161871a.chunk.css": "/isaacs-home-services/static/css/2.0161871a.chunk.css",
+    "static/js/2.e899e52d.chunk.js": "/isaacs-home-services/static/js/2.e899e52d.chunk.js",
+    "static/js/2.e899e52d.chunk.js.map": "/isaacs-home-services/static/js/2.e899e52d.chunk.js.map",
+    "index.html": "/isaacs-home-services/index.html",
+    "precache-manifest.25258733456ee5bd37d8f4f2002887c5.js": "/isaacs-home-services/precache-manifest.25258733456ee5bd37d8f4f2002887c5.js",
+    "service-worker.js": "/isaacs-home-services/service-worker.js",
+    "static/css/2.0161871a.chunk.css.map": "/isaacs-home-services/static/css/2.0161871a.chunk.css.map",
+    "static/css/main.733a21e3.chunk.css.map": "/isaacs-home-services/static/css/main.733a21e3.chunk.css.map",
+    "static/js/2.e899e52d.chunk.js.LICENSE.txt": "/isaacs-home-services/static/js/2.e899e52d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.40b9b3db.js",
+    "static/js/runtime-main.938063d9.js",
     "static/css/2.0161871a.chunk.css",
     "static/js/2.e899e52d.chunk.js",
     "static/css/main.733a21e3.chunk.css",
-    "static/js/main.dd13002e.chunk.js"
+    "static/js/main.29c8895a.chunk.js"
   ]
 }

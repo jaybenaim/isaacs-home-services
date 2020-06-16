@@ -46,7 +46,7 @@ ReactSEO.startMagic(
 function renderDOM() {
   ReactDOM.render(
     <Provider store={store}>
-      <HashRouter history={history}>
+      <HashRouter>
         <ErrorBoundary>
           <App />
         </ErrorBoundary>
