@@ -11,18 +11,33 @@ const { PORT: port } = CONSTANTS;
 const passport = require("passport");
 const indexRouter = require("./routes");
 const services = require("./routes/api/services");
+const adminBro = require("./config/adminBro");
+const AdminBroExpressjs = require("admin-bro-expressjs");
+const bcrypt = require("bcrypt");
 
 require("dotenv").config();
 require("./config/db");
 
 const app = express();
 
+// Admin
+const adminRouter = AdminBroExpressjs.buildAuthenticatedRouter(adminBro, {
+  authenticate: async (email, password) => {
+    const user = await User.findOne({ email });
+    if (user.role === "admin") {
+      const matched = await bcrypt.compare(password, user.password);
+      if (matched) {
+        return user;
+      }
+    }
+    return false;
+  },
+  cookiePassword: process.env.SECRET,
+});
+
+app.use(adminBro.options.rootPath, adminRouter);
 // Bodyparser middleware
-app.use(
-  bodyParser.urlencoded({
-    extended: false,
-  })
-);
+
 app.use(bodyParser.json());
 
 // Cors
@@ -56,6 +71,7 @@ app.use(cookieParser());
 app.use(passport.initialize());
 // Passport config
 require("./config/passport")(passport);
+
 // Routes
 app.use("/api", indexRouter);
 app.use("/api/users", users);

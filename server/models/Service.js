@@ -12,7 +12,6 @@ const ServiceSchema = new Schema({
     type: String,
     style: String,
     headingType: String,
-    required: true,
   },
   image: {
     type: String,

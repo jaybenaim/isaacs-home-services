@@ -8,6 +8,16 @@ const validateLoginInput = require("../../validation/login");
 // Load User model
 const User = require("../../models/User");
 
+router.get("/", (req, res) => {
+  User.find()
+    .then((response) => res.send(response))
+    .catch((err) => res.send(err));
+});
+router.patch("/:id", (req, res) => {
+  User.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .then((response) => res.send(response))
+    .catch((err) => res.send(err));
+});
 // @route POST api/users/register
 // @desc Register user
 // @access Public
