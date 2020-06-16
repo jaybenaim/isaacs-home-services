@@ -4,10 +4,9 @@ import axios from "axios";
 
 export const refreshData = () => (dispatch) => {
   local
-    .get("/services")
+    .get("/services?refresh=true")
     .then((res) => {
-      console.log(res.data);
-      dispatch(getData(res.data));
+      dispatch(getData());
     })
     .catch((err) => {
       dispatch({

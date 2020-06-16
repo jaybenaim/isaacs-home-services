@@ -14,11 +14,23 @@ const services = require("./routes/api/services");
 const adminBro = require("./config/adminBro");
 const AdminBroExpressjs = require("admin-bro-expressjs");
 const bcrypt = require("bcrypt");
+const firebase = require("firebase");
 
 require("dotenv").config();
 require("./config/db");
 
 const app = express();
+// Firebase Admin
+const config = {
+  apiKey: process.env.FIREBASE_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  databaseURL: process.env.DATABASE_URL,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+};
+firebase.initializeApp(config);
+const firebaseDB = firebase.database();
 
 // Admin
 const adminRouter = AdminBroExpressjs.buildAuthenticatedRouter(adminBro, {
