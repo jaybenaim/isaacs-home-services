@@ -3,6 +3,7 @@ const AdminBro = require("admin-bro");
 const User = require("../models/User");
 const Service = require("../models/Service");
 const axios = require("axios");
+const { query } = require("express");
 
 AdminBro.registerAdapter(require("admin-bro-mongoose"));
 
@@ -23,7 +24,7 @@ const adminBro = new AdminBro({
           new: {
             before: async (request) => {
               let data = request.payload;
-
+              // create service in firebase db
               await axios
                 .post(
                   "https://network-king-5740f.firebaseio.com/services.json",
@@ -39,6 +40,7 @@ const adminBro = new AdminBro({
           edit: {
             before: async (request) => {
               let { firebaseID } = request.payload;
+              // update firebase
               await axios
                 .patch(
                   `https://network-king-5740f.firebaseio.com/services/${firebaseID}.json`,
@@ -51,6 +53,47 @@ const adminBro = new AdminBro({
               return request;
             },
           },
+          delete: {
+            before: async (request) => {
+              let recordId = request.params.recordId;
+              console.log(recordId);
+              let firebaseId = "";
+
+              // find Service by id
+              Service.findById(recordId)
+                .then((res) => {
+                  let { firebaseID } = res;
+                  firebaseId = firebaseID;
+                })
+                .catch((err) => console.log(err));
+              // Delete service from firebase
+              await axios
+                .delete(
+                  `https://network-king-5740f.firebaseio.com/services/${firebaseId}.json`
+                )
+                .then((res) => {
+                  console.log(res.data, "Item Deleted");
+                })
+                .catch((err) => console.log(err));
+              return request;
+            },
+          },
+          // bulkDelete: {
+          //   before: async (request) => {
+          //     let { firebaseID } = request.payload;
+          // for each item send new delete request
+          //     await axios
+          //       .patch(
+          //         `https://network-king-5740f.firebaseio.com/services/${firebaseID}.json`,
+          //         request.payload
+          //       )
+          //       .then((res) => {
+          //         console.log(res.data);
+          //       })
+          //       .catch((err) => console.log(err));
+          //     return request;
+          //   },
+          // },
         },
       },
     },
