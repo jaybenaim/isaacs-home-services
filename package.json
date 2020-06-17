@@ -60,7 +60,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.js src/**/*.jsx",
     "deploy": "gh-pages -d build",
-    "heroku-predeploy": "cd server && npm install"
+    "heroku-prebuild": "cd server && npm install"
   },
   "homepage": "https://jaybenaim.github.io/isaacs-home-services/",
   "browserslist": [
