@@ -11,7 +11,7 @@ const adminBro = new AdminBro({
   //   Custom dashboard
   dashboard: {
     handler: async () => {},
-    component: AdminBro.bundle("../Dashboard/index"),
+    component: AdminBro.require("../Dashboard/index"),
   },
   branding: {
     companyName: "Network King",
