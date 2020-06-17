@@ -12,6 +12,7 @@
     "bootstrap": "^4.4.1",
     "classnames": "2.2.6",
     "cookie-parser": "1.4.5",
+    "cors": "^2.8.5",
     "debug": "4.1.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -59,8 +60,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.js src/**/*.jsx",
-    "deploy": "gh-pages -d build",
-    "heroku-prebuild": "cd server && npm install"
+    "deploy": "gh-pages -d build"
   },
   "homepage": "https://jaybenaim.github.io/isaacs-home-services/",
   "browserslist": [
