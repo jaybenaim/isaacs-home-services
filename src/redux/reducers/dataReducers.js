@@ -6,7 +6,7 @@ export default function (state = initialState, action) {
   switch (action.type) {
     case SET_DATA:
       return Object.assign({}, state, {
-        services: action.payload,
+        services: Array(action.payload),
       });
     default:
       return state;

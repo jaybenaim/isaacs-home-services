@@ -2,12 +2,14 @@
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 
 import Home from "./components/Home/Home";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import ErrorPage from "./components/ErrorPage";
+
+import { connect } from "react-redux";
 
 //TODO Web Template Studio: Add routes for your new pages here.
 const App = () => {
@@ -26,9 +28,13 @@ const App = () => {
         <Route exact path="/login" render={(props) => <Login {...props} />} />
         <Route exact path="/404" render={(props) => <ErrorPage {...props} />} />
       </Switch>
-      <Footer />
+      {/* <Footer /> */}
     </React.Fragment>
   );
 };
 
-export default App;
+const mapStateToProps = (state) => {
+  return state;
+};
+
+export default connect(mapStateToProps, {})(App);

@@ -1,4 +1,4 @@
-﻿import React from "react";
+﻿import React, { useEffect } from "react";
 
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -6,13 +6,19 @@ import { withRouter } from "react-router-dom";
 import { refreshData, getData } from "../../redux/actions/dataActions";
 
 const Home = (props) => {
+  useEffect(() => {
+    // use for development
+    props.getData();
+    // use to keep data synced in production
+    // props.refreshData();
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <main id="mainContent">
       <div className="container">
         <div className="row justify-content-center mt-5 p-0">
-          <h3>Home</h3>
-          <button onClick={() => props.refreshData()}> Refresh Data</button>
-          <button onClick={() => props.getData()}> Get Data</button>
+          <h1>Network King</h1>
         </div>
       </div>
     </main>

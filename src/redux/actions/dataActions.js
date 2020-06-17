@@ -1,6 +1,6 @@
 import { SET_DATA, GET_ERRORS } from "./types";
 import local from "../../api/local";
-import axios from "axios";
+import firebaseDb from "../../api/firebase";
 
 export const refreshData = () => (dispatch) => {
   local
@@ -9,6 +9,7 @@ export const refreshData = () => (dispatch) => {
       dispatch(getData());
     })
     .catch((err) => {
+      console.log(err);
       dispatch({
         type: GET_ERRORS,
         payload: err,
@@ -18,8 +19,8 @@ export const refreshData = () => (dispatch) => {
 
 export const getData = (data) => (dispatch) => {
   // get data from firebase
-  axios
-    .get("https://network-king-5740f.firebaseio.com/services.json")
+  firebaseDb
+    .get("/services.json")
     .then((res) => dispatch(setData(res.data)))
     .catch((err) => console.log(err));
   // dispatch(setData(services));
