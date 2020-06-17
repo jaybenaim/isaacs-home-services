@@ -9,10 +9,10 @@ AdminBro.registerAdapter(require("admin-bro-mongoose"));
 
 const adminBro = new AdminBro({
   //   Custom dashboard
-  dashboard: {
-    handler: async () => {},
-    component: AdminBro.require("../Dashboard/index"),
-  },
+  // dashboard: {
+  //   handler: async () => {},
+  //   component: AdminBro.require("../Dashboard/index"),
+  // },
   branding: {
     companyName: "Network King",
   },
