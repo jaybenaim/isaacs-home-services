@@ -33,20 +33,20 @@ firebase.initializeApp(config);
 const firebaseDB = firebase.database();
 
 // Admin
-const adminRouter = AdminBroExpressjs.buildAuthenticatedRouter(adminBro, {
-  authenticate: async (email, password) => {
-    const user = await User.findOne({ email });
-    if (user.role === "admin") {
-      const matched = await bcrypt.compare(password, user.password);
-      if (matched) {
-        return user;
-      }
-    }
-    return false;
-  },
-  cookiePassword: process.env.SECRET,
-});
-
+// const adminRouter = AdminBroExpressjs.buildAuthenticatedRouter(adminBro, {
+//   authenticate: async (email, password) => {
+//     const user = await User.findOne({ email });
+//     if (user.role === "admin") {
+//       const matched = await bcrypt.compare(password, user.password);
+//       if (matched) {
+//         return user;
+//       }
+//     }
+//     return false;
+//   },
+//   cookiePassword: process.env.SECRET,
+// });
+const adminRouter = AdminBroExpressjs.buildRouter(adminBro);
 app.use(adminBro.options.rootPath, adminRouter);
 // Bodyparser middleware
 
