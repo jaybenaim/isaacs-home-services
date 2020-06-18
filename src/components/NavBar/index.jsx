@@ -1,8 +1,8 @@
 ﻿import React from "react";
 import { Link } from "react-router-dom";
-import Auth from "../Auth";
+// import Auth from "../Auth";
 
-import { Dropdown } from "react-bootstrap";
+// import { Dropdown } from "react-bootstrap";
 import "../../assets/stylesheets/navbar.css";
 
 const NavBar = () => {
@@ -16,12 +16,12 @@ const NavBar = () => {
           <Link className="nav-item nav-link active " to="/">
             Home
           </Link>
-          <Dropdown>
+          {/* <Dropdown>
             <Dropdown.Toggle id="navbar-toggle">Account</Dropdown.Toggle>
             <Dropdown.Menu>
               <Auth />
             </Dropdown.Menu>
-          </Dropdown>
+          </Dropdown> */}
         </div>
       </nav>
     </React.Fragment>
