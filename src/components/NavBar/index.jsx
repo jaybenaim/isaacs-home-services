@@ -8,7 +8,7 @@ import "../../assets/stylesheets/navbar.css";
 const NavBar = () => {
   return (
     <React.Fragment>
-      <nav className="navbar navbar-expand-sm navbar-light border-bottom justify-content-between">
+      <nav className="navbar navbar-expand-sm  justify-content-between">
         <Link className="navbar-brand" to="/">
           Isaac's Home Services
         </Link>

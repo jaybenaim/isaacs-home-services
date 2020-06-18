@@ -1,0 +1,18 @@
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  min-height: 800px;
+  min-width: 100%;
+  margin-top: 0;
+}
+@media (max-width: 450px) {
+  .hero-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    min-height: 400px;
+    min-width: 100%;
+    margin-top: 0;
+  }
+}

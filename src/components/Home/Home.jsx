@@ -5,6 +5,8 @@ import { withRouter } from "react-router-dom";
 
 import { refreshData, getData } from "../../redux/actions/dataActions";
 
+import Hero from "./Hero";
+import "../../assets/stylesheets/home.css";
 const Home = (props) => {
   useEffect(() => {
     // use for development
@@ -16,8 +18,9 @@ const Home = (props) => {
 
   return (
     <main id="mainContent">
-      <div className="container">
-        <div className="row justify-content-center mt-5 p-0">
+      <div className="container-fluid">
+        <div className="row justify-content-center p-0">
+          <Hero />
           <h1>Network King</h1>
         </div>
       </div>

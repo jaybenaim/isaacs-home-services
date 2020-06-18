@@ -1,0 +1,12 @@
+#mainContent h1 {
+  /* position: relative; */
+  /* top: 262px; */
+  font-size: 4em;
+  z-index: 5;
+  color: #000;
+}
+@media (min-width: 789px) {
+  #mainContent h1 {
+    /* top: 262px; */
+  }
+}
