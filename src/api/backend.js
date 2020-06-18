@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "https://jaybenaim.github.io/isaacs-home-services/api",
+  baseURL: "https://isaacs-home-services.herokuapp.com/api",
 });
