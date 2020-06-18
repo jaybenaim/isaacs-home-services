@@ -17,13 +17,31 @@ export const refreshData = () => (dispatch) => {
     });
 };
 
-export const getData = (data) => (dispatch) => {
-  // get data from firebase
-  firebaseDb
-    .get("/services.json")
-    .then((res) => dispatch(setData(res.data)))
-    .catch((err) => console.log(err));
-  // dispatch(setData(services));
+export const getData = () => (dispatch) => {
+  // Cached Fetch
+  let localData = localStorage.getItem("services");
+  // Get data from local storage if available if not make api call
+  if (!localData) {
+    // get data from firebase
+    firebaseDb
+      .get("/services.json")
+      .then((res) => {
+        let jsonData = JSON.stringify(res.data);
+        localStorage.setItem("services", jsonData);
+
+        dispatch(setData(res.data));
+      })
+      .catch((err) => console.log(err));
+  }
+  let parsedData = JSON.parse(localData);
+  dispatch(setData(parsedData));
+
+  // firebaseDb
+  //   .get("/services.json")
+  //   .then((res) => {
+  //     dispatch(setData(res.data));
+  //   })
+  //   .catch((err) => console.log(err));
 };
 
 export const setData = (data) => {
