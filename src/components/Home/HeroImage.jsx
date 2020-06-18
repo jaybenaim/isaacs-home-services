@@ -29,7 +29,8 @@ const HeroImage = (props) => {
     >
       {isShown && (
         <div className="hero-image-content">
-          <p className="hero-image-title">{props.innerTitle}</p>
+          <h4 className="hero-image-title">{props.innerTitle}</h4>
+          <p className="hero-image-details">{props.innerDetails}</p>
         </div>
       )}
     </div>
