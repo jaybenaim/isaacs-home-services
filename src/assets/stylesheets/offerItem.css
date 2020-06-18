@@ -1,0 +1,17 @@
+@media (max-width: 450px) {
+  .what-we-offer-section .services {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+@media (min-width: 451px) {
+  .what-we-offer-section .services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .what-we-offer-section .services .service-title {
+    font-size: 3em;
+    color: #fff;
+    padding: 20%;
+  }
+}

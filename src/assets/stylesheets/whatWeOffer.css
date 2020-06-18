@@ -15,4 +15,8 @@
   text-align: center;
   color: #fff;
   padding: 10%;
+  padding-bottom: 5%;
+  border-bottom: 4px solid #fff;
+  width: 80%;
+  margin: 0 auto;
 }

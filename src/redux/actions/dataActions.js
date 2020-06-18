@@ -27,6 +27,7 @@ export const getData = () => (dispatch) => {
       .get("/services.json")
       .then((res) => {
         let jsonData = JSON.stringify(res.data);
+        // Add timeout function here set time key check against it
         localStorage.setItem("services", jsonData);
 
         dispatch(setData(res.data));

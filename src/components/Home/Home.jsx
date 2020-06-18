@@ -7,7 +7,7 @@ import { refreshData, getData } from "../../redux/actions/dataActions";
 
 import Hero from "../Hero/Hero";
 import "../../assets/stylesheets/home.css";
-import WhatWeOffer from "./WhatWeOffer";
+import WhatWeOffer from "../WhatWeOffer/WhatWeOffer";
 
 const Home = (props) => {
   useEffect(() => {
