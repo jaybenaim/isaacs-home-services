@@ -11,7 +11,10 @@ const HeroImage = (props) => {
       3: "animate__animated animate__slower hero-image animate__fadeInBottomLeft",
       4: "animate__animated animate__slower hero-image animate__fadeInBottomRight",
     };
-    return animationOptions[classId];
+    if (window.innerWidth >= 450) {
+      return animationOptions[classId];
+    }
+    return "hero-image";
   };
   const [isShown, setIsShown] = useState(false);
   return (
