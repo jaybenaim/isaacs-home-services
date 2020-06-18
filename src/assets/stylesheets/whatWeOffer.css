@@ -1,0 +1,18 @@
+.what-we-offer-section {
+  padding: 15% 18%;
+}
+.what-we-offer-section .inner-container {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  border: 1px solid #18d00d;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.what-we-offer-section h2 {
+  font-size: 3em;
+  font-weight: 500;
+  text-align: center;
+  color: #fff;
+  padding: 10%;
+}

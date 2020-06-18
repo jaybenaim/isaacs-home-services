@@ -5,8 +5,10 @@ import { withRouter } from "react-router-dom";
 
 import { refreshData, getData } from "../../redux/actions/dataActions";
 
-import Hero from "./Hero";
+import Hero from "../Hero/Hero";
 import "../../assets/stylesheets/home.css";
+import WhatWeOffer from "./WhatWeOffer";
+
 const Home = (props) => {
   useEffect(() => {
     // use for development
@@ -20,8 +22,10 @@ const Home = (props) => {
     <main id="mainContent">
       <div className="container-fluid">
         <div className="row justify-content-center p-0">
-          <Hero />
           <h1>Network King</h1>
+          <Hero />
+          {/* transparent contant info */}
+          <WhatWeOffer />
         </div>
       </div>
     </main>
