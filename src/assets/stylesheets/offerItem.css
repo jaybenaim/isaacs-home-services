@@ -46,7 +46,7 @@
     justify-content: center;
   }
   .what-we-offer-section .services .service-content img {
-    max-height: 50%;
+    max-height: 180px;
     max-width: 80%;
   }
   .what-we-offer-section .services .details {

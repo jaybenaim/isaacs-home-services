@@ -1,9 +1,5 @@
 .what-we-offer-section {
   padding: 15% 12%;
-  min-height: "1200px";
-  width: "100%";
-  object-fit: "cover";
-  background-attachment: "fixed";
 }
 .what-we-offer-section .inner-container {
   width: 100%;
@@ -24,4 +20,9 @@
   width: 80%;
   margin: 0 auto;
   text-transform: uppercase;
+}
+@media (max-width: 450px) {
+  .what-we-offer-section {
+    padding: 15% 4%;
+  }
 }
