@@ -5,7 +5,7 @@
     padding: 0 2%;
   }
   .what-we-offer-section .services .service-content {
-    padding: 20%;
+    padding: 10%;
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
@@ -13,13 +13,13 @@
     grid-column: 1;
   }
   .what-we-offer-section .services .service-content img {
-    max-height: 80%;
-    min-width: 80px;
+    width: 200px;
+    height: 200px;
   }
   .what-we-offer-section .services .details {
     grid-column: 2;
-    max-width: 80px;
-    margin-left: 5%;
+    width: 100%;
+    padding-left: 10%;
   }
   .what-we-offer-section .services .title {
     font-size: 2.4em;
@@ -28,6 +28,7 @@
   }
   .what-we-offer-section .services .service-short-description {
     font-size: 1.2em;
+    min-width: 200px;
   }
 }
 @media (max-width: 450px) {

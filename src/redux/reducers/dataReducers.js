@@ -14,8 +14,16 @@ export default function (state = initialState, action) {
 
         updatedServices.push(updatedService);
       }
+
       return Object.assign({}, state, {
-        services: updatedServices,
+        services: updatedServices.sort(function (a, b) {
+          var titleA = a.title.toUpperCase();
+          var titleB = b.title.toUpperCase();
+          if (titleA < titleB) return -1;
+          if (titleA > titleB) return 1;
+          // names must be equal
+          return 0;
+        }),
       });
     default:
       return state;
