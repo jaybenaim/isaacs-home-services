@@ -6,13 +6,17 @@ import { withRouter } from "react-router-dom";
 import { refreshData, getData } from "../../redux/actions/dataActions";
 
 import Hero from "../Hero/Hero";
-import "../../assets/stylesheets/home.css";
 import WhatWeOffer from "../WhatWeOffer/WhatWeOffer";
+import ContactInfo from "../ContactInfo/ContactInfo";
+
+import "../../assets/stylesheets/home.css";
 
 const Home = (props) => {
   useEffect(() => {
     // use for development
+
     props.getData();
+
     // use to keep data synced in production
     // props.refreshData();
     // eslint-disable-next-line
@@ -24,8 +28,8 @@ const Home = (props) => {
         <div className="row justify-content-center p-0">
           <h1>Network King</h1>
           <Hero />
-          {/* transparent contant info */}
           <WhatWeOffer />
+          <ContactInfo />
         </div>
       </div>
     </main>

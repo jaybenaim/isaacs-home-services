@@ -16,7 +16,7 @@ const WhatWeOffer = (props) => {
     <div
       className="what-we-offer-section"
       style={{
-        background: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(${grass})`,
+        background: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), 94%,  rgba(255, 255, 255, 0.3) ), url(${grass})`,
         minHeight: "1200px",
         width: "100%",
         objectFit: "cover",
