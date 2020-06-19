@@ -8,10 +8,31 @@
   .what-we-offer-section .services {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding: 0 6%;
   }
-  .what-we-offer-section .services .service-title {
-    font-size: 3em;
-    color: #fff;
+  .what-we-offer-section .services .service-content {
     padding: 20%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .what-we-offer-section .services .service-content .img-container {
+    grid-column: 1;
+  }
+  .what-we-offer-section .services .service-content img {
+    max-height: 80%;
+    max-width: 80%;
+  }
+  .what-we-offer-section .services .details {
+    grid-column: 2;
+  }
+  .what-we-offer-section .services .title {
+    font-size: 2.4em;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    color: #f77a0f;
+  }
+  .what-we-offer-section .services .service-short-description {
+    font-size: 1.2em;
+    color: #fff;
   }
 }

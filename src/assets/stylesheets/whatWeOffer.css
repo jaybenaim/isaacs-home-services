@@ -1,13 +1,13 @@
 .what-we-offer-section {
-  padding: 15% 18%;
+  padding: 15% 12%;
 }
 .what-we-offer-section .inner-container {
   width: 100%;
   height: 100%;
   margin: 0 auto;
   border: 1px solid #18d00d;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  background: #42924533;
 }
 .what-we-offer-section h2 {
   font-size: 3em;
@@ -19,4 +19,5 @@
   border-bottom: 4px solid #fff;
   width: 80%;
   margin: 0 auto;
+  text-transform: uppercase;
 }

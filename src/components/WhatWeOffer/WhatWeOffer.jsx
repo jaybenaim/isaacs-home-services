@@ -17,7 +17,7 @@ const WhatWeOffer = (props) => {
       className="what-we-offer-section"
       style={{
         background: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(${grass})`,
-        height: "1200px",
+        minHeight: "1200px",
         width: "100%",
         objectFit: "cover",
         backgroundAttachment: "fixed",

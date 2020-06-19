@@ -1,12 +1,17 @@
 import { SET_DATA, GET_ERRORS } from "./types";
-import local from "../../api/local";
+import backend from "../../api/backend";
 import firebaseDb from "../../api/firebase";
 
 export const refreshData = () => (dispatch) => {
-  local
+  backend
     .get("/services?refresh=true")
     .then((res) => {
-      dispatch(getData());
+      let jsonData = JSON.stringify(res.data);
+      localStorage.removeItem("services");
+      // Add timeout function here set time key check against it
+      localStorage.setItem("services", jsonData);
+
+      dispatch(setData(res.data));
     })
     .catch((err) => {
       console.log(err);
