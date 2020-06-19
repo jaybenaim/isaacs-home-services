@@ -31,6 +31,27 @@ const adminBro = new AdminBro({
               show: true,
             },
           },
+          ["details.description"]: {
+            isVisible: {
+              list: false,
+              edit: true,
+              show: true,
+            },
+          },
+          ["details.mainImage"]: {
+            isVisible: {
+              list: false,
+              edit: true,
+              show: true,
+            },
+          },
+          _id: {
+            isVisible: {
+              list: false,
+              edit: false,
+              show: false,
+            },
+          },
         },
         actions: {
           new: {
