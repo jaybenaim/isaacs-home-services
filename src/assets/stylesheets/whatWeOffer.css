@@ -1,5 +1,9 @@
 .what-we-offer-section {
   padding: 15% 12%;
+  min-height: "1200px";
+  width: "100%";
+  object-fit: "cover";
+  background-attachment: "fixed";
 }
 .what-we-offer-section .inner-container {
   width: 100%;
@@ -7,7 +11,7 @@
   margin: 0 auto;
   border: 1px solid #18d00d;
   border-radius: 2px;
-  background: #22e04d2b;
+  background: #0a770e61;
 }
 .what-we-offer-section h2 {
   font-size: 3em;

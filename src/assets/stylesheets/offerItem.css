@@ -39,14 +39,14 @@
   }
   .what-we-offer-section .service-content {
     padding: 10% 0;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
   }
   .what-we-offer-section .services .service-content .img-container {
     display: flex;
     justify-content: center;
   }
   .what-we-offer-section .services .service-content img {
-    max-height: 80%;
+    max-height: 50%;
     max-width: 80%;
   }
   .what-we-offer-section .services .details {
