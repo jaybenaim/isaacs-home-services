@@ -17,6 +17,7 @@ export default function (state = initialState, action) {
 
       return Object.assign({}, state, {
         services: updatedServices.sort(function (a, b) {
+          // Sort by title ASC
           var titleA = a.title.toUpperCase();
           var titleB = b.title.toUpperCase();
           if (titleA < titleB) return -1;
