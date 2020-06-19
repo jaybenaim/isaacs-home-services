@@ -58,19 +58,7 @@ const adminBro = new AdminBro({
             before: async (request) => {
               let data = request.payload;
               // create service in firebase db
-              let serviceDetails = {
-                heading: data["details.heading"],
-                description: data["details.description"],
-                mainImage: data["details.mainImage"],
-              };
-              let serviceData = {
-                title: data.title,
-                subTitle: data.subTitle,
-                image: data.image,
-                shortDescription: data.shortDescription,
-                details: serviceDetails,
-              };
-
+              let serviceData = convertData(data);
               await axios
                 .post(
                   "https://network-king-5740f.firebaseio.com/services.json",
@@ -88,20 +76,7 @@ const adminBro = new AdminBro({
             before: async (request) => {
               let data = request.payload;
               let { firebaseID } = data;
-
-              let serviceDetails = {
-                heading: data["details.heading"],
-                description: data["details.description"],
-                mainImage: data["details.mainImage"],
-              };
-              let serviceData = {
-                title: data.title,
-                subTitle: data.subTitle,
-                image: data.image,
-                shortDescription: data.shortDescription,
-                details: serviceDetails,
-              };
-
+              let serviceData = convertData(data);
               // update firebase
               await axios
                 .patch(
@@ -209,4 +184,18 @@ const adminBro = new AdminBro({
 
   rootPath: "/admin",
 });
+const convertData = (data) => {
+  let serviceDetails = {
+    heading: data["details.heading"],
+    description: data["details.description"],
+    mainImage: data["details.mainImage"],
+  };
+  return {
+    title: data.title,
+    subTitle: data.subTitle,
+    image: data.image,
+    shortDescription: data.shortDescription,
+    details: serviceDetails,
+  };
+};
 module.exports = adminBro;
