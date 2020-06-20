@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
-
+const fs = require("fs");
 const Service = require("../../models/Service");
-
+const cloudinary = require("cloudinary");
+const { database } = require("firebase");
+// remove multer
 // Refresh firebase db with mongo db data (used for admin updates to keep adminbro and firebase)
 router.get("/", (req, res) => {
   const { refresh } = req.query;
@@ -36,4 +38,28 @@ router.get("/", (req, res) => {
         .catch((err) => res.send(err));
 });
 
+router.post("/upload-image", (req, res, next) => {
+  const recordId = req.query.recordId;
+  const values = Object.values(req.files);
+  const promises = values.map((image) =>
+    cloudinary.uploader.upload(image.path)
+  );
+  Promise.all(promises)
+    .then((results) => {
+      Service.findByIdAndUpdate(
+        recordId,
+        { image: results[0].secure_url },
+        { new: true }
+      )
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((err) => {
+          console.log(err);
+          res.send(err);
+        });
+      return res.json(results);
+    })
+    .catch((err) => res.status(400).json(err));
+});
 module.exports = router;

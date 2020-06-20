@@ -14,9 +14,8 @@ import "../../assets/stylesheets/home.css";
 const Home = (props) => {
   useEffect(() => {
     // use for development
-
     props.getData();
-
+    props.refreshData();
     // use to keep data synced in production
     // props.refreshData();
     // eslint-disable-next-line

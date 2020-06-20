@@ -9,10 +9,10 @@ AdminBro.registerAdapter(require("admin-bro-mongoose"));
 
 const adminBro = new AdminBro({
   //   Custom dashboard
-  // dashboard: {
-  //   handler: async () => {},
-  //   component: AdminBro.require("../Dashboard/index"),
-  // },
+  dashboard: {
+    handler: async () => {},
+    component: AdminBro.require("../components/Dashboard/index.jsx"),
+  },
   branding: {
     companyName: "Network King",
   },
@@ -25,10 +25,28 @@ const adminBro = new AdminBro({
             isVisible: false,
           },
           image: {
+            components: {
+              edit: AdminBro.bundle("../components/UploadImage/index.jsx"),
+              new: AdminBro.bundle("../components/UploadImage/index.jsx"),
+            },
             isVisible: {
               list: false,
               edit: true,
               show: true,
+            },
+          },
+          ["image.data"]: {
+            isVisible: {
+              list: false,
+              edit: false,
+              show: false,
+            },
+          },
+          ["image.contentType"]: {
+            isVisible: {
+              list: false,
+              edit: false,
+              show: false,
             },
           },
           ["details.description"]: {
@@ -190,6 +208,8 @@ const convertData = (data) => {
     description: data["details.description"],
     mainImage: data["details.mainImage"],
   };
+  // Upload image to firebase storage
+  console.log(data && data);
   return {
     title: data.title,
     subTitle: data.subTitle,
@@ -198,4 +218,5 @@ const convertData = (data) => {
     details: serviceDetails,
   };
 };
+
 module.exports = adminBro;

@@ -15,6 +15,9 @@ const adminBro = require("./config/adminBro");
 const AdminBroExpressjs = require("admin-bro-expressjs");
 const bcrypt = require("bcrypt");
 const firebase = require("firebase");
+const formData = require("express-form-data");
+
+const cloudinary = require("cloudinary");
 
 require("dotenv").config();
 require("./config/db");
@@ -31,7 +34,11 @@ const config = {
 };
 firebase.initializeApp(config);
 const firebaseDB = firebase.database();
-
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_KEY,
+  api_secret: process.env.CLOUDINARY_SECRET,
+});
 // Admin
 // const adminRouter = AdminBroExpressjs.buildAuthenticatedRouter(adminBro, {
 //   authenticate: async (email, password) => {
@@ -51,7 +58,7 @@ app.use(adminBro.options.rootPath, adminRouter);
 // Bodyparser middleware
 
 app.use(bodyParser.json());
-
+app.use(formData.parse());
 // Cors
 const whitelist = [
   "https://jaybenaim.github.io",
