@@ -9,10 +9,14 @@ const UploadImage = (props) => {
     resource: { id: resourceId },
     record: {
       id: recordId,
-      params: { image: recordImage, title: recordTitle },
+      params: { ["details.mainImage"]: recordImage, title: recordTitle },
     },
   } = props;
   const [imageFile, setImageFile] = useState(recordImage);
+
+  //   useEffect(() => {
+  //     setImageFile(recordImage);
+  //   });
 
   const onChange = (e) => {
     const errs = [];
@@ -51,7 +55,7 @@ const UploadImage = (props) => {
   };
   const saveImageInMongo = async (image, recordId) => {
     return await local.post(
-      `/services/upload-image?recordId=${recordId}`,
+      `/services/upload-main-image?recordId=${recordId}`,
       image,
       {
         "content-type": "multipart/form-data",

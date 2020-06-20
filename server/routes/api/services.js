@@ -62,4 +62,28 @@ router.post("/upload-image", (req, res, next) => {
     })
     .catch((err) => res.status(400).json(err));
 });
+router.post("/upload-main-image", (req, res, next) => {
+  const recordId = req.query.recordId;
+  const values = Object.values(req.files);
+  const promises = values.map((image) =>
+    cloudinary.uploader.upload(image.path)
+  );
+  Promise.all(promises)
+    .then((results) => {
+      Service.findByIdAndUpdate(
+        recordId,
+        { ["details.mainImage"]: results[0].secure_url },
+        { new: true }
+      )
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((err) => {
+          console.log(err);
+          res.send(err);
+        });
+      return res.json(results);
+    })
+    .catch((err) => res.status(400).json(err));
+});
 module.exports = router;

@@ -36,6 +36,7 @@ const adminBro = new AdminBro({
               show: true,
             },
           },
+
           ["image.data"]: {
             isVisible: {
               list: false,
@@ -58,6 +59,13 @@ const adminBro = new AdminBro({
             },
           },
           ["details.mainImage"]: {
+            components: {
+              edit: AdminBro.bundle("../components/UploadImage/MainImage.jsx"),
+              new: AdminBro.bundle("../components/UploadImage/MainImage.jsx"),
+              show: AdminBro.bundle(
+                "../components/ShowImage/ShowMainImage.jsx"
+              ),
+            },
             isVisible: {
               list: false,
               edit: true,
