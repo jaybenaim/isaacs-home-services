@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import local from "../../../src/api/local";
+import backend from "../../../src/api/backend";
 import Notifications, { notify } from "react-notify-toast";
 
 const UploadImage = (props) => {
@@ -50,7 +50,7 @@ const UploadImage = (props) => {
       });
   };
   const saveImageInMongo = async (image, recordId) => {
-    return await local.post(
+    return await backend.post(
       `/services/upload-image?recordId=${recordId}`,
       image,
       {
