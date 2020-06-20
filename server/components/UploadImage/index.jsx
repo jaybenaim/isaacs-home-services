@@ -12,7 +12,7 @@ const UploadImage = (props) => {
       params: { image: recordImage, title: recordTitle },
     },
   } = props;
-  const [file, setFile] = useState(null);
+  const [imageFile, setImageFile] = useState(null);
 
   const onChange = (e) => {
     const errs = [];
@@ -43,7 +43,7 @@ const UploadImage = (props) => {
       .then((res) => {
         console.log(res.data);
 
-        setFile(res.data);
+        setImageFile(res.data);
       })
       .catch((err) => {
         console.log(err);

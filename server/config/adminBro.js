@@ -28,6 +28,7 @@ const adminBro = new AdminBro({
             components: {
               edit: AdminBro.bundle("../components/UploadImage/index.jsx"),
               new: AdminBro.bundle("../components/UploadImage/index.jsx"),
+              show: AdminBro.bundle("../components/ShowImage/index.jsx"),
             },
             isVisible: {
               list: false,

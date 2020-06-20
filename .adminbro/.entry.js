@@ -5,3 +5,5 @@ import Component2 from '../server/components/UploadImage/index'
 AdminBro.UserComponents.Component2 = Component2
 import Component3 from '../server/components/UploadImage/index'
 AdminBro.UserComponents.Component3 = Component3
+import Component4 from '../server/components/ShowImage/index'
+AdminBro.UserComponents.Component4 = Component4
