@@ -45,8 +45,8 @@ router.post("/upload-image", (req, res, next) => {
     cloudinary.uploader.upload(image.path)
   );
   Promise.all(promises)
-    .then(async (results) => {
-      await Service.findByIdAndUpdate(
+    .then((results) => {
+      Service.findByIdAndUpdate(
         recordId,
         { image: results[0].secure_url },
         { new: true }

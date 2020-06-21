@@ -1,31 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import backend from "../../../src/api/backend";
-import Notifications, { notify } from "react-notify-toast";
 
-const UploadImage = (props) => {
-  const toast = notify.createShowQueue();
+const UploadMainImage = (props) => {
   const {
     resource: { id: resourceId },
     record: {
       id: recordId,
-      params: { ["details.mainImage"]: recordImage, title: recordTitle },
+      params: { image: recordImage, title: recordTitle },
     },
   } = props;
   const [imageFile, setImageFile] = useState(recordImage);
 
-  //   useEffect(() => {
-  //     setImageFile(recordImage);
-  //   });
-
   const onChange = (e) => {
     const errs = [];
     const files = Array.from(e.target.files);
-
-    if (files.length > 3) {
-      const msg = "Only 3 images can be uploaded at a time";
-      return toast(msg, "custom", 2000, toastColor);
-    }
 
     const formData = new FormData();
     const types = ["image/png", "image/jpeg", "image/gif"];
@@ -34,13 +23,13 @@ const UploadImage = (props) => {
       if (types.every((type) => file.type !== type)) {
         errs.push(`'${file.type}' is not a supported format`);
       }
-      if (file.size > 150000) {
+      if (file.size > 1500000) {
         errs.push(`'${file.name}' is too large, please pick a smaller file`);
       }
       formData.append(i, file);
     });
     if (errs.length) {
-      return errs.forEach((err) => toast(err, "custom", 2000, toastColor));
+      return errs.forEach((err) => alert(err));
     }
 
     saveImageInMongo(formData, recordId)
@@ -86,9 +75,8 @@ const UploadImage = (props) => {
       ) : (
         <div>Select a file to upload</div>
       )}{" "}
-      <Notifications />
     </div>
   );
 };
 
-export default UploadImage;
+export default UploadMainImage;

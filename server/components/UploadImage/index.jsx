@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import backend from "../../../src/api/backend";
 
@@ -23,7 +23,7 @@ const UploadImage = (props) => {
       if (types.every((type) => file.type !== type)) {
         errs.push(`'${file.type}' is not a supported format`);
       }
-      if (file.size > 150000) {
+      if (file.size > 15000000) {
         errs.push(`'${file.name}' is too large, please pick a smaller file`);
       }
       formData.append(i, file);

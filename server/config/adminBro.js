@@ -60,8 +60,12 @@ const adminBro = new AdminBro({
           },
           ["details.mainImage"]: {
             components: {
-              edit: AdminBro.bundle("../components/UploadImage/MainImage.jsx"),
-              new: AdminBro.bundle("../components/UploadImage/MainImage.jsx"),
+              edit: AdminBro.bundle(
+                "../components/UploadImage/UploadMainImage.jsx"
+              ),
+              new: AdminBro.bundle(
+                "../components/UploadImage/UploadMainImage.jsx"
+              ),
               show: AdminBro.bundle(
                 "../components/ShowImage/ShowMainImage.jsx"
               ),
