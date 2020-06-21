@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 import backend from "../../../src/api/backend";
-import Notifications, { notify } from "react-notify-toast";
 
 const UploadImage = (props) => {
-  const toast = notify.createShowQueue();
   const {
     resource: { id: resourceId },
     record: {
@@ -17,11 +15,6 @@ const UploadImage = (props) => {
   const onChange = (e) => {
     const errs = [];
     const files = Array.from(e.target.files);
-
-    if (files.length > 3) {
-      const msg = "Only 3 images can be uploaded at a time";
-      return toast(msg, "custom", 2000, toastColor);
-    }
 
     const formData = new FormData();
     const types = ["image/png", "image/jpeg", "image/gif"];
@@ -36,7 +29,7 @@ const UploadImage = (props) => {
       formData.append(i, file);
     });
     if (errs.length) {
-      return errs.forEach((err) => toast(err, "custom", 2000, toastColor));
+      return errs.forEach((err) => alert(err));
     }
 
     saveImageInMongo(formData, recordId)
@@ -82,7 +75,6 @@ const UploadImage = (props) => {
       ) : (
         <div>Select a file to upload</div>
       )}{" "}
-      <Notifications />
     </div>
   );
 };
