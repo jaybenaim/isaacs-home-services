@@ -40,15 +40,14 @@ router.get("/", (req, res) => {
 
 router.post("/upload-image", (req, res, next) => {
   const recordId = req.query.recordId;
-  const values = Object.values(req.files);
-  const promises = values.map((image) =>
-    cloudinary.uploader.upload(image.path)
-  );
-  Promise.all(promises)
-    .then((results) => {
-      Service.findByIdAndUpdate(
+  const imageFile = req.files[0];
+
+  cloudinary.uploader
+    .upload(imageFile.path)
+    .then(async (imageData) => {
+      await Service.findByIdAndUpdate(
         recordId,
-        { image: results[0].secure_url },
+        { $set: { image: imageData.secure_url } },
         { new: true }
       )
         .then((response) => {
@@ -58,21 +57,20 @@ router.post("/upload-image", (req, res, next) => {
           console.log(err);
           res.send(err);
         });
-      return res.json(results);
+      return res.send(imageData);
     })
-    .catch((err) => res.status(400).json(err));
+    .catch((err) => res.send(err));
 });
 router.post("/upload-main-image", (req, res, next) => {
   const recordId = req.query.recordId;
-  const values = Object.values(req.files);
-  const promises = values.map((image) =>
-    cloudinary.uploader.upload(image.path)
-  );
-  Promise.all(promises)
-    .then((results) => {
-      Service.findByIdAndUpdate(
+  const imageFile = req.files[0];
+
+  cloudinary.uploader
+    .upload(imageFile.path)
+    .then(async (imageData) => {
+      await Service.findByIdAndUpdate(
         recordId,
-        { ["details.mainImage"]: results[0].secure_url },
+        { $set: { ["details.mainImage"]: imageData.secure_url } },
         { new: true }
       )
         .then((response) => {
@@ -82,8 +80,8 @@ router.post("/upload-main-image", (req, res, next) => {
           console.log(err);
           res.send(err);
         });
-      return res.json(results);
+      return res.send(imageData);
     })
-    .catch((err) => res.status(400).json(err));
+    .catch((err) => res.send(err));
 });
 module.exports = router;

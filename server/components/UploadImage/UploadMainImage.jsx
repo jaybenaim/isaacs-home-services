@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-import backend from "../../../src/api/backend";
+import local from "../../../src/api/local";
 
 const UploadMainImage = (props) => {
   const {
     resource: { id: resourceId },
     record: {
       id: recordId,
-      params: { image: recordImage, title: recordTitle },
+      params: { ["details.mainImage"]: recordImage, title: recordTitle },
     },
   } = props;
   const [imageFile, setImageFile] = useState(recordImage);
@@ -23,7 +23,7 @@ const UploadMainImage = (props) => {
       if (types.every((type) => file.type !== type)) {
         errs.push(`'${file.type}' is not a supported format`);
       }
-      if (file.size > 1500000) {
+      if (file.size > 150000000) {
         errs.push(`'${file.name}' is too large, please pick a smaller file`);
       }
       formData.append(i, file);
@@ -36,14 +36,15 @@ const UploadMainImage = (props) => {
       .then((res) => {
         console.log(res.data);
 
-        setImageFile(res.data[0].secure_url);
+        setImageFile(res.data.secure_url);
+        window.location.href = window.location.href;
       })
       .catch((err) => {
         console.log(err);
       });
   };
   const saveImageInMongo = async (image, recordId) => {
-    return await backend.post(
+    return await local.post(
       `/services/upload-main-image?recordId=${recordId}`,
       image,
       {

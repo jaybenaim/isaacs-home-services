@@ -4,6 +4,7 @@ const User = require("../models/User");
 const Service = require("../models/Service");
 const axios = require("axios");
 const { query } = require("express");
+const { database } = require("firebase");
 
 AdminBro.registerAdapter(require("admin-bro-mongoose"));
 
@@ -104,10 +105,11 @@ const adminBro = new AdminBro({
             },
           },
           edit: {
-            before: async (request) => {
-              let data = request.payload;
+            after: async (request) => {
+              let data = request.record.params;
               let { firebaseID } = data;
               let serviceData = convertData(data);
+              data = serviceData;
               // update firebase
               await axios
                 .patch(

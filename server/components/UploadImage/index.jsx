@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import backend from "../../../src/api/backend";
+import local from "../../../src/api/local";
 
 const UploadImage = (props) => {
   const {
@@ -35,15 +35,15 @@ const UploadImage = (props) => {
     saveImageInMongo(formData, recordId)
       .then((res) => {
         console.log(res.data);
-
-        setImageFile(res.data[0].secure_url);
+        setImageFile(res.data.secure_url);
+        window.location.href = window.location.href;
       })
       .catch((err) => {
         console.log(err);
       });
   };
   const saveImageInMongo = async (image, recordId) => {
-    return await backend.post(
+    return await local.post(
       `/services/upload-image?recordId=${recordId}`,
       image,
       {
