@@ -13,11 +13,9 @@ import "../../assets/stylesheets/home.css";
 
 const Home = (props) => {
   useEffect(() => {
-    // use for development
     props.getData();
     props.refreshData();
     // use to keep data synced in production
-    // props.refreshData();
     // eslint-disable-next-line
   }, []);
 
@@ -25,7 +23,7 @@ const Home = (props) => {
     <main id="mainContent">
       <div className="container-fluid">
         <div className="row justify-content-center p-0">
-          <h1>Network King</h1>
+          <h1 className="primary-font">Network King</h1>
           <Hero />
           <WhatWeOffer />
           <ContactInfo />

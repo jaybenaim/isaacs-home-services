@@ -10,7 +10,7 @@
 nav {
   /* background: #254c19; */
   background: rgba(255, 255, 255, 0.65);
-  height: 100px;
+  height: 50px;
   position: absolute;
   z-index: 6;
   border: none !important;
