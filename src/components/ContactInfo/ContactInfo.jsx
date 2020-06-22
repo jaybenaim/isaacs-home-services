@@ -7,10 +7,16 @@ import "../../assets/stylesheets/contactInfo.css";
 import SimpleSlider from "../SimpleSlider/SimpleSlider";
 
 const ContactInfo = () => {
+  const getAlt = (imgPath) =>
+    imgPath.slice(imgPath.indexOf("media/") + 6, imgPath.indexOf("."));
+
   const slickElements = () => {
-    return images.map((image, i) => (
-      <img src={image.src} alt="grass" className="contact-slider-img" key={i} />
-    ));
+    return images.map((image, i) => {
+      let alt = getAlt(image.src);
+      return (
+        <img src={image.src} alt={alt} className="contact-slider-img" key={i} />
+      );
+    });
   };
   return (
     <div className="contact-info-section">
