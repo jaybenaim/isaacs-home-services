@@ -10,7 +10,7 @@ const NavBar = () => {
     <React.Fragment>
       <nav className="navbar navbar-expand-sm  justify-content-between">
         <Link className="navbar-brand primary-font-color" to="/">
-          Highly Handy
+          Highly Handy Home Services
         </Link>
         <div className="navbar-nav">
           <Link className="nav-item nav-link active primary-font-color" to="/">
