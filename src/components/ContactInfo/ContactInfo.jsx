@@ -33,6 +33,7 @@ const ContactInfo = () => {
         </div>
         <div className="contact-slider">
           {/* Slider with previous jobs */}
+          <h3 className="secondary-font m-0">Previous Projects</h3>
           <SimpleSlider settings={slickSettings} elements={slickElements} />
         </div>
       </div>

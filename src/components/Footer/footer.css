@@ -2,16 +2,23 @@ footer {
   background-color: #183d0c;
   padding-top: 2rem;
   padding-bottom: 4rem;
+  display: flex;
+}
+footer .row {
+  justify-content: space-around;
 }
 footer li {
-  margin-top: 3%;
+  margin-top: 5%;
+  margin-left: -50%;
 }
 footer .title {
   color: #fff;
+  padding: 1%;
 }
 
 footer .description {
   color: #fff;
+  padding: 1%;
 }
 
 .footer-link,
@@ -28,4 +35,29 @@ footer .fa {
 footer .link-text {
   margin-left: 4%;
   width: 100%;
+}
+@media (max-width: 450px) {
+  footer {
+    min-height: 200px;
+    display: block;
+  }
+  footer ul {
+    margin: 0 auto;
+    padding: 0;
+  }
+  footer li {
+    margin-top: 1%;
+  }
+  footer .fa {
+    padding-right: 0%;
+    font-size: 1.4em;
+    margin-left: 50%;
+  }
+  footer .link-text {
+    text-align: left;
+  }
+  .creator-link {
+    margin-left: 45%;
+    margin-top: 1.5%;
+  }
 }
