@@ -1,19 +1,18 @@
 {
   "files": {
-    "main.css": "/isaacs-home-services/static/css/main.4a092b9f.chunk.css",
-    "main.js": "/isaacs-home-services/static/js/main.b7efd80b.chunk.js",
-    "main.js.map": "/isaacs-home-services/static/js/main.b7efd80b.chunk.js.map",
+    "main.css": "/isaacs-home-services/static/css/main.2f058563.chunk.css",
+    "main.js": "/isaacs-home-services/static/js/main.8d87d868.chunk.js",
+    "main.js.map": "/isaacs-home-services/static/js/main.8d87d868.chunk.js.map",
     "runtime-main.js": "/isaacs-home-services/static/js/runtime-main.938063d9.js",
     "runtime-main.js.map": "/isaacs-home-services/static/js/runtime-main.938063d9.js.map",
-    "static/css/2.0161871a.chunk.css": "/isaacs-home-services/static/css/2.0161871a.chunk.css",
-    "static/js/2.62ebc10a.chunk.js": "/isaacs-home-services/static/js/2.62ebc10a.chunk.js",
-    "static/js/2.62ebc10a.chunk.js.map": "/isaacs-home-services/static/js/2.62ebc10a.chunk.js.map",
+    "static/js/2.e5284566.chunk.js": "/isaacs-home-services/static/js/2.e5284566.chunk.js",
+    "static/js/2.e5284566.chunk.js.map": "/isaacs-home-services/static/js/2.e5284566.chunk.js.map",
     "index.html": "/isaacs-home-services/index.html",
-    "precache-manifest.12ca09be9d01ceda077d8f1aa5c77603.js": "/isaacs-home-services/precache-manifest.12ca09be9d01ceda077d8f1aa5c77603.js",
+    "precache-manifest.1d5304dc8c209df833b5a440f7f84371.js": "/isaacs-home-services/precache-manifest.1d5304dc8c209df833b5a440f7f84371.js",
     "service-worker.js": "/isaacs-home-services/service-worker.js",
-    "static/css/2.0161871a.chunk.css.map": "/isaacs-home-services/static/css/2.0161871a.chunk.css.map",
-    "static/css/main.4a092b9f.chunk.css.map": "/isaacs-home-services/static/css/main.4a092b9f.chunk.css.map",
-    "static/js/2.62ebc10a.chunk.js.LICENSE.txt": "/isaacs-home-services/static/js/2.62ebc10a.chunk.js.LICENSE.txt",
+    "static/css/main.2f058563.chunk.css.map": "/isaacs-home-services/static/css/main.2f058563.chunk.css.map",
+    "static/js/2.e5284566.chunk.js.LICENSE.txt": "/isaacs-home-services/static/js/2.e5284566.chunk.js.LICENSE.txt",
+    "static/media/beforeAfter.jpg": "/isaacs-home-services/static/media/beforeAfter.cf153e08.jpg",
     "static/media/detaching1.jpg": "/isaacs-home-services/static/media/detaching1.2eb231a0.jpg",
     "static/media/detaching2.jpg": "/isaacs-home-services/static/media/detaching2.cf9e9255.jpg",
     "static/media/driveway1.jpg": "/isaacs-home-services/static/media/driveway1.efe12ad4.jpg",
@@ -27,9 +26,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.938063d9.js",
-    "static/css/2.0161871a.chunk.css",
-    "static/js/2.62ebc10a.chunk.js",
-    "static/css/main.4a092b9f.chunk.css",
-    "static/js/main.b7efd80b.chunk.js"
+    "static/js/2.e5284566.chunk.js",
+    "static/css/main.2f058563.chunk.css",
+    "static/js/main.8d87d868.chunk.js"
   ]
 }
