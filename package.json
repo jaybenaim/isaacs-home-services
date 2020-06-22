@@ -69,7 +69,7 @@
     "lint": "eslint src/**/*.js src/**/*.jsx",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://jaybenaim.github.io/isaacs-home-services/",
+  "homepage": "https://highlyhandy.com",
   "browserslist": [
     ">0.2%",
     "not dead",
