@@ -28,6 +28,15 @@ button:active {
 }
 
 .primary-font {
-  font-family: "Balsamiq Sans", cursive;
+  /* font-family: "Balsamiq Sans", cursive; */
+  font-family: "Piedra", cursive;
+  color: #316b22 !important;
+  font-size: 3.3em;
+  letter-spacing: 2px;
+}
+.secondary-font {
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+.primary-font-color {
   color: #316b22 !important;
 }

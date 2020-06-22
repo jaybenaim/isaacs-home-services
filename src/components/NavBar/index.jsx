@@ -9,11 +9,11 @@ const NavBar = () => {
   return (
     <React.Fragment>
       <nav className="navbar navbar-expand-sm  justify-content-between">
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand primary-font-color" to="/">
           Isaac's Home Services
         </Link>
         <div className="navbar-nav">
-          <Link className="nav-item nav-link active " to="/">
+          <Link className="nav-item nav-link active primary-font-color" to="/">
             Home
           </Link>
           {/* <Dropdown>

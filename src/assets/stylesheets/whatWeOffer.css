@@ -11,16 +11,16 @@
   background: #0a770e61;
 }
 .what-we-offer-section h2 {
-  font-size: 3em;
   font-weight: 500;
   text-align: center;
-  color: #fff;
+  color: #fff !important;
   padding: 10%;
   padding-bottom: 5%;
   border-bottom: 4px solid #fff;
   width: 80%;
   margin: 0 auto;
   text-transform: uppercase;
+  letter-spacing: 2px;
 }
 @media (max-width: 450px) {
   .what-we-offer-section {

@@ -24,7 +24,7 @@ const WhatWeOffer = (props) => {
       }}
     >
       <div className="inner-container">
-        <h2>What We Offer</h2>
+        <h2 className="primary-font">What We Offer</h2>
         <div className="services">{getOfferElements()}</div>
       </div>
     </div>
