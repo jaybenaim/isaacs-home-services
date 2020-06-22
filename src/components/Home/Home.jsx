@@ -15,7 +15,7 @@ const Home = (props) => {
   useEffect(() => {
     props.getData();
 
-    // props.refreshData();
+    props.refreshData();
     // use to keep data synced in production
     // eslint-disable-next-line
   }, []);
@@ -24,7 +24,7 @@ const Home = (props) => {
     <main id="mainContent">
       <div className="container-fluid">
         <div className="row justify-content-center p-0">
-          <h1 className="primary-font">Network King</h1>
+          <h1 className="primary-font">Highly Handy</h1>
           <Hero />
           <WhatWeOffer />
           <ContactInfo />

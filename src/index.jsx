@@ -31,11 +31,11 @@ initializeReactGA();
 ReactSEO.startMagic(
   [
     {
-      url: "https://isaacs-home-services.herokuapp.com/#/services",
+      url: "https://highlyhandy.com/#/services",
       isFullMatch: false,
     },
     {
-      url: "https://isaacs-home-services.herokuapp.com/#/404",
+      url: "https://highlyhandy.com/#/404",
       isFullMatch: false,
     },
   ],
