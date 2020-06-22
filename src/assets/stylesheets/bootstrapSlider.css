@@ -1,0 +1,6 @@
+.carousel .carousel-item {
+  height: 100% !important;
+  width: 100% !important;
+  position: static;
+  visibility: visible;
+}

@@ -15,8 +15,6 @@ import ReactSEO from "react-seo";
 
 import { unregister } from "./registerServiceWorker";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-
 function initializeReactGA() {
   ReactGA.initialize("UA-151372187-4");
   ReactGA.pageview(window.location.hash);
