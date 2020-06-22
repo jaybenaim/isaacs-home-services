@@ -1,10 +1,17 @@
 import React from "react";
-import grass from "../../assets/img/grass-top-view.jpg";
-import progress from "../../assets/img/progress.jpg";
+
+import { slickSettings } from "./contactSlickSettings";
+import images from "./slickElements";
 
 import "../../assets/stylesheets/contactInfo.css";
+import SimpleSlider from "../SimpleSlider/SimpleSlider";
 
 const ContactInfo = () => {
+  const slickElements = () => {
+    return images.map((image, i) => (
+      <img src={image.src} alt="grass" className="contact-slider-img" key={i} />
+    ));
+  };
   return (
     <div className="contact-info-section">
       <div className="inner-content">
@@ -18,10 +25,10 @@ const ContactInfo = () => {
             TEXT ADDRESS FOR A FAST PRICE
           </p>
         </div>
-        {/* Slider with previous jobs */}
-        <img src={grass} alt="grass" className="left-image" />
-        <img src={progress} alt="grass" className="center-image" />
-        <img src={grass} alt="grass" className="right-image" />
+        <div className="contact-slider">
+          {/* Slider with previous jobs */}
+          <SimpleSlider settings={slickSettings} elements={slickElements} />
+        </div>
       </div>
     </div>
   );
