@@ -1,0 +1,31 @@
+footer {
+  background-color: #183d0c;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+footer li {
+  margin-top: 3%;
+}
+footer .title {
+  color: #fff;
+}
+
+footer .description {
+  color: #fff;
+}
+
+.footer-link,
+.footer-link:hover {
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+}
+
+footer .fa {
+  padding-right: 4%;
+  font-size: 1.4em;
+}
+footer .link-text {
+  margin-left: 4%;
+  width: 100%;
+}

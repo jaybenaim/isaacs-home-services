@@ -1,5 +1,5 @@
 ﻿.footer {
-  background-color: #1d1d1d;
+  background-color: #183d0c;
   padding-top: 2rem;
   padding-bottom: 4rem;
 }
@@ -15,4 +15,6 @@
 .footerlink,
 .footerlink:hover {
   color: #fff;
+  display: flex;
+  flex-direction: row;
 }
