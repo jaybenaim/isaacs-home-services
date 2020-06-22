@@ -59,6 +59,7 @@
     "lint": "eslint src/**/*.js src/**/*.jsx",
     "deploy": "gh-pages -d build"
   },
+  "homepage": "https://highlyhandy.com",
   "browserslist": [
     ">0.2%",
     "not dead",
