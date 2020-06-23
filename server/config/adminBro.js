@@ -1,10 +1,12 @@
 // Pass all configuration settings to AdminBro
 const AdminBro = require("admin-bro");
-const User = require("../models/User");
-const Service = require("../models/Service");
 const axios = require("axios");
 const { query } = require("express");
 const { database } = require("firebase");
+
+const User = require("../models/User");
+const Service = require("../models/Service");
+const Hero = require("../models/Hero");
 
 AdminBro.registerAdapter(require("admin-bro-mongoose"));
 
@@ -18,6 +20,82 @@ const adminBro = new AdminBro({
     companyName: "Network King",
   },
   resources: [
+    {
+      resource: Hero,
+      options: {
+        properties: {
+          src: {
+            isVisible: {
+              list: false,
+              show: true,
+              edit: true,
+            },
+          },
+          _id: {
+            isVisible: {
+              list: false,
+              show: false,
+              edit: false,
+            },
+          },
+        },
+        actions: {
+          new: {
+            before: async (request) => {
+              let data = request.payload;
+              // create service in firebase db
+              await axios
+                .post(
+                  "https://network-king-5740f.firebaseio.com/heroes.json",
+                  data
+                )
+                .then((res) => {
+                  // set firebase id in service schema
+                  data.firebaseId = res.data.name;
+                  return request;
+                })
+                .catch((err) => console.log(err));
+              return request;
+            },
+          },
+          edit: {
+            after: async (request) => {
+              await refreshData()
+                .then((res) => {
+                  console.log(res.data, "items refreshed");
+                })
+                // catch firebase error
+                .catch((err) => console.log(err));
+
+              return request;
+            },
+          },
+          delete: {
+            after: async (request) => {
+              await refreshData()
+                .then((res) => {
+                  console.log(res.data, "items refreshed");
+                })
+                // catch firebase error
+                .catch((err) => console.log(err));
+              return request;
+            },
+          },
+          bulkDelete: {
+            after: async (request) => {
+              await refreshData()
+                .then((res) => {
+                  console.log(res.data, "items refreshed");
+                })
+                // catch firebase error
+                .catch((err) => console.log(err));
+
+              return request;
+            },
+          },
+        },
+      },
+    },
     {
       resource: Service,
       options: {
@@ -233,5 +311,9 @@ const convertData = (data) => {
     details: serviceDetails,
   };
 };
-
+const refreshData = async () => {
+  return await axios.get(
+    `https://isaacs-home-services.herokuapp.com/api/heroes?refresh=true`
+  );
+};
 module.exports = adminBro;
