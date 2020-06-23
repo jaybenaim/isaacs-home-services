@@ -11,6 +11,7 @@ const { PORT: port } = CONSTANTS;
 const passport = require("passport");
 const indexRouter = require("./routes");
 const services = require("./routes/api/services");
+const heroes = require("./routes/api/heroes");
 const adminBro = require("./config/adminBro");
 const AdminBroExpressjs = require("admin-bro-expressjs");
 const bcrypt = require("bcrypt");
@@ -95,6 +96,7 @@ require("./config/passport")(passport);
 app.use("/api", indexRouter);
 app.use("/api/users", users);
 app.use("/api/services", services);
+app.use("/api/heroes", heroes);
 
 // app.get("*", (req, res) => {
 //   res.sendFile("build/index.html", { root: __dirname });
