@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { addToEvents, getEvents } from "../../redux/actions/calenderActions";
 import { connect } from "react-redux";
 

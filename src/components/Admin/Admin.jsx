@@ -128,7 +128,7 @@ const Admin = (props) => {
     );
   };
   useEffect(() => {
-    // props.getHeroes();
+    props.getHeroes();
     // eslint-disable-next-line
   }, []);
 
@@ -148,9 +148,9 @@ const Admin = (props) => {
         style={{ marginTop: "40px" }}
       >
         {" "}
-        Show Calender{" "}
+        {showCalender ? "Hide" : "Show"} Calender{" "}
       </button>
-      <p>
+      <button className="btn btn-outline-primary" style={{ marginTop: "40px" }}>
         <a
           href="https://isaacs-home-services.herokuapp.com/admin"
           target="_blank"
@@ -158,7 +158,7 @@ const Admin = (props) => {
         >
           Admin Page
         </a>
-      </p>
+      </button>
       {editHeroes && currentImageElements()}
       {editHeroes && (
         <>

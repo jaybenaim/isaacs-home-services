@@ -1,6 +1,5 @@
 import React from "react";
 import Calender from "../../Calender/Calender";
-import AddEvent from "../../Calender/AddEvent";
 import { connect } from "react-redux";
 import CalenderForm from "./CalenderForm";
 

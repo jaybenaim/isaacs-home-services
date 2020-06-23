@@ -1,4 +1,4 @@
-import { SET_EVENTS, GET_ERRORS, ADD_EVENTS } from "./types";
+import { SET_EVENTS, ADD_EVENTS } from "./types";
 import firebaseDb from "../../api/firebase";
 // TODO: setdispatch errors
 export const getEvents = () => (dispatch) => {

@@ -8,12 +8,25 @@ const CalenderForm = () => {
   const [startDate, setStartDate] = useState("");
   const [startDateValue, setStartDateValue] = useState("");
   const [startTime, setStartTime] = useState("");
-  const [startTimeValue, setStartTimeValue] = useState("");
   const [endDate, setEndDate] = useState("");
   const [endDateValue, setEndDateValue] = useState("");
   const [allDay, setAllDay] = useState(false);
 
-  const amOrPm = startTime[0] == "0" ? "AM" : "PM";
+  let hour = Number(startTime.slice(0, 2));
+  const getPrefix = (hour) => {
+    if (hour - 12 < 12 && hour > 0) {
+      return "AM";
+    }
+    if (hour === "0") {
+      return "AM";
+    }
+    if (hour - 12 <= 0) {
+      return "PM";
+    }
+  };
+  hour = getPrefix(hour);
+  const amOrPm = hour;
+
   const event = {
     title: `${title} - ${startTime} ${amOrPm}`,
     start: startDate,
@@ -21,7 +34,13 @@ const CalenderForm = () => {
     allDay,
   };
   const handleSetDate = (date) => {
-    let newDate = new Date(date);
+    let formattedDate = date.split("-");
+    let year = formattedDate[0];
+    let month = String(Number(formattedDate[1]) - 1);
+    let day = formattedDate[2];
+
+    let newDate = new Date(year, month, day);
+
     setStartDate(newDate);
     setStartDateValue(date);
   };
@@ -30,20 +49,21 @@ const CalenderForm = () => {
     setEndDate(newDate);
     setEndDateValue(date);
   };
-  //   const handleStartDateTime = (time) => {
-  //     let formattedDate = startDateValue.split("-");
-  //     let year = formattedDate[0];
-  //     let month = formattedDate[1];
-  //     let day = formattedDate[2];
-  //     let formattedTime = time.split(":");
-  //     let hours = formattedTime[0];
-  //     let mins = formattedTime[1];
+  const handleStartDateTime = (time) => {
+    let formattedDate = startDateValue.split("-");
+    let year = formattedDate[0];
+    let month = String(Number(formattedDate[1]) - 1);
+    let day = formattedDate[2];
 
-  //     let dateTime = new Date(year, month, day, hours, mins);
+    let formattedTime = time.split(":");
+    let hour = formattedTime[0];
+    let min = formattedTime[1];
 
-  //     setStartTime(dateTime.getTime());
-  //     setStartTimeValue(time);
-  //   };
+    let dateTime = new Date(year, month, day, hour, min);
+
+    setStartDate(dateTime);
+    setStartTime(time);
+  };
 
   return (
     <div className="calender-form" style={{ padding: "2%" }}>
@@ -60,22 +80,25 @@ const CalenderForm = () => {
         </Form.Group>
         <Form.Group controlId="calenderFormStart">
           <Form.Label>Start Date</Form.Label>
-          <Form.Control
+          <input
             type="date"
             placeholder="Start Date"
             value={startDateValue}
             onChange={(e) => handleSetDate(e.target.value)}
           />
         </Form.Group>
-        <Form.Group controlId="calenderFormStart">
-          <Form.Label>Start Time</Form.Label>
-          <Form.Control
-            type="time"
-            placeholder="Start Time"
-            value={startTime}
-            onChange={(e) => setStartTime(e.target.value)}
-          />
-        </Form.Group>
+        {startDateValue && (
+          <Form.Group controlId="calenderFormStart">
+            <Form.Label>Start Time</Form.Label>
+            <Form.Control
+              type="time"
+              placeholder="Start Time"
+              value={startTime}
+              onChange={(e) => handleStartDateTime(e.target.value)}
+            />
+          </Form.Group>
+        )}
+
         <Form.Group controlId="calenderFormEndDate">
           <Form.Label>End Date</Form.Label>
 
