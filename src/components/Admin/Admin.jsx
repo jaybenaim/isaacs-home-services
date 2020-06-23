@@ -6,6 +6,8 @@ import { connect } from "react-redux";
 import { getHeroes } from "../../redux/actions/heroActions";
 import { useHistory } from "react-router";
 
+import "../../assets/stylesheets/admin.css";
+
 const Admin = (props) => {
   const history = useHistory();
 
@@ -114,6 +116,7 @@ const Admin = (props) => {
               alt={ci.alt}
               height={"200px"}
               width={"200px"}
+              className="hero-preview-image"
               style={{ marginLeft: "70%", position: "relative", top: "-53px" }}
             />
           </div>

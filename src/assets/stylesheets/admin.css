@@ -1,0 +1,5 @@
+@media (max-width: 450px) {
+  .hero-preview-image {
+    margin-left: 40% !important;
+  }
+}
