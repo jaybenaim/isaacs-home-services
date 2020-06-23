@@ -5,9 +5,9 @@ import firebase from "../../api/firebase";
 import { connect } from "react-redux";
 import { getHeroes } from "../../redux/actions/heroActions";
 import { useHistory } from "react-router";
-import Calender from "../Calender/Calender";
 
 import "../../assets/stylesheets/admin.css";
+import AdminCalender from "./AdminCalender/AdminCalender";
 
 const Admin = (props) => {
   const history = useHistory();
@@ -17,6 +17,8 @@ const Admin = (props) => {
   const [imageAsUrl, setImageAsUrl] = useState(allInputs);
   const [innerTitle, setInnerTitle] = useState("");
   const [innerDetails, setInnerDetails] = useState("");
+  const [editHeroes, setEditHeroes] = useState(false);
+  const [showCalender, setShowCalender] = useState(false);
 
   const handleImageAsFile = (e) => {
     const image = e.target.files[0];
@@ -129,10 +131,7 @@ const Admin = (props) => {
     // props.getHeroes();
     // eslint-disable-next-line
   }, []);
-  const [editHeroes, setEditHeroes] = useState(false);
-  const myEventsList = [
-    { title: "title", start: new Date(), end: new Date(), allDay: true },
-  ];
+
   return (
     <div className="container">
       <button
@@ -142,6 +141,14 @@ const Admin = (props) => {
       >
         {" "}
         Edit Top Intro Images for Desktop{" "}
+      </button>
+      <button
+        className="btn btn-outline-primary"
+        onClick={() => setShowCalender(!showCalender)}
+        style={{ marginTop: "40px" }}
+      >
+        {" "}
+        Show Calender{" "}
       </button>
       <p>
         <a
@@ -153,7 +160,6 @@ const Admin = (props) => {
         </a>
       </p>
       {editHeroes && currentImageElements()}
-
       {editHeroes && (
         <>
           <img
@@ -184,8 +190,7 @@ const Admin = (props) => {
           )}
         </>
       )}
-
-      <Calender myEventsList={myEventsList} />
+      {showCalender && <AdminCalender />}
     </div>
   );
 };

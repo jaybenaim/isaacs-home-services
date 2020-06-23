@@ -3,14 +3,8 @@ import { addToEvents } from "../../redux/actions/calenderActions";
 import { connect } from "react-redux";
 
 const AddEvent = (props) => {
-  const event = {
-    title: "new Event",
-    start: new Date(),
-    end: new Date(),
-    allDay: true,
-  };
-
   const addEvent = () => {
+    const { event } = props;
     props.addToEvents(event);
   };
   return (
