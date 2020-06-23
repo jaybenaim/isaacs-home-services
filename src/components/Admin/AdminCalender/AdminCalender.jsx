@@ -2,6 +2,7 @@ import React from "react";
 import Calender from "../../Calender/Calender";
 import AddEvent from "../../Calender/AddEvent";
 import { connect } from "react-redux";
+import CalenderForm from "./CalenderForm";
 
 const AdminCalender = ({ events }) => {
   const event = {
@@ -14,8 +15,7 @@ const AdminCalender = ({ events }) => {
   return (
     <>
       <Calender myEventsList={events} />
-
-      <AddEvent event={event} />
+      <CalenderForm />
     </>
   );
 };

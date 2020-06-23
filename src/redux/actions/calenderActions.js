@@ -1,7 +1,6 @@
 import { SET_EVENTS, GET_ERRORS, ADD_EVENTS } from "./types";
-import local from "../../api/local";
 import firebaseDb from "../../api/firebase";
-
+// TODO: setdispatch errors
 export const getEvents = () => (dispatch) => {
   // get from firebase
 
@@ -12,6 +11,7 @@ export const getEvents = () => (dispatch) => {
     })
     .catch((err) => console.log(err));
 };
+
 export const addToEvents = (event) => (dispatch) => {
   firebaseDb
     .post("/events.json", event)

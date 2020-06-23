@@ -1,5 +1,5 @@
-import React from "react";
-import { addToEvents } from "../../redux/actions/calenderActions";
+import React, { useEffect } from "react";
+import { addToEvents, getEvents } from "../../redux/actions/calenderActions";
 import { connect } from "react-redux";
 
 const AddEvent = (props) => {
@@ -7,6 +7,7 @@ const AddEvent = (props) => {
     const { event } = props;
     props.addToEvents(event);
   };
+
   return (
     <button onClick={addEvent} className="btn btn-ouline-primary">
       Add event
@@ -19,4 +20,4 @@ const mapStateToProps = (state) => {
     events: state.events.events,
   };
 };
-export default connect(mapStateToProps, { addToEvents })(AddEvent);
+export default connect(mapStateToProps, { addToEvents, getEvents })(AddEvent);
