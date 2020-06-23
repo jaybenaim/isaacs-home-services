@@ -23,12 +23,29 @@ export const refreshData = () => (dispatch) => {
 };
 
 export const getHeroes = () => (dispatch) => {
-  firebase
-    .get("/heroes.json")
-    .then((res) => {
-      dispatch(setCurrentImages(res.data));
-    })
-    .catch((err) => console.log(err));
+  let localData = localStorage.getItem("heroes");
+  // Get data from local storage if available if not make api call
+  if (!localData) {
+    // get data from firebase
+    firebase
+      .get("/heroes.json")
+      .then((res) => {
+        let jsonData = JSON.stringify(res.data);
+        // Add timeout function here set time key check against it
+        localStorage.setItem("heroes", jsonData);
+
+        dispatch(setCurrentImages(res.data));
+      })
+      .catch((err) => console.log(err));
+  }
+  let parsedData = JSON.parse(localData);
+  dispatch(setCurrentImages(parsedData));
+  // firebase
+  //   .get("/heroes.json")
+  //   .then((res) => {
+  //     dispatch(setCurrentImages(res.data));
+  //   })
+  //   .catch((err) => console.log(err));
 };
 export const setCurrentImages = (data) => {
   return {

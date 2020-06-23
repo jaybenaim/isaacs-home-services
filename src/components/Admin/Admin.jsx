@@ -5,6 +5,7 @@ import firebase from "../../api/firebase";
 import { connect } from "react-redux";
 import { getHeroes } from "../../redux/actions/heroActions";
 import { useHistory } from "react-router";
+import Calender from "./Calender";
 
 import "../../assets/stylesheets/admin.css";
 
@@ -125,47 +126,66 @@ const Admin = (props) => {
     );
   };
   useEffect(() => {
-    props.getHeroes();
+    // props.getHeroes();
     // eslint-disable-next-line
   }, []);
-
+  const [editHeroes, setEditHeroes] = useState(false);
+  const myEventsList = [
+    { title: "title", start: new Date(), end: new Date(), allDay: true },
+  ];
   return (
     <div className="container">
-      {props.currentImages && currentImageElements()}
-      <img
-        style={{ maxHeight: "400px", maxWidth: "400px" }}
-        src={imageAsUrl.imgUrl}
-        alt={imageAsFile.name !== "" ? imageAsFile.name : "No image chosen"}
-      />
-
-      {props.currentImages.length <= 3 ? (
-        <form onSubmit={handleFireBaseUpload}>
-          <input
-            name="setInnerTitle"
-            value={innerTitle}
-            onChange={(e) => setInnerTitle(e.target.value)}
-            placeholder="Inner Title"
-          />
-          <textarea
-            className="input-group-text"
-            name="setInnerTitle"
-            value={innerDetails}
-            onChange={(e) => setInnerDetails(e.target.value)}
-            placeholder="Inner Details"
-          />
-          <input type="file" onChange={handleImageAsFile} />
-          <button>Add</button>
-        </form>
-      ) : (
-        <div>Max 4 images </div>
-      )}
-      <a
-        href="https://isaacs-home-services.herokuapp.com/admin"
-        target="_blank"
-        rel="noopener noreferrer"
+      <button
+        className="btn btn-outline-primary"
+        onClick={() => setEditHeroes(!editHeroes)}
+        style={{ marginTop: "40px" }}
       >
-        Admin Page for services
-      </a>
+        {" "}
+        Edit Top Intro Images for Desktop{" "}
+      </button>
+      <p>
+        <a
+          href="https://isaacs-home-services.herokuapp.com/admin"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Admin Page
+        </a>
+      </p>
+      {editHeroes && currentImageElements()}
+
+      {editHeroes && (
+        <>
+          <img
+            style={{ maxHeight: "400px", maxWidth: "400px" }}
+            src={imageAsUrl.imgUrl}
+            alt={imageAsFile.name !== "" ? imageAsFile.name : "No image chosen"}
+          />
+          {props.currentImages.length >= 4 && <div>Max 4 images </div>}
+
+          {props.currentImages.length <= 3 && (
+            <form onSubmit={handleFireBaseUpload}>
+              <input
+                name="setInnerTitle"
+                value={innerTitle}
+                onChange={(e) => setInnerTitle(e.target.value)}
+                placeholder="Inner Title"
+              />
+              <textarea
+                className="input-group-text"
+                name="setInnerTitle"
+                value={innerDetails}
+                onChange={(e) => setInnerDetails(e.target.value)}
+                placeholder="Inner Details"
+              />
+              <input type="file" onChange={handleImageAsFile} />
+              <button>Add</button>
+            </form>
+          )}
+        </>
+      )}
+
+      <Calender myEventsList={myEventsList} />
     </div>
   );
 };

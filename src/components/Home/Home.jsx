@@ -15,7 +15,7 @@ const Home = (props) => {
   useEffect(() => {
     props.getData();
 
-    props.refreshData();
+    // props.refreshData();
     // use to keep data synced in production
     // eslint-disable-next-line
   }, []);
