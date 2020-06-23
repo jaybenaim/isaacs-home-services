@@ -4,6 +4,9 @@ import backend from "../../api/backend";
 import firebase from "../../api/firebase";
 import { connect } from "react-redux";
 import { getHeroes } from "../../redux/actions/heroActions";
+import { useHistory } from "react-router";
+
+const history = useHistory();
 
 const Admin = (props) => {
   const allInputs = { imgUrl: "" };
@@ -74,7 +77,7 @@ const Admin = (props) => {
     firebase
       .delete(`/heroes/${id}.json`)
       .then((res) => {
-        window.location.href = window.location.href;
+        history.go();
         console.log("deleted item ");
       })
       .catch((err) => console.log(err));
