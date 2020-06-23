@@ -63,7 +63,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.js src/**/*.jsx",
     "deploy": "gh-pages -d build",
-    "heroku-predeploy": "npm install"
+    "heroku-predeploy": "npm install && cd server && npm install"
   },
   "homepage": "https://highlyhandy.com",
   "browserslist": [
