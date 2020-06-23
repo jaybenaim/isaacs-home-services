@@ -5,7 +5,7 @@ import firebase from "../../api/firebase";
 import { connect } from "react-redux";
 import { getHeroes } from "../../redux/actions/heroActions";
 import { useHistory } from "react-router";
-import Calender from "./Calender";
+import Calender from "../Calender/Calender";
 
 import "../../assets/stylesheets/admin.css";
 

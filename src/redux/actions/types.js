@@ -5,3 +5,6 @@ export const REFRESH_DATA = "REFRESH_DATA";
 export const SET_DATA = "SET_DATA";
 export const SET_CURRENT_IMAGES = "SET_CURRENT_IMAGES";
 export const REFRESH_HEROES = "REFRESH_HEROES";
+export const GET_EVENTS = "GET_EVENTS";
+export const SET_EVENTS = "SET_EVENTS";
+export const ADD_EVENTS = "ADD_EVENTS";

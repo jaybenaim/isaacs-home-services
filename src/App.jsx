@@ -9,6 +9,7 @@ import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import ErrorPage from "./components/ErrorPage";
 import Admin from "./components/Admin/Admin";
+import Calender from "./components/Calender/Calender";
 
 import { connect } from "react-redux";
 
@@ -21,6 +22,7 @@ const App = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/services" component={Home} />
         <Route exact path="/admin" component={Admin} />
+        <Route exact path="/book" component={Calender} />
 
         <Route
           exact

@@ -42,12 +42,12 @@ export const getData = () => (dispatch) => {
   let parsedData = JSON.parse(localData);
   dispatch(setData(parsedData));
 
-  // firebaseDb
-  //   .get("/services.json")
-  //   .then((res) => {
-  //     dispatch(setData(res.data));
-  //   })
-  //   .catch((err) => console.log(err));
+  firebaseDb
+    .get("/services.json")
+    .then((res) => {
+      dispatch(setData(res.data));
+    })
+    .catch((err) => console.log(err));
 };
 
 export const setData = (data) => {
