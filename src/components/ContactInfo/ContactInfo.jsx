@@ -28,12 +28,11 @@ const ContactInfo = () => {
             <span className="phone-number">
               <a href="tel:6472295873">647-229-5873</a>
             </span>{" "}
-            TEXT ADDRESS FOR A FAST PRICE
           </p>
         </div>
         <div className="contact-slider">
           {/* Slider with previous jobs */}
-          <h3 className="secondary-font m-0">Previous Projects</h3>
+          <h3 className="secondary-font">Previous Projects</h3>
           <SimpleSlider settings={slickSettings} elements={slickElements} />
         </div>
       </div>
