@@ -6,9 +6,9 @@ import { connect } from "react-redux";
 import { getHeroes } from "../../redux/actions/heroActions";
 import { useHistory } from "react-router";
 
-const history = useHistory();
-
 const Admin = (props) => {
+  const history = useHistory();
+
   const allInputs = { imgUrl: "" };
   const [imageAsFile, setImageAsFile] = useState("");
   const [imageAsUrl, setImageAsUrl] = useState(allInputs);
@@ -92,13 +92,17 @@ const Admin = (props) => {
             <strong>Image {i + 1}</strong>
             <p>Title: {ci.innerTitle}</p>
             <p>Details: {ci.innerDetails}</p>
-            <a
-              href={`https://isaacs-home-services.herokuapp.com/admin/resources/heros/`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Edit
-            </a>
+            <p>
+              <a
+                href={`https://isaacs-home-services.herokuapp.com/admin/resources/heros/`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-warning"
+              >
+                Edit
+              </a>
+            </p>
+
             <button
               className="btn btn-danger"
               onClick={(e) => deleteImage(ci.firebaseId)}
