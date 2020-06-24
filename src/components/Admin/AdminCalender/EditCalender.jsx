@@ -12,15 +12,17 @@ const EditEvents = (props) => {
 
   const { events, handleHeadingToggle } = props;
   const tableRows = () => {
-    let sortedEvents = events.sort(function (a, b) {
-      // Sort by date ASC
-      var dateA = a.date.toUpperCase();
-      var dateB = b.date.toUpperCase();
-      if (dateA < dateB) return -1;
-      if (dateA > dateB) return 1;
-      // names must be equal
-      return 0;
-    });
+    let sortedEvents =
+      events.length >= 1 &&
+      events.sort(function (a, b) {
+        // Sort by date ASC
+        var dateA = a.start;
+        var dateB = b.start;
+        if (dateA < dateB) return -1;
+        if (dateA > dateB) return 1;
+        // names must be equal
+        return 0;
+      });
 
     return (
       events.length >= 1 &&

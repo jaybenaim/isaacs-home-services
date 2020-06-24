@@ -51,7 +51,10 @@ const AdminCalender = ({ events }) => {
       )}
 
       {showCalenderForm && (
-        <CalenderForm edit={action === "edit" ? true : false} />
+        <CalenderForm
+          edit={action === "edit" ? true : false}
+          event={currentEvent}
+        />
       )}
 
       <EditCalender handleHeadingToggle={handleHeadingToggle} />

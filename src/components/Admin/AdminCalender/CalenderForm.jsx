@@ -3,8 +3,10 @@ import { Form } from "react-bootstrap";
 import AddEvent from "../../Calender/AddEvent";
 import "../../../assets/stylesheets/calenderForm.css";
 import EditEvent from "../../Calender/EditEvent";
+import moment from "moment";
+import { useEffect } from "react";
 
-const CalenderForm = ({ edit }) => {
+const CalenderForm = ({ edit, event: eventToEdit }) => {
   const [title, setTitle] = useState("");
   const [startDate, setStartDate] = useState("");
   const [startDateValue, setStartDateValue] = useState("");
@@ -13,25 +15,40 @@ const CalenderForm = ({ edit }) => {
   const [endDateValue, setEndDateValue] = useState("");
   const [allDay, setAllDay] = useState(false);
 
-  let hour = Number(startTime.slice(0, 2));
-  const getPrefix = (hour) => {
-    if (hour - 12 < 12 && hour > 0) {
-      return "AM";
+  useEffect(() => {
+    if (eventToEdit) {
+      let { title, start, end } = eventToEdit;
+      setTitle(title);
+      setStartDate(start);
+      setStartTime(start);
+      setEndDate(end);
     }
-    if (hour === "0") {
-      return "AM";
+  }, []);
+  const editValues = () => {
+    if (eventToEdit) {
+      let { title, start, end, allDay } = eventToEdit;
+
+      start = moment(start).format("YYYY-MM-DD");
+      end = moment(end).format("YYYY-MM-DD");
+      let startTime = moment(start).format("h:mm a");
+
+      return {
+        title,
+        start,
+        startTime,
+        end,
+        allDay,
+      };
     }
-    if (hour - 12 <= 0) {
-      return "PM";
-    }
+    return false;
   };
-  hour = getPrefix(hour);
-  const amOrPm = hour;
+  let firebaseId = eventToEdit ? eventToEdit.firebaseId : "";
 
   const event = {
-    title: `${title} - ${startTime} ${amOrPm}`,
+    title,
     start: startDate,
     end: !endDate ? startDate : endDate,
+    firebaseId,
     allDay,
   };
   const handleSetDate = (date) => {
@@ -65,7 +82,7 @@ const CalenderForm = ({ edit }) => {
     setStartDate(dateTime);
     setStartTime(time);
   };
-
+  let editValue = editValues();
   return (
     <div className="calender-form">
       <Form onSubmit={(e) => e.preventDefault()}>
@@ -75,6 +92,7 @@ const CalenderForm = ({ edit }) => {
             type="text"
             placeholder="Title"
             value={title}
+            placeholder={editValue.title}
             onChange={(e) => setTitle(e.target.value)}
           />
           <Form.Text className="text-muted">Title for your event</Form.Text>
@@ -84,7 +102,7 @@ const CalenderForm = ({ edit }) => {
           <input
             type="date"
             placeholder="Start Date"
-            value={startDateValue}
+            value={startDateValue || editValue.start}
             onChange={(e) => handleSetDate(e.target.value)}
           />
         </Form.Group>
@@ -94,7 +112,7 @@ const CalenderForm = ({ edit }) => {
             <Form.Control
               type="time"
               placeholder="Start Time"
-              value={startTime}
+              value={startTime || editValue.startTime}
               onChange={(e) => handleStartDateTime(e.target.value)}
             />
           </Form.Group>
@@ -106,7 +124,7 @@ const CalenderForm = ({ edit }) => {
           <Form.Control
             type="date"
             placeholder="Check me out"
-            value={endDateValue}
+            value={endDateValue || editValue.end}
             onChange={(e) => handleEndDate(e.target.value)}
           />
         </Form.Group>
@@ -118,7 +136,7 @@ const CalenderForm = ({ edit }) => {
             onChange={(e) => setAllDay(!allDay)}
           />
         </Form.Group>
-        {edit ? <EditEvent /> : <AddEvent event={event} />}
+        {edit ? <EditEvent event={event} /> : <AddEvent event={event} />}
       </Form>
     </div>
   );

@@ -4,8 +4,8 @@ import moment from "moment";
 
 const TableRow = ({ event, deleteEvent, handleEdit }) => {
   const { title } = event;
-  let date = moment.utc(event.date).format("MMMM Do YYYY");
-  let time = moment(event.date).format("h:mm a");
+  let date = moment.utc(event.start).format("MMMM Do YYYY");
+  let time = moment(event.start).format("h:mm a");
 
   return (
     <tr>
