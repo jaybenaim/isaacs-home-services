@@ -1,6 +1,6 @@
 #mainContent h1 {
   font-size: 4em;
-  z-index: 9;
+  z-index: -1;
 }
 
 @media (max-width: 450px) {

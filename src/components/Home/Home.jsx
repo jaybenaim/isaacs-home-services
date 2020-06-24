@@ -15,7 +15,7 @@ const Home = (props) => {
   useEffect(() => {
     props.getData();
 
-    props.refreshData();
+    !window.location.href.includes("local") && props.refreshData();
     // use to keep data synced in production
     // eslint-disable-next-line
   }, []);

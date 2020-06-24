@@ -11,13 +11,38 @@ nav {
   /* background: #254c19; */
   background: rgba(255, 255, 255, 0.65);
   height: 50px;
-  position: absolute;
+  position: relative;
+  display: block;
+
   z-index: 6;
   border: none !important;
   box-shadow: none !important;
 }
+
 nav a {
   color: #000 !important;
 }
-@media (max-width: 450px) {
+.navbar-collapse {
+  margin-left: 74%;
+}
+@media (max-width: 480px) {
+  nav {
+    height: 80px;
+  }
+  .nav-links {
+    background: rgba(255, 255, 255, 0.97);
+    position: relative;
+    z-index: 9999999;
+  }
+  .nav-links > a {
+    margin-left: 5%;
+  }
+  .navbar-toggler {
+    margin-left: 20%;
+  }
+  #basic-navbar-nav {
+    width: 30%;
+    position: absolute;
+    right: 2%;
+  }
 }
