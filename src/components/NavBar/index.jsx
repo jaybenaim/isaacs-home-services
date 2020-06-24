@@ -14,17 +14,50 @@ const NavBar = (props) => {
     <React.Fragment>
       <Navbar bg="light" expand="lg">
         <Link className="navbar-brand primary-font-color" to="/">
-          Highly Handy Home Services
+          <span className="primary-font">Highly Handy</span>
         </Link>
+
+        {window.innerWidth >= 450 && (
+          <>
+            <div className="desktop-nav-items">
+              <Link
+                className="nav-item nav-link active primary-font-color "
+                to="/"
+                onClick={() => setShowDropdown(!showDropdown)}
+              >
+                Home
+              </Link>
+              <Link
+                className="nav-item nav-link active primary-font-color "
+                to="/calender"
+                onClick={() => setShowDropdown(!showDropdown)}
+              >
+                Calender
+              </Link>
+            </div>
+
+            {isAuthenticated && (
+              <Dropdown>
+                <Dropdown.Toggle id="navbar-toggle">Account</Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Auth />
+                </Dropdown.Menu>
+              </Dropdown>
+            )}
+          </>
+        )}
+
         <button
           type="button"
           aria-label="Toggle navigation"
-          class={showDropdown ? "navbar-toggler collapsed" : "navbar-toggler"}
+          className={
+            showDropdown ? "navbar-toggler collapsed" : "navbar-toggler"
+          }
           onClick={() => setShowDropdown(!showDropdown)}
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        {showDropdown && (
+        {showDropdown && window.innerWidth <= 480 && (
           <div id="basic-navbar-nav">
             <Nav className="mr-auto ">
               <div className="nav-links">
@@ -36,7 +69,7 @@ const NavBar = (props) => {
                   Home
                 </Link>
                 <Link
-                  className="nav-item nav-link active primary-font-color "
+                  className="nav-item nav-link  primary-font-color "
                   to="/calender"
                   onClick={() => setShowDropdown(!showDropdown)}
                 >
@@ -44,15 +77,13 @@ const NavBar = (props) => {
                 </Link>
               </div>
 
-              {isAuthenticated && (
-                <NavDropdown>
-                  <NavDropdown.Toggle id="navbar-toggle">
-                    Account
-                  </NavDropdown.Toggle>
+              {isAuthenticated && window.innerWidth <= 450 && (
+                <Dropdown className="account-toggle">
+                  <Dropdown.Toggle id="account-toggle">Account</Dropdown.Toggle>
                   <Dropdown.Menu>
                     <Auth />
                   </Dropdown.Menu>
-                </NavDropdown>
+                </Dropdown>
               )}
             </Nav>
           </div>

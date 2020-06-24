@@ -133,7 +133,7 @@ const Admin = (props) => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container admin-page">
       <button
         className="btn btn-outline-primary"
         onClick={() => setEditHeroes(!editHeroes)}

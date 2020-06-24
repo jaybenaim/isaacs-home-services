@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import { refreshData, getData } from "../../redux/actions/dataActions";
+import { loginUser } from "../../redux/actions/authActions";
 
 import Hero from "../Hero/Hero";
 import WhatWeOffer from "../WhatWeOffer/WhatWeOffer";
@@ -15,7 +16,9 @@ const Home = (props) => {
   useEffect(() => {
     props.getData();
 
-    !window.location.href.includes("local") && props.refreshData();
+    // !window.location.href.includes("local") && props.refreshData();
+    // props.refreshData();
+    props.loginUser();
     // use to keep data synced in production
     // eslint-disable-next-line
   }, []);
@@ -24,7 +27,8 @@ const Home = (props) => {
     <main id="mainContent">
       <div className="container-fluid">
         <div className="row justify-content-center p-0">
-          <h1 className="primary-font">Highly Handy</h1>
+          <h1 className="primary-font ">Highly Handy</h1>
+
           <Hero />
           <WhatWeOffer />
           <ContactInfo />
@@ -40,5 +44,5 @@ const mapStateToProps = (state) => {
   };
 };
 export default withRouter(
-  connect(mapStateToProps, { refreshData, getData })(Home)
+  connect(mapStateToProps, { refreshData, getData, loginUser })(Home)
 );

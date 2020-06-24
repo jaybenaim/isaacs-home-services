@@ -26,7 +26,9 @@ const ContactInfo = () => {
           <p className="text secondary-font">
             TEXT OR CALL FOR A FREE QUOTE{" "}
             <span className="phone-number">
-              <a href="tel:6472295873">647-229-5873</a>
+              <a href="tel:6472295873" className="primary-font">
+                647-229-5873
+              </a>
             </span>{" "}
           </p>
         </div>

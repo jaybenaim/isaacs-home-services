@@ -13,6 +13,8 @@
   grid-template-rows: 1fr 1fr 3fr;
 }
 .contact-info-section h2 {
+  width: 100%;
+  text-align: center;
   grid-row: 1;
   grid-column: 1 / span 5;
   margin: 0 auto;
@@ -27,7 +29,10 @@
   text-align: center;
   font-size: 1.4em;
 }
-
+.contact-info-section .contact-info p {
+  display: flex;
+  flex-direction: column;
+}
 .contact-info-section .contact-slider {
   grid-column: 1 / span 5;
 }
@@ -58,5 +63,9 @@
   }
   .contact-info-section .contact-info {
     margin-top: -5%;
+    width: 75%;
+  }
+  .contact-info-section .contact-info .phone-number a {
+    font-size: 1.4em;
   }
 }

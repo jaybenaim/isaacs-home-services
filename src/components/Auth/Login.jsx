@@ -23,6 +23,7 @@ class Login extends Component {
   }
   componentDidMount() {
     this.setState({ errors: {} });
+    this.props.loginUser();
   }
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.auth.isAuthenticated) {
