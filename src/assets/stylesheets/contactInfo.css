@@ -5,6 +5,7 @@
   display: grid;
   grid-template-columns: 1fr;
   padding: 4%;
+  padding-bottom: 5%;
 }
 
 .contact-info-section .inner-content {
@@ -82,6 +83,10 @@
   margin: 0 auto;
   text-align: center;
   font-size: 1.6em;
+}
+.contact-info-section .slider-image-container p {
+  max-width: 97%;
+  margin: 0;
 }
 .contact-info-section .slider-image-container img {
   margin: 0 auto;

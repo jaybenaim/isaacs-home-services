@@ -18,8 +18,6 @@ const ClientCalender = () => {
 };
 
 const mapStateToProps = (state) => {
-  return {
-    events: state.events.events,
-  };
+  return {};
 };
 export default connect(mapStateToProps, {})(ClientCalender);
