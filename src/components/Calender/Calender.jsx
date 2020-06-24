@@ -30,9 +30,7 @@ const MyCalendar = (props) => {
     if (props.isAuthenticated) {
       toggleConfirmItem(!confirmItem);
       setConfirmed(false);
-
       setEvent(event);
-      props.getEvents();
     }
   };
 
@@ -44,6 +42,7 @@ const MyCalendar = (props) => {
       .then((res) => {
         toggleConfirmItem(!confirmItem);
         setConfirmed(true);
+        props.getEvents();
       })
       .catch((err) => {
         setConfirmed(false);

@@ -22,14 +22,14 @@ export const registerUser = (userData, history) => (dispatch) => {
 // Login - get user token
 export const loginUser = (userData) => (dispatch) => {
   let jwtToken = localStorage.getItem("jwtToken");
-  if (jwtToken && !userData) {
+  if (jwtToken) {
     setAuthToken(jwtToken);
     // Decode jwtToken to get user data
     const decoded = jwt_decode(jwtToken);
     // Set current user
     dispatch(setCurrentUser(decoded));
   }
-  !userData &&
+  userData &&
     backend
       .post("/users/login", userData)
       .then((res) => {
