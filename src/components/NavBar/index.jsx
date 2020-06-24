@@ -10,6 +10,7 @@ import { useState } from "react";
 const NavBar = (props) => {
   const { isAuthenticated } = props.auth;
   const [showDropdown, setShowDropdown] = useState(false);
+
   return (
     <React.Fragment>
       <Navbar bg="light" expand="lg">
