@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Table } from "react-bootstrap";
 
-import CalenderForm from "./CalenderForm";
 import TableRow from "./TableRow";
 
 import { deleteEvent } from "../../../redux/actions/calenderActions";

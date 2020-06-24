@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import ContactInfo from "../ContactInfo/ContactInfo";
 import MyCalendar from "../Calender/Calender";
@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "../../assets/stylesheets/calender.css";
 
-const ClientCalender = (props) => {
+const ClientCalender = () => {
   return (
     <div className="calender">
       <h1 className="primary-font">Availability</h1>

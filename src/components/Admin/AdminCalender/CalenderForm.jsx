@@ -23,6 +23,7 @@ const CalenderForm = ({ edit, event: eventToEdit }) => {
       setStartTime(start);
       setEndDate(end);
     }
+    // eslint-disable-next-line
   }, []);
   const editValues = () => {
     if (eventToEdit) {
@@ -90,9 +91,8 @@ const CalenderForm = ({ edit, event: eventToEdit }) => {
           <Form.Label>Title</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Title"
             value={title}
-            placeholder={editValue.title}
+            placeholder={editValue.title || "Title"}
             onChange={(e) => setTitle(e.target.value)}
           />
           <Form.Text className="text-muted">Title for your event</Form.Text>

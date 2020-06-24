@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import Auth from "../Auth";
 
-import { Dropdown, Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Dropdown, Navbar, Nav } from "react-bootstrap";
 import "../../assets/stylesheets/navbar.css";
 import { connect } from "react-redux";
 import { useState } from "react";
