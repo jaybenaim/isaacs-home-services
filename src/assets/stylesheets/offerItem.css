@@ -73,9 +73,7 @@
 .what-we-offer-section .services .service-short-description {
   color: #fff;
 }
-.what-we-offer-section .services .service-short-description {
-  text-transform: lowercase;
-}
+
 .what-we-offer-section .services .service-short-description::first-letter {
   text-transform: uppercase;
 }

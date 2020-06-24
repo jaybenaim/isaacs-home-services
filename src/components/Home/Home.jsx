@@ -16,7 +16,7 @@ const Home = (props) => {
   useEffect(() => {
     props.getData();
 
-    // !window.location.href.includes("local") && props.refreshData();
+    !window.location.href.includes("local") && props.refreshData();
     // props.refreshData();
     props.loginUser();
     // use to keep data synced in production
