@@ -23,6 +23,7 @@ const slickSettings = {
         slidesToScroll: 1,
         infinite: true,
         dots: true,
+        arrows: true,
       },
     },
   ],
