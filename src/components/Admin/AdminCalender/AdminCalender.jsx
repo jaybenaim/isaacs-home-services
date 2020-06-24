@@ -8,6 +8,7 @@ const AdminCalender = ({ events }) => {
   return (
     <>
       <Calender myEventsList={events} />
+      <h2>Add Events</h2>
       <CalenderForm />
       <EditEvents />
     </>

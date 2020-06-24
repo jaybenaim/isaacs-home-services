@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Table } from "react-bootstrap";
-import moment from "moment";
 
-const EditEvents = ({ events }) => {
+import CalenderForm from "./CalenderForm";
+import TableRow from "./TableRow";
+
+import { deleteEvent } from "../../../redux/actions/calenderActions";
+
+const EditEvents = (props) => {
+  const { events } = props;
   const tableRows = () => {
     let sortedEvents = events.sort(function (a, b) {
       // Sort by date ASC
@@ -18,28 +23,32 @@ const EditEvents = ({ events }) => {
     return (
       events.length >= 1 &&
       sortedEvents.sort().map((event, i) => {
-        const { title } = event;
-        let date = moment.utc(event.date).format("MMMM Do YYYY");
-        let time = moment(event.date).format("h:mm a");
         return (
-          <tr key={i}>
-            <td>{title}</td>
-            <td>{date}</td>
-            <td>{time}</td>
-          </tr>
+          <TableRow
+            key={i}
+            event={event}
+            deleteEvent={props.deleteEvent}
+            handleEdit={handleEdit}
+          />
         );
       })
     );
   };
+  const [editForm, showEditForm] = useState(false);
+  const handleEdit = () => {
+    showEditForm(!editForm);
+  };
   return (
     <div className="div">
+      {editForm && <CalenderForm />}
       <Table striped bordered hover>
         <thead>
           <tr>
             <th>Title</th>
-
             <th>Date</th>
             <th>Time</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>{tableRows()}</tbody>
@@ -51,4 +60,4 @@ const EditEvents = ({ events }) => {
 const mapStateToProps = (state) => {
   return { events: state.events.events };
 };
-export default connect(mapStateToProps, {})(EditEvents);
+export default connect(mapStateToProps, { deleteEvent })(EditEvents);
