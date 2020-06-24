@@ -1,23 +1,19 @@
 import React, { useState } from "react";
+// eslint-disable-next-line
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Login from "../Auth/Login";
 import "./protectedRoute.css";
 
-function PrivateRoute({
-  isAuthenticated,
-  handleLogin,
-  children: Component,
-  ...rest
-}) {
+function PrivateRoute({ role, children: Component, ...rest }) {
   const [showAlert, setShowAlert] = useState(true);
-  if (isAuthenticated === undefined) {
-    isAuthenticated = false;
+  if (role === undefined) {
+    role = false;
   }
   return (
     <Route
       {...rest}
       render={(props) =>
-        isAuthenticated ? (
+        role === "admin" ? (
           Component
         ) : showAlert ? (
           <>
@@ -30,10 +26,10 @@ function PrivateRoute({
                 X
               </button>
             </div>
-            <Login redirect={true} handleLogin={handleLogin} {...props} />
+            <Login {...props} />
           </>
         ) : (
-          <Login redirect={true} handleLogin={handleLogin} {...props} />
+          <Login {...props} />
         )
       }
     />
