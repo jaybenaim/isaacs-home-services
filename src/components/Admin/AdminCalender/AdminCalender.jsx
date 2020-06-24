@@ -2,12 +2,14 @@ import React from "react";
 import Calender from "../../Calender/Calender";
 import { connect } from "react-redux";
 import CalenderForm from "./CalenderForm";
+import EditEvents from "./EditCalender";
 
 const AdminCalender = ({ events }) => {
   return (
     <>
       <Calender myEventsList={events} />
       <CalenderForm />
+      <EditEvents />
     </>
   );
 };

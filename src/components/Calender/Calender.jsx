@@ -3,10 +3,12 @@ import React, { useEffect, useState } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 
-import { getEvents, addToEvents } from "../../redux/actions/calenderActions";
+import {
+  getEvents,
+  addToEvents,
+  deleteEvent,
+} from "../../redux/actions/calenderActions";
 import { connect } from "react-redux";
-
-import firebase from "../../api/firebase";
 
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "../../assets/stylesheets/calender.css";
@@ -36,17 +38,9 @@ const MyCalendar = (props) => {
 
   // handle event delete
   const handleConfirm = () => {
-    const { firebaseId } = event;
-    firebase
-      .delete(`/events/${firebaseId}.json`)
-      .then((res) => {
-        toggleConfirmItem(!confirmItem);
-        setConfirmed(true);
-        props.getEvents();
-      })
-      .catch((err) => {
-        setConfirmed(false);
-      });
+    props.deleteEvent(event);
+    toggleConfirmItem(!confirmItem);
+    setConfirmed(true);
   };
   return (
     <div className="calender">
@@ -86,4 +80,8 @@ const mapStateToProps = (state) => {
     isAuthenticated: state.auth.isAuthenticated,
   };
 };
-export default connect(mapStateToProps, { getEvents, addToEvents })(MyCalendar);
+export default connect(mapStateToProps, {
+  getEvents,
+  addToEvents,
+  deleteEvent,
+})(MyCalendar);

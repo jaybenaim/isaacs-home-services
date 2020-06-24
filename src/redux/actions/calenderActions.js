@@ -1,4 +1,4 @@
-import { SET_EVENTS, ADD_EVENTS } from "./types";
+import { SET_EVENTS, ADD_EVENTS, GET_ERRORS } from "./types";
 import firebaseDb from "../../api/firebase";
 // TODO: setdispatch errors
 export const getEvents = () => (dispatch) => {
@@ -22,6 +22,21 @@ export const addToEvents = (event) => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
+export const deleteEvent = (event) => (dispatch) => {
+  const { firebaseId } = event;
+
+  firebaseDb
+    .delete(`/events/${firebaseId}.json`)
+    .then((res) => {
+      dispatch(getEvents());
+    })
+    .catch((err) => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err,
+      });
+    });
+};
 export const addEvent = (event, firebaseId) => {
   return {
     type: ADD_EVENTS,
