@@ -68,4 +68,22 @@
   .contact-info-section .contact-info .phone-number a {
     font-size: 1.4em;
   }
+  .contact-info-section .slider-image-container {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.6em;
+  }
+  .contact-info-section .slider-image-container img {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+.contact-info-section .slider-image-container {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.6em;
+}
+.contact-info-section .slider-image-container img {
+  margin: 0 auto;
+  width: 100%;
 }

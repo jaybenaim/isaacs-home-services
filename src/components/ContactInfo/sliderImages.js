@@ -1,4 +1,3 @@
-import progress from "../../assets/img/progress.jpg";
 import lawn1 from "../../assets/img/lawn1.jpg";
 import lawn2 from "../../assets/img/lawn2.jpg";
 import lawn3 from "../../assets/img/lawn3.jpg";
@@ -9,7 +8,6 @@ import detaching1 from "../../assets/img/detaching1.jpg";
 import detaching2 from "../../assets/img/detaching2.jpg";
 
 export {
-  progress,
   lawn1,
   lawn2,
   lawn3,

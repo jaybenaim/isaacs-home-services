@@ -1,7 +1,20 @@
 .calender {
-  padding-bottom: 40%;
+  padding-bottom: 20%;
 }
 .calender h1 {
   text-align: center;
   padding: 4% 0;
+}
+.rbc-calender {
+  padding: 2%;
+}
+.rbc-toolbar {
+  padding: 3%;
+}
+.rbc-btn-group {
+  padding: 2%;
+}
+
+.rbc-toolbar-label {
+  color: #316b22;
 }

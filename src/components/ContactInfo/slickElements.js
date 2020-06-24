@@ -1,5 +1,4 @@
 import {
-  progress,
   lawn1,
   lawn2,
   lawn3,
@@ -11,31 +10,38 @@ import {
 } from "./sliderImages";
 const images = [
   {
-    src: progress,
+    src: detaching1,
+    title: "Detaching",
   },
   {
     src: lawn1,
-  },
-  {
-    src: lawn2,
-  },
-  {
-    src: lawn3,
+    title: "Aeration",
   },
   {
     src: garden1,
+    title: "Gardening",
+  },
+  {
+    src: lawn2,
+    title: "Aeration",
   },
   {
     src: garden2,
+    title: "Gardening",
   },
+  {
+    src: lawn3,
+    title: "Aeration",
+  },
+
   {
     src: driveway1,
+    title: "Driveway Sealing",
   },
-  {
-    src: detaching1,
-  },
+
   {
     src: detaching2,
+    title: "Gardening",
   },
 ];
 export default images;

@@ -3,8 +3,6 @@ import React, { useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 
-import ContactInfo from "../ContactInfo/ContactInfo";
-
 import { getEvents, addToEvents } from "../../redux/actions/calenderActions";
 import { connect } from "react-redux";
 
@@ -18,10 +16,9 @@ const MyCalendar = (props) => {
     props.getEvents();
     // eslint-disable-next-line
   }, []);
-  const { isAuthenticated, events } = props;
+  const { events } = props;
   return (
     <div className="calender">
-      {!isAuthenticated && <h1 className="primary-font">Availability</h1>}
       <Calendar
         localizer={localizer}
         events={events}
@@ -29,7 +26,6 @@ const MyCalendar = (props) => {
         endAccessor="end"
         style={{ height: 500 }}
       />
-      {!isAuthenticated && <ContactInfo />}
     </div>
   );
 };
