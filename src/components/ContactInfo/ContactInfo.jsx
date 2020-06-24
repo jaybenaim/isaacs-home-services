@@ -11,7 +11,7 @@ const ContactInfo = () => {
     return images.map((image, i) => {
       const { title, src } = image;
       return (
-        <div className="slider-image-container ">
+        <div key={i} className="slider-image-container ">
           <img src={src} alt={title} className="contact-slider-img" key={i} />
           <p className="primary-font-color title">{title}</p>
         </div>

@@ -4,6 +4,7 @@ import errorReducer from "./errorReducers";
 import dataReducer from "./dataReducers";
 import heroReducers from "./heroReducers";
 import calenderReducers from "./calenderReducers";
+import reviewReducers from "./reviewReducers";
 
 export default combineReducers({
   auth: authReducer,
@@ -11,4 +12,5 @@ export default combineReducers({
   data: dataReducer,
   heroes: heroReducers,
   events: calenderReducers,
+  reviews: reviewReducers,
 });
