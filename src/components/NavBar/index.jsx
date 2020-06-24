@@ -6,7 +6,8 @@ import { Dropdown } from "react-bootstrap";
 import "../../assets/stylesheets/navbar.css";
 import { connect } from "react-redux";
 
-const NavBar = ({ auth: isAuthenticated }) => {
+const NavBar = (props) => {
+  const { isAuthenticated } = props.auth;
   return (
     <React.Fragment>
       <nav className="navbar navbar-expand-sm  justify-content-between">

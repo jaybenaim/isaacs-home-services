@@ -37,6 +37,11 @@ const Auth = (props) => {
       >
         Logout <span className="auth-content--name"> {name}?</span>
       </button>
+      <button>
+        <Link to="/admin" className="auth-link">
+          Admin
+        </Link>
+      </button>
     </div>
   );
 };

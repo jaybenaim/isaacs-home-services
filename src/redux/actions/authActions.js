@@ -9,7 +9,7 @@ export const registerUser = (userData, history) => (dispatch) => {
     .then((res) => {
       dispatch(loginUser(userData));
 
-      history.push("/");
+      history.push("/admin");
     }) // re-direct to login on successful register
     .catch((err) => {
       dispatch({
