@@ -29,27 +29,28 @@ export const loginUser = (userData) => (dispatch) => {
     // Set current user
     dispatch(setCurrentUser(decoded));
   }
-  backend
-    .post("/users/login", userData)
-    .then((res) => {
-      // Save to localStorage
-      // Set token to localStorage
-      const { token } = res.data;
-      localStorage.setItem("jwtToken", token);
+  !userData &&
+    backend
+      .post("/users/login", userData)
+      .then((res) => {
+        // Save to localStorage
+        // Set token to localStorage
+        const { token } = res.data;
+        localStorage.setItem("jwtToken", token);
 
-      // Set token to Auth header
-      setAuthToken(token);
-      // Decode token to get user data
-      const decoded = jwt_decode(token);
-      // Set current user
-      dispatch(setCurrentUser(decoded));
-    })
-    .catch((err) => {
-      dispatch({
-        type: GET_ERRORS,
-        payload: err,
+        // Set token to Auth header
+        setAuthToken(token);
+        // Decode token to get user data
+        const decoded = jwt_decode(token);
+        // Set current user
+        dispatch(setCurrentUser(decoded));
+      })
+      .catch((err) => {
+        dispatch({
+          type: GET_ERRORS,
+          payload: err,
+        });
       });
-    });
 };
 
 // Set logged in user

@@ -16,7 +16,7 @@ export default function (state = initialState, action) {
       }
 
       return Object.assign({}, state, {
-        events: [...state.events, ...updatedEvents],
+        events: [...updatedEvents],
       });
     case ADD_EVENTS:
       let updatedEvent = action.payload.event;
