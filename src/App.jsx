@@ -12,16 +12,24 @@ import Admin from "./components/Admin/Admin";
 import Calender from "./components/Calender/Calender";
 
 import { connect } from "react-redux";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 //TODO Web Template Studio: Add routes for your new pages here.
-const App = () => {
+const App = ({
+  auth: {
+    user: { role },
+  },
+}) => {
   return (
     <React.Fragment>
       <NavBar />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/services" component={Home} />
-        <Route exact path="/admin" component={Admin} />
+
+        <ProtectedRoute path="/admin" role={role}>
+          <Route exact path="/admin" render={(props) => <Admin {...props} />} />
+        </ProtectedRoute>
         <Route exact path="/calender" component={Calender} />
 
         <Route

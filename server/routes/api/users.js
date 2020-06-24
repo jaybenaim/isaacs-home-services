@@ -13,6 +13,7 @@ router.get("/", (req, res) => {
     .then((response) => res.send(response))
     .catch((err) => res.send(err));
 });
+
 router.patch("/:id", (req, res) => {
   User.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then((response) => res.send(response))
@@ -36,6 +37,7 @@ router.post("/register", (req, res) => {
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
+        role: "restricted",
       });
       // Hash password before saving in database
       bcrypt.genSalt(10, (err, salt) => {
@@ -78,6 +80,7 @@ router.post("/login", (req, res) => {
         const payload = {
           id: user.id,
           name: user.name,
+          role: user.role,
         };
         // Sign token
         jwt.sign(

@@ -4,13 +4,6 @@ import { connect } from "react-redux";
 import CalenderForm from "./CalenderForm";
 
 const AdminCalender = ({ events }) => {
-  const event = {
-    title: "new Event",
-    start: new Date(),
-    end: new Date(),
-    allDay: true,
-  };
-
   return (
     <>
       <Calender myEventsList={events} />

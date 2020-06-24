@@ -12,7 +12,7 @@ class Login extends Component {
 
   static getDerivedStateFromProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      nextProps.history.push("/");
+      nextProps.history.push("/admin");
     }
     if (nextProps.errors) {
       return {
@@ -26,7 +26,7 @@ class Login extends Component {
   }
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.auth.isAuthenticated) {
-      prevProps.history.push("/");
+      prevProps.history.push("/admin");
     }
     if (prevState.errors.length >= 1) {
       this.setState({ errors: prevState });
