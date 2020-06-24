@@ -66,8 +66,8 @@ const CalenderForm = () => {
   };
 
   return (
-    <div className="calender-form" style={{ padding: "2%" }}>
-      <Form>
+    <div className="calender-form">
+      <Form onSubmit={(e) => e.preventDefault()}>
         <Form.Group controlId="calenderFormTitle">
           <Form.Label>Title</Form.Label>
           <Form.Control

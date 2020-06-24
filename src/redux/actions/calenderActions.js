@@ -16,15 +16,16 @@ export const addToEvents = (event) => (dispatch) => {
   firebaseDb
     .post("/events.json", event)
     .then((res) => {
-      dispatch(addEvent(event));
+      let firebaseId = res.data.name;
+      dispatch(addEvent(event, firebaseId));
     })
     .catch((err) => console.log(err));
 };
 
-export const addEvent = (data) => {
+export const addEvent = (event, firebaseId) => {
   return {
     type: ADD_EVENTS,
-    payload: data,
+    payload: { event, firebaseId },
   };
 };
 export const setEventList = (data) => {

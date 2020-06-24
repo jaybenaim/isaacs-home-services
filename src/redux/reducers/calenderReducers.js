@@ -19,8 +19,11 @@ export default function (state = initialState, action) {
         events: [...state.events, ...updatedEvents],
       });
     case ADD_EVENTS:
+      let updatedEvent = action.payload.event;
+      updatedEvent.firebaseId = action.payload.firebaseId;
+
       return Object.assign({}, state, {
-        events: [...state.events, action.payload],
+        events: [...state.events, updatedEvent],
       });
     default:
       return state;
