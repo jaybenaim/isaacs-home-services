@@ -8,7 +8,9 @@ import TableRow from "./TableRow";
 import { deleteEvent } from "../../../redux/actions/calenderActions";
 
 const EditEvents = (props) => {
-  const { events } = props;
+  const [editForm, showEditForm] = useState(false);
+
+  const { events, handleHeadingToggle } = props;
   const tableRows = () => {
     let sortedEvents = events.sort(function (a, b) {
       // Sort by date ASC
@@ -34,13 +36,13 @@ const EditEvents = (props) => {
       })
     );
   };
-  const [editForm, showEditForm] = useState(false);
-  const handleEdit = () => {
+
+  const handleEdit = (event) => {
     showEditForm(!editForm);
+    handleHeadingToggle("edit", event);
   };
   return (
     <div className="div">
-      {editForm && <CalenderForm />}
       <Table striped bordered hover>
         <thead>
           <tr>

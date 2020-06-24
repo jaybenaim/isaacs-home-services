@@ -21,7 +21,20 @@ export const addToEvents = (event) => (dispatch) => {
     })
     .catch((err) => console.log(err));
 };
-
+export const editEvent = (event) => (dispatch) => {
+  let { firebaseId } = event;
+  firebaseDb
+    .patch(`/events/${firebaseId}.json`, event)
+    .then((res) => {
+      dispatch(getEvents());
+    })
+    .catch((err) => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err,
+      });
+    });
+};
 export const deleteEvent = (event) => (dispatch) => {
   const { firebaseId } = event;
 

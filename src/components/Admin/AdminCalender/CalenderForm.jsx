@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import AddEvent from "../../Calender/AddEvent";
 import "../../../assets/stylesheets/calenderForm.css";
+import EditEvent from "../../Calender/EditEvent";
 
-const CalenderForm = () => {
+const CalenderForm = ({ edit }) => {
   const [title, setTitle] = useState("");
   const [startDate, setStartDate] = useState("");
   const [startDateValue, setStartDateValue] = useState("");
@@ -117,7 +118,7 @@ const CalenderForm = () => {
             onChange={(e) => setAllDay(!allDay)}
           />
         </Form.Group>
-        <AddEvent event={event} />
+        {edit ? <EditEvent /> : <AddEvent event={event} />}
       </Form>
     </div>
   );
