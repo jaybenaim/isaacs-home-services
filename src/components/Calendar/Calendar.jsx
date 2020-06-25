@@ -11,7 +11,7 @@ import {
 import { connect } from "react-redux";
 
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import "../../assets/stylesheets/calender.css";
+import "../../assets/stylesheets/calendar.css";
 import Notifications from "../Notifications/Notifications";
 
 const localizer = momentLocalizer(moment);

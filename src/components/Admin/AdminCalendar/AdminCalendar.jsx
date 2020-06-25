@@ -1,40 +1,40 @@
 import React, { useState } from "react";
-import Calender from "../../Calender/Calender";
+import Calendar from "../../Calendar/Calendar";
 import { connect } from "react-redux";
-import CalenderForm from "./CalendarForm";
-import EditCalender from "./EditCalendar";
+import CalendarForm from "./CalendarForm";
+import EditCalendar from "./EditCalendar";
 import { Button } from "react-bootstrap";
 
 const AdminCalender = ({ events }) => {
-  const [showCalenderForm, toggleCalenderForm] = useState(false);
+  const [showCalendarForm, toggleCalendarForm] = useState(false);
   const [caret, setCaret] = useState("fa fa-caret-down");
   const [action, setAction] = useState("add");
   const [currentEvent, setCurrentEvent] = useState();
 
-  const handleToggleCalenderForm = () => {
-    toggleCalenderForm(!showCalenderForm);
-    setCaret(showCalenderForm ? "fa fa-caret-down" : "fa fa-caret-up");
+  const handleToggleCalendarForm = () => {
+    toggleCalendarForm(!showCalendarForm);
+    setCaret(showCalendarForm ? "fa fa-caret-down" : "fa fa-caret-up");
   };
   const handleHeadingToggle = (action, event) => {
     if (action === "edit") {
       setCurrentEvent(event);
-      toggleCalenderForm(true);
+      toggleCalendarForm(true);
 
       setAction("edit");
     }
     if (action === "add") {
       setAction("add");
-      toggleCalenderForm(!showCalenderForm);
+      toggleCalendarForm(!showCalendarForm);
     }
   };
 
   return (
     <>
-      <Calender myEventsList={events} />
+      <Calendar myEventsList={events} />
       {action === "add" ? (
         <h2>
           Add Events{" "}
-          <i className={caret} onClick={() => handleToggleCalenderForm()}></i>
+          <i className={caret} onClick={() => handleToggleCalendarForm()}></i>
         </h2>
       ) : (
         action === "edit" && (
@@ -50,14 +50,14 @@ const AdminCalender = ({ events }) => {
         )
       )}
 
-      {showCalenderForm && (
-        <CalenderForm
+      {showCalendarForm && (
+        <CalendarForm
           edit={action === "edit" ? true : false}
           event={currentEvent}
         />
       )}
 
-      <EditCalender handleHeadingToggle={handleHeadingToggle} />
+      <EditCalendar handleHeadingToggle={handleHeadingToggle} />
     </>
   );
 };

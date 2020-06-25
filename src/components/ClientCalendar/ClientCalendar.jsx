@@ -1,13 +1,13 @@
 import React from "react";
 
 import ContactInfo from "../ContactInfo/ContactInfo";
-import MyCalendar from "../Calender/Calender";
+import MyCalendar from "../Calendar/Calendar";
 
 import { connect } from "react-redux";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import "../../assets/stylesheets/calender.css";
+import "../../assets/stylesheets/calendar.css";
 
-const ClientCalender = () => {
+const ClientCalendar = () => {
   return (
     <div className="calender">
       <h1 className="primary-font">Availability</h1>
@@ -20,4 +20,4 @@ const ClientCalender = () => {
 const mapStateToProps = (state) => {
   return {};
 };
-export default connect(mapStateToProps, {})(ClientCalender);
+export default connect(mapStateToProps, {})(ClientCalendar);

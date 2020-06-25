@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
-import AddEvent from "../../Calender/AddEvent";
-import "../../../assets/stylesheets/calenderForm.css";
-import EditEvent from "../../Calender/EditEvent";
+import AddEvent from "../../Calendar/AddEvent";
+import "../../../assets/stylesheets/calendarForm.css";
+import EditEvent from "../../Calendar/EditEvent";
 import moment from "moment";
 import { useEffect } from "react";
 
