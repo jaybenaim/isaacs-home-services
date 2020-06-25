@@ -7,7 +7,7 @@ import { getHeroes } from "../../redux/actions/heroActions";
 import { useHistory } from "react-router";
 
 import "../../assets/stylesheets/admin.css";
-import AdminCalender from "./AdminCalender/AdminCalender";
+import AdminCalendar from "./AdminCalendar/AdminCalendar";
 
 const Admin = (props) => {
   const history = useHistory();
@@ -190,7 +190,7 @@ const Admin = (props) => {
           )}
         </>
       )}
-      {showCalender && <AdminCalender />}
+      {showCalender && <AdminCalendar />}
     </div>
   );
 };

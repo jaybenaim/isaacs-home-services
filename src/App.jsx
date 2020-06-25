@@ -10,7 +10,7 @@ import Register from "./components/Auth/Register";
 import ErrorPage from "./components/ErrorPage";
 import Admin from "./components/Admin/Admin";
 import BookNow from "./components/BookNow/BookNow";
-import ClientCalender from "./components/ClientCalender/ClientCalender";
+import ClientCalendar from "./components/ClientCalendar/ClientCalendar";
 
 import { connect } from "react-redux";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
@@ -31,7 +31,7 @@ const App = ({
         <ProtectedRoute path="/admin" role={role}>
           <Route exact path="/admin" render={(props) => <Admin {...props} />} />
         </ProtectedRoute>
-        <Route exact path="/calender" component={ClientCalender} />
+        <Route exact path="/calendar" component={ClientCalendar} />
         <Route exact path="/book" component={BookNow} />
 
         <Route

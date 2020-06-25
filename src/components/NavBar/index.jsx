@@ -30,10 +30,10 @@ const NavBar = (props) => {
               </Link>
               <Link
                 className="nav-item nav-link active primary-font-color "
-                to="/calender"
+                to="/calendar"
                 onClick={() => setShowDropdown(!showDropdown)}
               >
-                Calender
+                Calendar
               </Link>
               <Link
                 className="nav-item nav-link active primary-font-color "
@@ -78,10 +78,10 @@ const NavBar = (props) => {
                 </Link>
                 <Link
                   className="nav-item nav-link  primary-font-color "
-                  to="/calender"
+                  to="/calendar"
                   onClick={() => setShowDropdown(!showDropdown)}
                 >
-                  Calender
+                  Calendar
                 </Link>
                 <Link
                   className="nav-item nav-link active primary-font-color "

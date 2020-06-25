@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Calender from "../../Calender/Calender";
 import { connect } from "react-redux";
-import CalenderForm from "./CalenderForm";
-import EditCalender from "./EditCalender";
+import CalenderForm from "./CalendarForm";
+import EditCalender from "./EditCalendar";
 import { Button } from "react-bootstrap";
 
 const AdminCalender = ({ events }) => {
