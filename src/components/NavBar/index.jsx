@@ -35,6 +35,13 @@ const NavBar = (props) => {
               >
                 Calender
               </Link>
+              <Link
+                className="nav-item nav-link active primary-font-color "
+                to="/book"
+                onClick={() => setShowDropdown(!showDropdown)}
+              >
+                Book Now
+              </Link>
             </div>
 
             {isAuthenticated && (
@@ -75,6 +82,13 @@ const NavBar = (props) => {
                   onClick={() => setShowDropdown(!showDropdown)}
                 >
                   Calender
+                </Link>
+                <Link
+                  className="nav-item nav-link active primary-font-color "
+                  to="/book"
+                  onClick={() => setShowDropdown(!showDropdown)}
+                >
+                  Book Now
                 </Link>
               </div>
 
