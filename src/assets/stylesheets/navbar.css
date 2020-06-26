@@ -49,7 +49,6 @@ nav a {
     margin-left: 5%;
   }
   .navbar-toggler {
-    margin-left: 20%;
     z-index: 99999;
   }
   #basic-navbar-nav {
@@ -61,14 +60,7 @@ nav a {
   .navbar-brand {
     font-size: 0.8em;
   }
-  #account-toggle {
-    position: fixed;
-    right: 17px;
-    top: 97px;
-    z-index: 9999;
-    grid-column: 4 / span 5;
-    grid-row: 3;
-  }
+
   .call-to-action {
     grid-row: 2;
   }
@@ -77,6 +69,19 @@ nav a {
   }
   #cta-email {
     grid-column: 3 / span 2;
+  }
+  #account-toggle {
+    position: fixed;
+    right: 17px;
+    top: 97px;
+    z-index: 9999;
+    grid-column: 4 / span 5;
+    grid-row: 3;
+  }
+  .account-dropdown {
+    position: fixed !important;
+    width: 100%;
+    top: 232px;
   }
 }
 @media (min-width: 480px) {

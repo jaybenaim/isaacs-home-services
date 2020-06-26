@@ -142,7 +142,7 @@ const NavBar = (props) => {
                   >
                     Account
                   </Dropdown.Toggle>
-                  <Dropdown.Menu>
+                  <Dropdown.Menu className="account-dropdown">
                     <Auth />
                   </Dropdown.Menu>
                 </Dropdown>

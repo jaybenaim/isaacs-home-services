@@ -2,6 +2,7 @@ import React from "react";
 import { logoutUser } from "../../redux/actions/authActions";
 import { withRouter, Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { Button } from "react-bootstrap";
 
 import "../../assets/stylesheets/auth.css";
 
@@ -20,28 +21,36 @@ const Auth = (props) => {
   };
 
   return !isAuthenticated ? (
-    <div className="auth-content">
-      <Link to="/login" className="auth-link">
+    <div className="auth-content nav-item nav-link">
+      <Link
+        to="/login"
+        className="auth-link nav-item nav-link primary-font-color"
+      >
         Log In
       </Link>
-      <Link to="/register" className="auth-link">
+      <Link
+        to="/register"
+        className="auth-link nav-item nav-link primary-font-color"
+      >
         Register
       </Link>
     </div>
   ) : (
     <div className="auth-content">
-      <button
+      <Button
         id="logout"
         onClick={(e) => onLogoutClick(e)}
-        className=" auth-link"
+        className="btn button-outline auth-link nav-item nav-link primary-font-color"
       >
-        Logout <span className="auth-content--name"> {name}?</span>
-      </button>
-      <button>
-        <Link to="/admin" className="auth-link">
-          Admin
-        </Link>
-      </button>
+        Logout <span className="auth-content--name "> {name}?</span>
+      </Button>
+
+      <Link
+        to="/admin"
+        className="auth-link nav-item nav-link primary-font-color"
+      >
+        Admin
+      </Link>
     </div>
   );
 };
