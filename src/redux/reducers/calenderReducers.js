@@ -11,7 +11,8 @@ export default function (state = initialState, action) {
       for (let event in events) {
         let updatedEvent = events[event];
         updatedEvent.firebaseId = event;
-
+        updatedEvent.start = new Date(updatedEvent.start);
+        updatedEvent.end = new Date(updatedEvent.end);
         updatedEvents.push(updatedEvent);
       }
 
