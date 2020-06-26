@@ -21,22 +21,22 @@ const NavBar = (props) => {
         {window.innerWidth >= 450 && (
           <>
             <div className="desktop-nav-items">
-              <Link
-                className="nav-item nav-link call-to-action toast-action primary-font-color"
-                to="tel:6472295873"
+              <a
+                className="nav-item nav-link call-to-action  primary-font-color"
+                href="tel:6472295873"
                 onClick={() => setShowDropdown(!showDropdown)}
               >
                 <i className="fa fa-phone" style={{ fontSize: "1.4em" }}></i>{" "}
                 647-229-5873
-              </Link>
-              <Link
-                className="nav-item nav-link call-to-action toast-action primary-font-color"
-                to="mailto:isaac_palomi@outlook.com"
+              </a>
+              <a
+                className="nav-item nav-link call-to-action  primary-font-color"
+                href="mailto:isaac_palomi@outlook.com"
                 onClick={() => setShowDropdown(!showDropdown)}
               >
-                <i class="fa fa-envelope" style={{ fontSize: "1.4em" }}></i>{" "}
+                <i className="fa fa-envelope" style={{ fontSize: "1.4em" }}></i>{" "}
                 Email
-              </Link>
+              </a>
               <Link
                 className="nav-item nav-link active primary-font-color "
                 to="/"
@@ -89,33 +89,59 @@ const NavBar = (props) => {
         {showDropdown && window.innerWidth <= 480 && (
           <div id="basic-navbar-nav">
             <Nav className="mr-auto ">
-              <div className="nav-links">
+              <div className="mobile-nav-links">
                 <Link
-                  className="nav-item nav-link active primary-font-color "
+                  className="nav-item nav-link  primary-font-color "
                   to="/"
                   onClick={() => setShowDropdown(!showDropdown)}
                 >
                   Home
                 </Link>
                 <Link
-                  className="nav-item nav-link  primary-font-color "
+                  className="nav-item nav-link primary-font-color "
                   to="/calendar"
                   onClick={() => setShowDropdown(!showDropdown)}
                 >
                   Calendar
                 </Link>
                 <Link
-                  className="nav-item nav-link active primary-font-color "
+                  className="nav-item nav-link  primary-font-color "
                   to="/book"
                   onClick={() => setShowDropdown(!showDropdown)}
                 >
                   Book Now
                 </Link>
+                <a
+                  className="nav-item nav-link call-to-action  primary-font-color"
+                  href="tel:6472295873"
+                  id="cta-phone"
+                  onClick={() => setShowDropdown(!showDropdown)}
+                >
+                  <i className="fa fa-phone" style={{ fontSize: "1.4em" }}></i>{" "}
+                  647-229-5873
+                </a>
+                <a
+                  className="nav-item nav-link call-to-action  primary-font-color"
+                  href="mailto:isaac_palomi@outlook.com"
+                  id="cta-email"
+                  onClick={() => setShowDropdown(!showDropdown)}
+                >
+                  <i
+                    className="fa fa-envelope"
+                    style={{ fontSize: "1.4em" }}
+                  ></i>{" "}
+                  Email
+                </a>
               </div>
 
               {isAuthenticated && window.innerWidth <= 450 && (
-                <Dropdown className="account-toggle">
-                  <Dropdown.Toggle id="account-toggle">Account</Dropdown.Toggle>
+                <Dropdown className="nav-item nav-link">
+                  <Dropdown.Toggle
+                    id="account-toggle"
+                    className="primary-font-color"
+                  >
+                    Account
+                  </Dropdown.Toggle>
                   <Dropdown.Menu>
                     <Auth />
                   </Dropdown.Menu>

@@ -1,6 +1,5 @@
 #main-nav {
   position: fixed;
-  padding: 4% 2% 3% 2%;
 }
 .dropdown-toggle {
   border: none !important;
@@ -30,13 +29,23 @@ nav a {
   nav {
     height: 80px;
   }
-  .nav-links {
-    background: rgba(255, 255, 255, 0.97);
-    position: relative;
-    z-index: 9999999;
-    margin-top: 224%;
+  .mobile-nav-links {
+    background: rgba(255, 255, 255, 0.94);
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
-  .nav-links > a {
+
+  .nav-link {
+    display: inline-block;
+    margin: 0 auto;
+  }
+  .nav-link:active {
+    background: transparent;
+  }
+  .mobile-nav-links > a {
     margin-left: 5%;
   }
   .navbar-toggler {
@@ -44,20 +53,36 @@ nav a {
     z-index: 99999;
   }
   #basic-navbar-nav {
-    width: 30%;
-    position: absolute;
-    right: 2%;
+    left: 0;
+    position: fixed;
+    top: 80px;
   }
-  .account-toggle {
-    background: #fff;
-    color: #316b22;
-    padding: 4%;
-  }
+
   .navbar-brand {
     font-size: 0.8em;
   }
+  #account-toggle {
+    position: fixed;
+    right: 17px;
+    top: 97px;
+    z-index: 9999;
+    grid-column: 4 / span 5;
+    grid-row: 3;
+  }
+  .call-to-action {
+    grid-row: 2;
+  }
+  #cta-phone {
+    grid-column: 1 / span 3;
+  }
+  #cta-email {
+    grid-column: 3 / span 2;
+  }
 }
 @media (min-width: 480px) {
+  #main-nav {
+    padding: 4% 2% 3% 2%;
+  }
   .desktop-nav-items {
     display: flex;
     position: absolute;
