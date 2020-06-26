@@ -107,6 +107,7 @@ const NavBar = (props) => {
                 <Link
                   className="nav-item nav-link  primary-font-color "
                   to="/book"
+                  id="book-now-btn"
                   onClick={() => setShowDropdown(!showDropdown)}
                 >
                   Book Now

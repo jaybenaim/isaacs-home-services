@@ -36,6 +36,7 @@ nav a {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    padding-left: 2%;
   }
 
   .nav-link {
@@ -82,6 +83,9 @@ nav a {
     position: fixed !important;
     width: 100%;
     top: 232px;
+  }
+  #book-now-btn {
+    grid-column: 3 / span 4;
   }
 }
 @media (min-width: 480px) {
