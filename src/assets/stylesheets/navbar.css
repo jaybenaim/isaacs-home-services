@@ -1,23 +1,25 @@
+#main-nav {
+  position: fixed;
+  padding: 4% 2% 3% 2%;
+}
 .dropdown-toggle {
   border: none !important;
   background-color: transparent !important;
-  color: #000 !important;
   font-size: 0.9em !important;
   box-shadow: none !important;
-  margin-top: 10%;
   font-family: Arial, sans-serif !important;
 }
 nav {
   background: rgba(255, 255, 255, 0.65);
   height: 100px;
-  position: relative;
-  display: block;
-
+  position: fixed;
   z-index: 6;
   border: none !important;
   box-shadow: none !important;
 }
-
+.nav-link {
+  font-size: 1.2em;
+}
 nav a {
   color: #000 !important;
 }
@@ -58,6 +60,7 @@ nav a {
 @media (min-width: 480px) {
   .desktop-nav-items {
     display: flex;
-    margin-left: 50%;
+    position: absolute;
+    right: 2%;
   }
 }

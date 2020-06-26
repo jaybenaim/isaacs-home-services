@@ -13,7 +13,7 @@ const NavBar = (props) => {
 
   return (
     <React.Fragment>
-      <Navbar bg="light" expand="lg">
+      <Navbar bg="light" expand="lg" id="main-nav">
         <Link className="navbar-brand primary-font-color" to="/">
           <span className="primary-font">Highly Handy</span>
         </Link>
@@ -21,6 +21,22 @@ const NavBar = (props) => {
         {window.innerWidth >= 450 && (
           <>
             <div className="desktop-nav-items">
+              <Link
+                className="nav-item nav-link call-to-action toast-action primary-font-color"
+                to="tel:6472295873"
+                onClick={() => setShowDropdown(!showDropdown)}
+              >
+                <i className="fa fa-phone" style={{ fontSize: "1.4em" }}></i>{" "}
+                647-229-5873
+              </Link>
+              <Link
+                className="nav-item nav-link call-to-action toast-action primary-font-color"
+                to="mailto:isaac_palomi@outlook.com"
+                onClick={() => setShowDropdown(!showDropdown)}
+              >
+                <i class="fa fa-envelope" style={{ fontSize: "1.4em" }}></i>{" "}
+                Email
+              </Link>
               <Link
                 className="nav-item nav-link active primary-font-color "
                 to="/"
@@ -42,16 +58,21 @@ const NavBar = (props) => {
               >
                 Book Now
               </Link>
-            </div>
 
-            {isAuthenticated && (
-              <Dropdown>
-                <Dropdown.Toggle id="navbar-toggle">Account</Dropdown.Toggle>
-                <Dropdown.Menu>
-                  <Auth />
-                </Dropdown.Menu>
-              </Dropdown>
-            )}
+              {isAuthenticated && (
+                <Dropdown className="nav-item nav-link ">
+                  <Dropdown.Toggle
+                    id="navbar-toggle"
+                    className="primary-font-color"
+                  >
+                    Account
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Auth />
+                  </Dropdown.Menu>
+                </Dropdown>
+              )}
+            </div>
           </>
         )}
 
