@@ -1,5 +1,6 @@
 import React from "react";
 import "../../assets/stylesheets/offerItem.css";
+import CompareSlider from "../../components/SimpleSlider/CompareSlider";
 
 const OfferItem = (props) => {
   let { service, position } = props;
@@ -11,6 +12,7 @@ const OfferItem = (props) => {
   return (
     <div className="service-content">
       <div className={gridClass.imgContainer}>
+        <CompareSlider />
         <img src={service.image} alt={service.title} className="img-thumb" />
 
         <div className="img-layover">
