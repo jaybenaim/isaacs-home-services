@@ -8,6 +8,7 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr !important;
     position: relative;
+    height: 600px;
   }
 
   .what-we-offer-section .services .service-content img {
@@ -23,7 +24,6 @@
   .what-we-offer-section .services .odd {
     grid-column: 1;
     position: absolute;
-
     width: 50%;
   }
   .what-we-offer-section .services .details {
@@ -47,6 +47,13 @@
   }
   .what-we-offer-section .services .service-content .img-layover {
     display: none;
+  }
+  .img-thumb {
+    display: none;
+  }
+  #compare-slider {
+    object-fit: cover;
+    height: 600px !important;
   }
 }
 @media (max-width: 450px) {
@@ -83,7 +90,8 @@
     text-align: center;
     display: none;
   }
-  .img-thumb {
+  #compare-slider {
+    display: none !important;
   }
 }
 .what-we-offer-section .services .title {
