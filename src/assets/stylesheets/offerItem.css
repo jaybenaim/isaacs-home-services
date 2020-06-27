@@ -61,7 +61,7 @@
 
   .what-we-offer-section .services .service-content .img-thumb {
     height: 200px;
-    min-width: 92%;
+    min-width: 90%;
     object-fit: cover;
     position: absolute;
   }
