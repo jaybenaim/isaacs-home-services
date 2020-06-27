@@ -74,7 +74,12 @@ const NavBar = (props) => {
             </div>
           </>
         )}
-        <i className="fa fa-phone"></i> <i className="fa fa-envelope"></i>{" "}
+        <a href="tel:6472295873">
+          <i className="fa fa-phone"></i>
+        </a>
+        <a href="mailto:isaac_palomi@outlook.com">
+          <i className="fa fa-envelope"></i>{" "}
+        </a>
         <button
           type="button"
           aria-label="Toggle navigation"
