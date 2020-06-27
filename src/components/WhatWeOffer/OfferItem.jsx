@@ -14,6 +14,8 @@ const OfferItem = (props) => {
         </div>
       </div>
       <div className="details">
+        <h5 className="title secondary-font">{service.title}</h5>
+
         <p className="service-short-description secondary-font">
           {service.shortDescription}
         </p>
