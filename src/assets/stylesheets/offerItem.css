@@ -1,35 +1,49 @@
 @media (min-width: 451px) {
   .what-we-offer-section .services {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2%;
+    grid-template-columns: 1fr;
   }
   .what-we-offer-section .services .service-content {
-    padding: 10%;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr !important;
+    position: relative;
   }
-  .what-we-offer-section .services .service-content .img-container {
-    grid-column: 1;
-  }
+
   .what-we-offer-section .services .service-content img {
-    width: 200px;
-    height: 200px;
+    min-width: 100%;
+    height: 600px;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .what-we-offer-section .services .even {
+    grid-column: 2 !important;
+  }
+  .what-we-offer-section .services .odd {
+    grid-column: 1;
+    position: absolute;
+
+    width: 50%;
   }
   .what-we-offer-section .services .details {
-    grid-column: 2;
-    width: 100%;
-    padding-left: 10%;
+    width: 50%;
+    height: 600px;
+    padding-left: 4%;
+    padding-top: 5%;
   }
 
   .what-we-offer-section .services .title {
-    font-size: 2.4em;
+    font-size: 4em;
     font-weight: 600;
     letter-spacing: 1.2px;
   }
   .what-we-offer-section .services .service-short-description {
-    font-size: 1.2em;
-    min-width: 200px;
+    font-size: 3em;
+    min-width: 660px;
+    color: #316b22 !important;
+    padding: 2%;
+    padding-right: 5%;
   }
   .what-we-offer-section .services .service-content .img-layover {
     display: none;
