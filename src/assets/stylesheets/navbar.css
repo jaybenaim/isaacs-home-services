@@ -87,6 +87,14 @@ nav a {
   #book-now-btn {
     grid-column: 3 / span 4;
   }
+  .fa {
+    font-size: 3em;
+    color: #316b22 !important;
+    margin-top: 3%;
+  }
+  .fa-phone {
+    font-size: 3.3em;
+  }
 }
 @media (min-width: 480px) {
   #main-nav {

@@ -17,7 +17,6 @@ const NavBar = (props) => {
         <Link className="navbar-brand primary-font-color" to="/">
           <span className="primary-font">Highly Handy</span>
         </Link>
-
         {window.innerWidth >= 450 && (
           <>
             <div className="desktop-nav-items">
@@ -75,7 +74,7 @@ const NavBar = (props) => {
             </div>
           </>
         )}
-
+        <i className="fa fa-phone"></i> <i className="fa fa-envelope"></i>{" "}
         <button
           type="button"
           aria-label="Toggle navigation"

@@ -24,6 +24,15 @@
 }
 @media (max-width: 450px) {
   .what-we-offer-section {
-    padding: 15% 4%;
+    padding: 4%;
+    background: none !important;
+  }
+  .what-we-offer-section h2 {
+    color: #316b22 !important;
+    border-bottom: 4px solid #316b22;
+  }
+  .inner-container {
+    background: none !important;
+    border: none !important;
   }
 }

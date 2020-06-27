@@ -7,6 +7,7 @@ const BookNow = () => {
       width="100%"
       height="900px"
       frameBorder="0"
+      title="setmore-booking"
     ></iframe>
   );
 };

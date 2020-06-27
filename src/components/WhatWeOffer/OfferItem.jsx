@@ -8,9 +8,12 @@ const OfferItem = (props) => {
     <div className="service-content">
       <div className="img-container">
         <img src={service.image} alt={service.title} className="img-thumb" />
+
+        <div className="img-layover">
+          <h5 className="secondary-font">{service.title}</h5>
+        </div>
       </div>
       <div className="details">
-        <h5 className="title secondary-font">{service.title}</h5>
         <p className="service-short-description secondary-font">
           {service.shortDescription}
         </p>
