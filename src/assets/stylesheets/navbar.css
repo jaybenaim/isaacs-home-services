@@ -30,7 +30,7 @@ nav a {
     height: 80px;
   }
   .mobile-nav-links {
-    background: rgba(255, 255, 255, 0.94);
+    background: rgb(255, 255, 255);
     position: fixed;
     z-index: 9999;
     width: 100%;
@@ -38,17 +38,23 @@ nav a {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     padding-left: 2%;
   }
+  .navbar-toggler:focus {
+    background: #316b22;
+    color: #fff !important;
+  }
 
   .nav-link {
     display: inline-block;
     margin: 0 auto;
+    margin-left: 5%;
+  }
+  .mobile-nav-links .nav-link:first-of-type {
+    margin-left: 15%;
   }
   .nav-link:active {
     background: transparent;
   }
-  .mobile-nav-links > a {
-    margin-left: 5%;
-  }
+
   .navbar-toggler {
     z-index: 99999;
   }
@@ -70,6 +76,7 @@ nav a {
   }
   #cta-email {
     grid-column: 3 / span 2;
+    margin: auto 0;
   }
   #account-toggle {
     position: fixed;
@@ -87,12 +94,13 @@ nav a {
   #book-now-btn {
     grid-column: 3 / span 4;
   }
-  .fa {
+  #nav-phone,
+  #nav-mail {
     font-size: 3em;
     color: #316b22 !important;
     margin-top: 30%;
   }
-  .fa-phone {
+  #nav-phone {
     font-size: 3.3em;
   }
 }

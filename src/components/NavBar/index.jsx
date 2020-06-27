@@ -75,10 +75,10 @@ const NavBar = (props) => {
           </>
         )}
         <a href="tel:6472295873">
-          <i className="fa fa-phone"></i>
+          <i className="fa fa-phone" id="nav-phone"></i>
         </a>
         <a href="mailto:isaac_palomi@outlook.com">
-          <i className="fa fa-envelope"></i>{" "}
+          <i className="fa fa-envelope" id="nav-mail"></i>{" "}
         </a>
         <button
           type="button"
