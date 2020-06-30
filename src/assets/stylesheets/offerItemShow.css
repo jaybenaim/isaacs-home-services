@@ -1,0 +1,40 @@
+@media (min-width: 480px) {
+  .offer-item-show-page {
+    display: grid;
+    grid-template-columns: 4fr 7fr 1fr;
+  }
+  .left-column {
+    grid-column: 1;
+    min-height: 100%;
+  }
+  .center-column {
+    grid-column: 2;
+    text-align: center;
+  }
+  .right-column {
+    grid-column: 3;
+  }
+  .left-column img {
+    object-fit: cover;
+    min-height: 100%;
+    margin-top: -1%;
+  }
+  .center-column p {
+    font-size: 2em;
+    padding: 4% 13%;
+  }
+  .center-column button {
+    height: 80px;
+    margin-right: 5%;
+    background: #28a730;
+    width: 200px;
+    font-size: 1.2em;
+  }
+  h1 {
+    font-size: 5em !important;
+    padding: 2% 0 1% 0;
+  }
+  h2 {
+    padding: 0 4%;
+  }
+}
