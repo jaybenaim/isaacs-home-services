@@ -84,7 +84,7 @@ nav a {
     top: 232px;
   }
   #book-now-btn {
-    grid-column: 3 / span 4;
+    grid-column: 1 / span 4;
   }
   #nav-phone,
   #nav-mail {
