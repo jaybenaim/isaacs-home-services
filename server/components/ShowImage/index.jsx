@@ -1,16 +1,33 @@
 import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 const ShowImage = (props) => {
   const {
     record: {
       id: recordId,
-      params: { image: recordImage, title: recordTitle },
+      params,
+      params: { title: recordTitle },
     },
+    property: { name },
   } = props;
+  const [image, setImage] = useState("");
+
+  const getImage = () => {
+    if (name === "beforeImage") {
+      setImage(params.beforeImage);
+    } else {
+      setImage(params.afterImage);
+    }
+  };
+  useEffect(() => {
+    getImage();
+  });
+
   return (
     <div style={{ display: "flex", flexDirection: "row" }}>
-      <p>Image</p>
+      <p>{name === "beforeImage" ? "Before Image" : "After Image"}</p>
       <img
-        src={recordImage}
+        src={image}
         alt={recordTitle}
         height="50px"
         width="50px"

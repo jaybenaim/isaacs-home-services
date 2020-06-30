@@ -5,6 +5,9 @@ const ServiceSchema = new Schema({
   firebaseID: {
     type: String,
   },
+  positionOnPage: {
+    type: Number,
+  },
   title: {
     type: String,
 
@@ -13,7 +16,8 @@ const ServiceSchema = new Schema({
   subTitle: {
     type: String,
   },
-  image: { type: String },
+  beforeImage: { type: String },
+  afterImage: { type: String },
   shortDescription: {
     type: String,
   },

@@ -103,7 +103,19 @@ const adminBro = new AdminBro({
           firebaseID: {
             isVisible: false,
           },
-          image: {
+          beforeImage: {
+            components: {
+              edit: AdminBro.bundle("../components/UploadImage/index.jsx"),
+              new: AdminBro.bundle("../components/UploadImage/index.jsx"),
+              show: AdminBro.bundle("../components/ShowImage/index.jsx"),
+            },
+            isVisible: {
+              list: false,
+              edit: true,
+              show: true,
+            },
+          },
+          afterImage: {
             components: {
               edit: AdminBro.bundle("../components/UploadImage/index.jsx"),
               new: AdminBro.bundle("../components/UploadImage/index.jsx"),
@@ -306,7 +318,8 @@ const convertData = (data) => {
   return {
     title: data.title,
     subTitle: data.subTitle,
-    image: data.image,
+    beforeImage: data.beforeImage,
+    afterImage: data.afterImage,
     shortDescription: data.shortDescription,
     details: serviceDetails,
   };

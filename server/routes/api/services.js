@@ -40,6 +40,7 @@ router.get("/", (req, res) => {
 
 router.post("/upload-image", (req, res, next) => {
   const recordId = req.query.recordId;
+  const name = req.query.name;
   const imageFile = req.files[0];
 
   cloudinary.uploader
@@ -47,7 +48,7 @@ router.post("/upload-image", (req, res, next) => {
     .then(async (imageData) => {
       await Service.findByIdAndUpdate(
         recordId,
-        { $set: { image: imageData.secure_url } },
+        { $set: { [name]: imageData.secure_url } },
         { new: true }
       )
         .then((response) => {

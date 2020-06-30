@@ -1,16 +1,21 @@
 import React, { useState } from "react";
 
 import backend from "../../../src/api/backend";
+import firebase from "../../../src/api/firebase";
 
 const UploadImage = (props) => {
   const {
     resource: { id: resourceId },
+    property: { name },
     record: {
       id: recordId,
-      params: { image: recordImage, title: recordTitle },
+      params,
+      params: { title: recordTitle },
     },
   } = props;
-  const [imageFile, setImageFile] = useState(recordImage);
+  const previousImage =
+    name === "beforeImage" ? params.beforeImage : params.afterImage;
+  const [imageFile, setImageFile] = useState(previousImage);
 
   const onChange = (e) => {
     const errs = [];
@@ -36,6 +41,12 @@ const UploadImage = (props) => {
       .then((res) => {
         console.log(res.data);
         setImageFile(res.data.secure_url);
+        firebase
+          .patch(`/services/${recordId}.json`, {
+            [name]: res.data.secure_url,
+          })
+          .then((response) => console.log("saved in firebase"))
+          .catch((err) => console.log("Failed to save in firebase"));
         window.location.href = window.location.href;
       })
       .catch((err) => {
@@ -43,25 +54,35 @@ const UploadImage = (props) => {
       });
   };
   const saveImageInMongo = async (image, recordId) => {
-    return await backend.post(
-      `/services/upload-image?recordId=${recordId}`,
-      image,
-      {
-        "content-type": "multipart/form-data",
-      }
-    );
+    if (name === "beforeImage") {
+      return await backend.post(
+        `/services/upload-image?recordId=${recordId}&name=${name}`,
+        image,
+        {
+          "content-type": "multipart/form-data",
+        }
+      );
+    }
+    if (name === "afterImage") {
+      return await backend.post(
+        `/services/upload-image?recordId=${recordId}&name=${name}`,
+        image,
+        {
+          "content-type": "multipart/form-data",
+        }
+      );
+    }
   };
-
   return (
     <div
       style={{ padding: "2% 0 4% 0", display: "flex", flexDirection: "row" }}
     >
       <input type="file" name="imageUpload" onChange={onChange} />
-      {recordImage ? (
+      {previousImage ? (
         <>
           <div>Current Image: </div>
           <img
-            src={imageFile}
+            src={!imageFile ? previousImage : imageFile}
             alt={recordTitle}
             height="50px"
             width="50px"
