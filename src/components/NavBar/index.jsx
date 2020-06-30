@@ -10,6 +10,7 @@ import { useState } from "react";
 const NavBar = (props) => {
   const { isAuthenticated } = props.auth;
   const [showDropdown, setShowDropdown] = useState(false);
+  const [hideServiceDropdown, toggleServiceDropdown] = useState(true);
 
   const serviceLinks = () => {
     const { services } = props;
@@ -17,6 +18,10 @@ const NavBar = (props) => {
       <Link
         key={i}
         className="nav-item nav-link  primary-font-color "
+        onClick={() => {
+          setShowDropdown(!showDropdown);
+          toggleServiceDropdown(false);
+        }}
         to={{ pathname: `/services/${service.title}`, state: { service } }}
       >
         {service.title}
@@ -124,6 +129,19 @@ const NavBar = (props) => {
                 >
                   Home
                 </Link>
+                <Dropdown className="nav-item nav-link ">
+                  <Dropdown.Toggle
+                    id="navbar-toggle-services"
+                    className="primary-font-color"
+                  >
+                    Services
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <div id="services-dropdown">
+                      {hideServiceDropdown && serviceLinks()}
+                    </div>
+                  </Dropdown.Menu>
+                </Dropdown>
                 <Link
                   className="nav-item nav-link primary-font-color "
                   to="/calendar"

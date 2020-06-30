@@ -31,7 +31,7 @@ const App = (props) => {
     props.getData();
 
     !window.location.href.includes("local") && props.refreshData();
-    props.refreshData();
+    // props.refreshData();
     props.loginUser();
     // use to keep data synced in production
     // eslint-disable-next-line
