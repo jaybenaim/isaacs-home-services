@@ -10,7 +10,6 @@ import { useState } from "react";
 const NavBar = (props) => {
   const { isAuthenticated } = props.auth;
   const [showDropdown, setShowDropdown] = useState(false);
-  const [hideServiceDropdown, toggleServiceDropdown] = useState(true);
 
   const serviceLinks = () => {
     const { services } = props;

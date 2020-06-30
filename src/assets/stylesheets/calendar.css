@@ -1,9 +1,14 @@
-.calender {
+.client-calender {
   padding-bottom: 20%;
 }
-.calender h1 {
-  text-align: center;
-  padding: 4% 0;
+.client-calender #calender {
+  padding: 4%;
+}
+.client-calender h1 {
+  position: relative !important;
+  top: 120px !important;
+  text-align: center !important;
+  padding: 4%;
 }
 .rbc-calender {
   padding: 2%;
@@ -14,7 +19,19 @@
 .rbc-btn-group {
   padding: 2%;
 }
-
 .rbc-toolbar-label {
   color: #316b22;
+  font-size: 2em;
+  text-align: left;
+}
+@media (max-width: 480px) {
+  .client-calender {
+    margin-top: 162px;
+  }
+  .client-calender h1 {
+    padding-top: 0;
+  }
+  .client-calender #calender {
+    margin-top: 20%;
+  }
 }

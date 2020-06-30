@@ -43,7 +43,7 @@ const MyCalendar = (props) => {
     setConfirmed(true);
   };
   return (
-    <div className="calender">
+    <div id="calender">
       <Calendar
         localizer={localizer}
         events={events}

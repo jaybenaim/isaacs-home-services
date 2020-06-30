@@ -9,7 +9,7 @@ import "../../assets/stylesheets/calendar.css";
 
 const ClientCalendar = () => {
   return (
-    <div className="calender">
+    <div className="client-calender">
       <h1 className="primary-font">Availability</h1>
       <MyCalendar />
       <ContactInfo />
