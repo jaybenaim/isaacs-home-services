@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../../assets/stylesheets/offerItem.css";
 import lawn1 from "../../assets/img/lawn1.jpg";
 import CompareSlider from "../../components/SimpleSlider/CompareSlider";
@@ -20,7 +21,11 @@ const OfferItem = (props) => {
         <img src={afterImage} alt={service.title} className="img-thumb" />
 
         <div className="img-layover">
-          <h5 className="secondary-font">{service.title}</h5>
+          <Link
+            to={{ pathname: `/services/${service.title}`, state: { service } }}
+          >
+            <h5 className="secondary-font">{service.title}</h5>
+          </Link>
         </div>
       </div>
       <div className={gridClass.details}>

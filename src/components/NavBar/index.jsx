@@ -18,10 +18,7 @@ const NavBar = (props) => {
       <Link
         key={i}
         className="nav-item nav-link  primary-font-color "
-        onClick={() => {
-          setShowDropdown(!showDropdown);
-          toggleServiceDropdown(false);
-        }}
+        onClick={() => setShowDropdown(!showDropdown)}
         to={{ pathname: `/services/${service.title}`, state: { service } }}
       >
         {service.title}
@@ -137,9 +134,7 @@ const NavBar = (props) => {
                     Services
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <div id="services-dropdown">
-                      {hideServiceDropdown && serviceLinks()}
-                    </div>
+                    <div id="services-dropdown">{serviceLinks()}</div>
                   </Dropdown.Menu>
                 </Dropdown>
                 <Link
