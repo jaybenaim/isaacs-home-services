@@ -10,12 +10,14 @@ const OfferItem = (props) => {
     imgContainer: `img-container ${position % 2 === 0 ? "even" : "odd"}`,
     details: `details ${(position + 1) % 2 === 0 ? "even" : "odd"}`,
   };
+  const beforeImage = !service.beforeImage ? lawn1 : service.beforeImage;
+  const afterImage = !service.afterImage ? lawn1 : service.afterImage;
   return (
     <div className="service-content">
       <div className={gridClass.imgContainer}>
-        <CompareSlider leftImage={service.image} rightImage={lawn1} />
+        <CompareSlider leftImage={beforeImage} rightImage={afterImage} />
 
-        <img src={service.image} alt={service.title} className="img-thumb" />
+        <img src={afterImage} alt={service.title} className="img-thumb" />
 
         <div className="img-layover">
           <h5 className="secondary-font">{service.title}</h5>
