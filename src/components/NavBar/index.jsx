@@ -11,6 +11,18 @@ const NavBar = (props) => {
   const { isAuthenticated } = props.auth;
   const [showDropdown, setShowDropdown] = useState(false);
 
+  const serviceLinks = () => {
+    const { services } = props;
+    return services.map((service, i) => (
+      <Link
+        key={i}
+        className="nav-item nav-link  primary-font-color "
+        to={{ pathname: `/services/${service.title}`, state: { service } }}
+      >
+        {service.title}
+      </Link>
+    ));
+  };
   return (
     <React.Fragment>
       <Navbar bg="light" expand="lg" id="main-nav">
@@ -43,6 +55,17 @@ const NavBar = (props) => {
               >
                 Home
               </Link>
+              <Dropdown className="nav-item nav-link ">
+                <Dropdown.Toggle
+                  id="navbar-toggle-services"
+                  className="primary-font-color"
+                >
+                  Services
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <div id="services-dropdown">{serviceLinks()}</div>
+                </Dropdown.Menu>
+              </Dropdown>
               <Link
                 className="nav-item nav-link active primary-font-color "
                 to="/calendar"
@@ -160,6 +183,6 @@ const NavBar = (props) => {
   );
 };
 const mapStateToProps = (state) => {
-  return { auth: state.auth };
+  return { auth: state.auth, services: state.data.services };
 };
 export default connect(mapStateToProps, {})(NavBar);

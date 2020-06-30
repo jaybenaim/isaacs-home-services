@@ -1,4 +1,4 @@
-﻿import React from "react";
+﻿import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/NavBar";
@@ -13,20 +13,36 @@ import BookNow from "./components/BookNow/BookNow";
 import ClientCalendar from "./components/ClientCalendar/ClientCalendar";
 
 import { connect } from "react-redux";
+import { getData, refreshData } from "./redux/actions/dataActions";
+import { loginUser } from "./redux/actions/authActions";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import WhatWeOffer from "./components/WhatWeOffer/WhatWeOffer";
+import OfferItemShow from "./components/WhatWeOffer/OfferItemShow";
 
 //TODO Web Template Studio: Add routes for your new pages here.
-const App = ({
-  auth: {
-    user: { role },
-  },
-}) => {
+const App = (props) => {
+  const {
+    auth: {
+      user: { role },
+    },
+  } = props;
+
+  useEffect(() => {
+    props.getData();
+
+    !window.location.href.includes("local") && props.refreshData();
+    // props.refreshData();
+    props.loginUser();
+    // use to keep data synced in production
+    // eslint-disable-next-line
+  }, []);
   return (
     <React.Fragment>
       <NavBar />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/services" component={Home} />
+        <Route exact path="/services" component={WhatWeOffer} />
+        <Route exact path="/services/:title" component={OfferItemShow} />
 
         <ProtectedRoute path="/admin" role={role}>
           <Route exact path="/admin" render={(props) => <Admin {...props} />} />
@@ -51,4 +67,6 @@ const mapStateToProps = (state) => {
   return state;
 };
 
-export default connect(mapStateToProps, {})(App);
+export default connect(mapStateToProps, { getData, refreshData, loginUser })(
+  App
+);

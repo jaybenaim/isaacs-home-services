@@ -117,4 +117,14 @@ nav a {
   #nav-mail {
     display: none;
   }
+  #services-dropdown {
+    display: flex !important;
+    left: 20% !important;
+    position: fixed !important;
+    top: 110px !important;
+    background: rgba(255, 255, 255, 0.85);
+  }
+  #services-dropdown .nav-link {
+    flex: auto;
+  }
 }
