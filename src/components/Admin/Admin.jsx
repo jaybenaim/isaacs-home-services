@@ -120,7 +120,7 @@ const Admin = (props) => {
               height={"200px"}
               width={"200px"}
               className="hero-preview-image"
-              style={{ marginLeft: "70%", position: "relative", top: "-53px" }}
+              style={{ marginLeft: "70%", position: "relative", top: "-87px" }}
             />
           </div>
         );
@@ -137,20 +137,18 @@ const Admin = (props) => {
       <button
         className="btn btn-outline-primary"
         onClick={() => setEditHeroes(!editHeroes)}
-        style={{ marginTop: "40px" }}
       >
         {" "}
-        Edit Top Intro Images for Desktop{" "}
+        Home Page Images{" "}
       </button>
       <button
         className="btn btn-outline-primary"
         onClick={() => setShowCalender(!showCalender)}
-        style={{ marginTop: "40px" }}
       >
         {" "}
         {showCalender ? "Hide" : "Show"} Calender{" "}
       </button>
-      <button className="btn btn-outline-primary" style={{ marginTop: "40px" }}>
+      <button className="btn btn-outline-primary">
         <a
           href="https://isaacs-home-services.herokuapp.com/admin"
           target="_blank"
@@ -167,7 +165,9 @@ const Admin = (props) => {
             src={imageAsUrl.imgUrl}
             alt={imageAsFile.name !== "" ? imageAsFile.name : "No image chosen"}
           />
-          {props.currentImages.length >= 4 && <div>Max 4 images </div>}
+          {props.currentImages.length >= 4 && (
+            <div>Max 4 images, Delete an image to add a new image. </div>
+          )}
 
           {props.currentImages.length <= 3 && (
             <form onSubmit={handleFireBaseUpload}>
