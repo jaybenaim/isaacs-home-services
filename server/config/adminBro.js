@@ -6,7 +6,7 @@ const { database } = require("firebase");
 
 const User = require("../models/User");
 const Service = require("../models/Service");
-const Hero = require("../models/Hero");
+const HomeImage = require("../models/HomeImage");
 const Event = require("../models/Event");
 
 AdminBro.registerAdapter(require("admin-bro-mongoose"));
@@ -24,10 +24,17 @@ const adminBro = new AdminBro({
   },
   resources: [
     {
-      resource: Hero,
+      resource: HomeImage,
       options: {
         properties: {
           src: {
+            isVisible: {
+              list: false,
+              show: true,
+              edit: true,
+            },
+          },
+          alt: {
             isVisible: {
               list: false,
               show: true,

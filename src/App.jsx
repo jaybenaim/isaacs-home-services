@@ -28,6 +28,7 @@ const App = (props) => {
   } = props;
 
   useEffect(() => {
+    // Refresh services
     props.getData();
 
     !window.location.href.includes("local") && props.refreshData();

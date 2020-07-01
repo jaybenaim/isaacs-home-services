@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const HeroSchema = new Schema({
+const HomeImages = new Schema({
   src: {
     type: String,
   },
@@ -16,4 +16,4 @@ const HeroSchema = new Schema({
   },
 });
 
-module.exports = Hero = mongoose.model("heros", HeroSchema);
+module.exports = HomeImage = mongoose.model("homeImages", HomeImages);
