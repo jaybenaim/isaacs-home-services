@@ -409,7 +409,7 @@ const refreshData = async () => {
 };
 const refreshEvents = async () => {
   return await axios.get(
-    "https://isaacs-home-services.herokuapp.com/api/events?refresh=true"
+    "htts://isaacs-home-services.herokuapp.com/api/events?refresh=true"
   );
 };
 module.exports = adminBro;
