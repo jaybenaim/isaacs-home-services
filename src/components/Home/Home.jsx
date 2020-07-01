@@ -7,7 +7,7 @@ import { refreshData, getData } from "../../redux/actions/dataActions";
 import { loginUser } from "../../redux/actions/authActions";
 
 import Hero from "../Hero/Hero";
-import WhatWeOffer from "../WhatWeOffer/WhatWeOffer";
+import Services from "../Services/Services";
 import ContactInfo from "../ContactInfo/ContactInfo";
 
 import "../../assets/stylesheets/home.css";
@@ -30,7 +30,7 @@ const Home = (props) => {
           <h1 className="primary-font ">Highly Handy</h1>
 
           <Hero />
-          <WhatWeOffer />
+          <Services />
           <ContactInfo />
         </div>
       </div>

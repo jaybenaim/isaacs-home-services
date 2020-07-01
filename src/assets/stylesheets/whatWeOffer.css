@@ -1,9 +1,9 @@
-.what-we-offer-section .inner-container {
+.services-section .inner-container {
   width: 100%;
   min-height: 1200px;
   margin: 0 auto;
 }
-.what-we-offer-section h2 {
+.services-section h2 {
   font-weight: 500;
   font-size: 6em;
   text-align: center;
@@ -16,12 +16,12 @@
   letter-spacing: 2px;
 }
 @media (max-width: 450px) {
-  .what-we-offer-section {
+  .services-section {
     background: none !important;
     width: 100%;
     padding: 0 5%;
   }
-  .what-we-offer-section h2 {
+  .services-section h2 {
     color: #316b22 !important;
     font-size: 4em;
   }

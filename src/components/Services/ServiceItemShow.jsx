@@ -31,6 +31,7 @@ const OfferItemShow = (props) => {
         <h1 className="primary-font">{title}</h1>
         <h2 className="secondary-font primary-font-color">{heading}</h2>
         <p className="secondary-font">{description}</p>
+
         <Button variant="info">
           <a href="tel:6472295873">Book A Quote</a>
         </Button>

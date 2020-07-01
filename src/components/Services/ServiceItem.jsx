@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../assets/stylesheets/offerItem.css";
 import lawn1 from "../../assets/img/lawn1.jpg";
-import CompareSlider from "../../components/SimpleSlider/CompareSlider";
+import CompareSlider from "../SimpleSlider/CompareSlider";
+import { Button } from "react-bootstrap";
 
 const OfferItem = (props) => {
   let { service, position } = props;
@@ -16,7 +17,11 @@ const OfferItem = (props) => {
   return (
     <div className="service-content">
       <div className={gridClass.imgContainer}>
-        <CompareSlider leftImage={beforeImage} rightImage={afterImage} />
+        <CompareSlider
+          leftImage={beforeImage}
+          rightImage={afterImage}
+          hover={true}
+        />
 
         <img src={afterImage} alt={service.title} className="img-thumb" />
 
@@ -33,6 +38,14 @@ const OfferItem = (props) => {
 
         <p className="service-short-description secondary-font">
           {service.shortDescription}
+          <div className="service-buttons">
+            <Button variant="outline-secondary">
+              <a href="tel:6472295873">Get a Free Quote</a>
+            </Button>
+            <Button variant="outline-secondary">
+              <Link to="/book">Book Now</Link>
+            </Button>
+          </div>
         </p>
       </div>
     </div>

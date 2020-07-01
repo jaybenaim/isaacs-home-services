@@ -16,8 +16,8 @@ import { connect } from "react-redux";
 import { getData, refreshData } from "./redux/actions/dataActions";
 import { loginUser } from "./redux/actions/authActions";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
-import WhatWeOffer from "./components/WhatWeOffer/WhatWeOffer";
-import OfferItemShow from "./components/WhatWeOffer/OfferItemShow";
+import Services from "./components/Services/Services";
+import OfferItemShow from "./components/Services/ServiceItemShow";
 
 //TODO Web Template Studio: Add routes for your new pages here.
 const App = (props) => {
@@ -42,7 +42,7 @@ const App = (props) => {
       <NavBar />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/services" component={WhatWeOffer} />
+        <Route exact path="/services" component={Services} />
         <Route exact path="/services/:title" component={OfferItemShow} />
 
         <ProtectedRoute path="/admin" role={role}>
