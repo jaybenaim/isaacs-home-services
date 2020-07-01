@@ -7,6 +7,7 @@
   font-size: 0.9em !important;
   box-shadow: none !important;
   font-family: Arial, sans-serif !important;
+  text-transform: capitalize;
 }
 nav {
   background: rgba(255, 255, 255, 0.65);

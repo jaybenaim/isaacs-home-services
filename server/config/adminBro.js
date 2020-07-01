@@ -7,6 +7,7 @@ const { database } = require("firebase");
 const User = require("../models/User");
 const Service = require("../models/Service");
 const Hero = require("../models/Hero");
+const Event = require("../models/Event");
 
 AdminBro.registerAdapter(require("admin-bro-mongoose"));
 
@@ -18,6 +19,8 @@ const adminBro = new AdminBro({
   },
   branding: {
     companyName: "Network King",
+    companyName: "Network King",
+    softwareBrothers: false,
   },
   resources: [
     {
@@ -86,6 +89,80 @@ const adminBro = new AdminBro({
               await refreshData()
                 .then((res) => {
                   console.log(res.data, "items refreshed");
+                })
+                // catch firebase error
+                .catch((err) => console.log(err));
+
+              return request;
+            },
+          },
+        },
+      },
+    },
+    {
+      resource: Event,
+      options: {
+        properties: {
+          start: {
+            isVisible: {
+              list: true,
+              edit: true,
+              show: true,
+            },
+          },
+          end: {
+            isVisible: {
+              list: false,
+              edit: true,
+              show: true,
+            },
+          },
+        },
+        actions: {
+          new: {
+            before: async (request) => {
+              let data = request.payload;
+              // create service in firebase db
+              console.log(data);
+              data.start = new Date(data.start);
+              data.end = new Date(!data.end ? data.start : data.end);
+              await axios
+                .post(
+                  "https://network-king-5740f.firebaseio.com/events.json",
+                  data
+                )
+                .then((res) => {
+                  // set firebase id in service schema
+                  data.firebaseId = res.data.name;
+                })
+                .catch((err) => console.log(err));
+              return request;
+            },
+          },
+          edit: {
+            after: async (request) => {
+              await refreshEvents()
+                .then((res) => {})
+                .catch((err) => console.log(err));
+              return request;
+            },
+          },
+          delete: {
+            after: async (request) => {
+              await refreshEvents()
+                .then((res) => {
+                  console.log(res.data, "Events refreshed");
+                })
+                // catch firebase error
+                .catch((err) => console.log(err));
+              return request;
+            },
+          },
+          bulkDelete: {
+            after: async (request) => {
+              await refreshEvents()
+                .then((res) => {
+                  console.log(res.data, "Events refreshed");
                 })
                 // catch firebase error
                 .catch((err) => console.log(err));
@@ -307,6 +384,7 @@ const adminBro = new AdminBro({
 
   rootPath: "/admin",
 });
+
 const convertData = (data) => {
   let serviceDetails = {
     heading: data["details.heading"],
@@ -327,6 +405,11 @@ const convertData = (data) => {
 const refreshData = async () => {
   return await axios.get(
     `https://isaacs-home-services.herokuapp.com/api/heroes?refresh=true`
+  );
+};
+const refreshEvents = async () => {
+  return await axios.get(
+    "https://isaacs-home-services.herokuapp.com/api/events?refresh=true"
   );
 };
 module.exports = adminBro;
