@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { storage } from "../../firebase/firebase";
 import backend from "../../api/backend";
-import firebase from "../../api/firebase";
 import { connect } from "react-redux";
 import { getHeroes } from "../../redux/actions/heroActions";
-import { useHistory } from "react-router";
 
 import "../../assets/stylesheets/admin.css";
 import AdminCalendar from "./AdminCalendar/AdminCalendar";
+import CurrentImage from "./CurrentImage";
 
 const Admin = (props) => {
-  const history = useHistory();
-
   const allInputs = { imgUrl: "" };
   const [imageAsFile, setImageAsFile] = useState("");
   const [imageAsUrl, setImageAsUrl] = useState(allInputs);
@@ -78,52 +75,13 @@ const Admin = (props) => {
       }
     );
   };
-  const deleteImage = (id) => {
-    firebase
-      .delete(`/heroes/${id}.json`)
-      .then((res) => {
-        history.go();
-        console.log("deleted item ");
-      })
-      .catch((err) => console.log(err));
-  };
+
   const currentImageElements = () => {
     const { currentImages } = props;
     return (
       currentImages.length >= 1 &&
       currentImages.map((ci, i) => {
-        return (
-          <div key={i} style={{ border: "2px solid #000", padding: "4%" }}>
-            <strong>Image {i + 1}</strong>
-            <p>Title: {ci.innerTitle}</p>
-            <p>Details: {ci.innerDetails}</p>
-            <p>
-              <a
-                href={`https://isaacs-home-services.herokuapp.com/admin/resources/heros/`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-warning"
-              >
-                Edit
-              </a>
-            </p>
-
-            <button
-              className="btn btn-danger"
-              onClick={(e) => deleteImage(ci.firebaseId)}
-            >
-              Delete
-            </button>
-            <img
-              src={ci.src}
-              alt={ci.alt}
-              height={"200px"}
-              width={"200px"}
-              className="hero-preview-image"
-              style={{ marginLeft: "70%", position: "relative", top: "-87px" }}
-            />
-          </div>
-        );
+        return <CurrentImage key={i} currentImage={ci} imageNum={i} />;
       })
     );
   };
