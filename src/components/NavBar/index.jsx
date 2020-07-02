@@ -38,7 +38,10 @@ const NavBar = (props) => {
                 href="tel:6472295873"
                 onClick={() => setShowDropdown(!showDropdown)}
               >
-                <i className="fa fa-phone" style={{ fontSize: "1.4em" }}></i>{" "}
+                <i
+                  className="fa fa-phone"
+                  style={{ fontSize: "1.4em", marginRight: "5px" }}
+                ></i>{" "}
                 647-229-5873
               </a>
               <a
@@ -46,7 +49,10 @@ const NavBar = (props) => {
                 href="mailto:isaac_palomi@outlook.com"
                 onClick={() => setShowDropdown(!showDropdown)}
               >
-                <i className="fa fa-envelope" style={{ fontSize: "1.4em" }}></i>{" "}
+                <i
+                  className="fa fa-envelope"
+                  style={{ fontSize: "1.4em", marginRight: "5px" }}
+                ></i>{" "}
                 Email
               </a>
               <Link

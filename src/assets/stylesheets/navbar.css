@@ -103,8 +103,6 @@ nav a {
     top: 129px !important;
     left: 0;
     padding: 0% 2%;
-    /* max-width: 100%; */
-    /* overflow: hidden; */
     background: rgba(255, 255, 255, 0.9);
   }
   #services-dropdown .nav-link {
@@ -125,6 +123,7 @@ nav a {
   #nav-mail {
     display: none;
   }
+
   #services-dropdown {
     display: flex !important;
     left: 20% !important;
