@@ -24,18 +24,7 @@ const ContactInfo = () => {
             key={i}
             style={{ height: "400px", width: "400px" }}
           />
-          <p
-            className="primary-font-color title carousel-caption"
-            style={{
-              marginTop: "40px",
-              position: "absolute",
-              top: "50%",
-              margin: "50% auto",
-              fontSize: "1.4em",
-            }}
-          >
-            {title}
-          </p>
+          <p className="primary-font-color title carousel-caption">{title}</p>
         </div>
       );
     });
