@@ -1,6 +1,6 @@
 #mainContent h1 {
   font-size: 10em !important;
-  z-index: 999;
+  z-index: -1;
   margin-top: 11%;
   position: absolute;
   color: transparent !important;
