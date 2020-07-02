@@ -1,4 +1,5 @@
 ﻿import React from "react";
+import { Link } from "react-router-dom";
 import "./footer.css";
 
 const Footer = () => {
@@ -12,6 +13,17 @@ const Footer = () => {
             <span className="phone-number">
               <a href="tel:6472295873">647-229-5873</a>
             </span>
+          </p>
+          <p>
+            <Link
+              to="/privacy-policy"
+              style={{ marginRight: "10px", color: "#fff" }}
+            >
+              Privacy Policy
+            </Link>
+            <Link to="/terms-and-conditions" style={{ color: "#fff" }}>
+              Terms and Conditions
+            </Link>
           </p>
         </div>
       </div>

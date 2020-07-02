@@ -18,6 +18,8 @@ import { loginUser } from "./redux/actions/authActions";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Services from "./components/Services/Services";
 import OfferItemShow from "./components/Services/ServiceItemShow";
+import PrivacyPolicy from "./components/Policies/PrivacyPolicy/PrivacyPolicy";
+import TermsAndConditions from "./components/Policies/TermsAndConditions/TermsAndConditions";
 
 //TODO Web Template Studio: Add routes for your new pages here.
 const App = (props) => {
@@ -57,6 +59,12 @@ const App = (props) => {
           render={(props) => <Register {...props} />}
         />
         <Route exact path="/login" render={(props) => <Login {...props} />} />
+        <Route exact path="/privacy-policy" component={PrivacyPolicy} />
+        <Route
+          exact
+          path="/terms-and-conditions"
+          component={TermsAndConditions}
+        />
         <Route exact path="/404" render={(props) => <ErrorPage {...props} />} />
       </Switch>
       <Footer />
