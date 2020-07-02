@@ -24,18 +24,7 @@ const ContactInfo = () => {
             key={i}
             style={{ height: "400px", width: "400px" }}
           />
-          <p
-            className="primary-font-color title carousel-caption"
-            style={{
-              marginTop: "40px",
-              position: "absolute",
-              top: "50%",
-              margin: "50% auto",
-              fontSize: "1.4em",
-            }}
-          >
-            {title}
-          </p>
+          <p className="primary-font-color title carousel-caption">{title}</p>
         </div>
       );
     });
@@ -56,7 +45,10 @@ const ContactInfo = () => {
         </div>
         <div className="contact-slider">
           {/* Slider with previous jobs */}
-          <h3 className="primary-font-color secondary-font">
+          <h3
+            className="primary-font-color secondary-font"
+            style={{ marginTop: "-13%" }}
+          >
             Previous Projects
           </h3>
           <SimpleSlider settings={slickSettings} elements={slickElements} />

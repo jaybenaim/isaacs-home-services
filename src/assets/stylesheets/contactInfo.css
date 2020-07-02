@@ -1,5 +1,4 @@
 .contact-info-section {
-  min-height: 600px;
   background: linear-gradient(rgba(255, 255, 255, 0.8), 37%, #0a770e61);
   width: 100%;
   display: grid;
@@ -26,7 +25,7 @@
 .contact-info-section .contact-info {
   grid-column: 1 / span 5;
   grid-row: 2;
-  margin: 0 auto;
+  margin: -8% auto;
   text-align: center;
   font-size: 1.4em;
 }
@@ -59,7 +58,21 @@
 .slick-dots li button:before {
   font-size: 20px;
 }
+@media (min-width: 480px) {
+  .contact-info-section {
+    max-height: 1100px;
+  }
+  .contact-info-section .slider-image-container p {
+    position: absolute;
+    top: 50%;
+    margin: 50% auto !important;
+    font-size: 1.4em;
+  }
+}
 @media (max-width: 450px) {
+  .contact-info-section {
+    min-height: 600px;
+  }
   .contact-info-section .inner-content {
     display: grid;
     grid-template-columns: 1fr;
@@ -84,8 +97,14 @@
     font-size: 1.6em;
   }
   .contact-info-section .slider-image-container img {
-    margin: 0 auto;
-    width: 100%;
+    margin: 0 auto !important;
+    height: 200px !important;
+    margin-left: -19px !important;
+  }
+  .contact-info-section .slider-image-container p {
+    top: 108%;
+    left: 8%;
+    font-size: 1.3em;
   }
 }
 .contact-info-section .slider-image-container {
