@@ -7,21 +7,28 @@ const Footer = () => {
     <footer>
       <div className="container-fluid">
         <h5 className="title">Isaac's Home Services</h5>
-        <div className="description">
+        <div className="description" style={{ paddingBottom: "0" }}>
           <p className="text secondary-font">
             TEXT OR CALL FOR A FREE QUOTE{" "}
             <span className="phone-number">
               <a href="tel:6472295873">647-229-5873</a>
             </span>
           </p>
-          <p>
+          <p style={{ marginBottom: "0" }}>
             <Link
               to="/privacy-policy"
-              style={{ marginRight: "10px", color: "#fff" }}
+              style={{
+                marginRight: "10px",
+                marginBottom: "0",
+                color: "#fff",
+              }}
             >
               Privacy Policy
             </Link>
-            <Link to="/terms-and-conditions" style={{ color: "#fff" }}>
+            <Link
+              to="/terms-and-conditions"
+              style={{ color: "#fff", marginBottom: "0" }}
+            >
               Terms and Conditions
             </Link>
           </p>
