@@ -9,9 +9,11 @@ const Footer = () => {
         <h5 className="title">Isaac's Home Services</h5>
         <div className="description" style={{ paddingBottom: "0" }}>
           <p className="text secondary-font">
-            TEXT OR CALL FOR A FREE QUOTE{" "}
+            TEXT OR CALL FOR A FREE QUOTE <br />
             <span className="phone-number">
-              <a href="tel:6472295873">647-229-5873</a>
+              <a href="tel:6472295873" style={{ fontSize: "2.2em" }}>
+                647-229-5873
+              </a>
             </span>
           </p>
           <p style={{ marginBottom: "0" }}>
@@ -25,6 +27,7 @@ const Footer = () => {
             >
               Privacy Policy
             </Link>
+            <br />
             <Link
               to="/terms-and-conditions"
               style={{ color: "#fff", marginBottom: "0" }}
@@ -53,6 +56,7 @@ const Footer = () => {
             href="https://www.facebook.com/highlyhandyLawnCare"
             target="_blank"
             rel="noopener noreferrer"
+            id="footer-facebook-link"
           >
             <i className="fa fa-facebook-f"></i>
             <span className="link-text">Highly Handy Lawn Care</span>
@@ -61,11 +65,12 @@ const Footer = () => {
         <li>
           <a
             className="footer-link creator-link"
+            id="creator-link"
             href="https://jacobbenaim.ca/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span className="link-text ">Website Made by Jacob Benaim ©</span>
+            <span className="">Website Made by Jacob Benaim ©</span>
           </a>
         </li>
       </ul>

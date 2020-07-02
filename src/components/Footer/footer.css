@@ -43,13 +43,43 @@ footer .link-text:first-of-type {
 
 @media (max-width: 450px) {
   footer {
-    min-height: 240px;
+    min-height: 253px;
   }
-  .list-unstyled {
-    margin-top: 25%;
-    margin-left: -50%;
+
+  .footer-link .fa {
+    max-width: 100%;
+    font-size: 3em;
+    margin-left: 75%;
+  }
+  .link-text {
+    display: none;
+  }
+  footer .footer-link span:last-of-type {
+    margin-top: 20%;
+    margin-left: 30%;
+    width: 338px;
+  }
+  #footer-facebook-link {
+    margin-top: 23%;
+    margin-left: 10%;
+  }
+  #creator-link {
+    display: list-item !important;
+    margin-left: -169%;
+    margin-top: 22%;
   }
   .list-unstyled li:nth-child(-n + 2) {
     margin-left: -40%;
+  }
+  .footer .phone-number {
+    font-size: 1.2em;
+  }
+}
+@media (min-width: 480px) {
+  footer {
+    height: 240px;
+  }
+  .footer .phone-number {
+    font-size: 1.2em;
   }
 }
