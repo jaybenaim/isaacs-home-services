@@ -11,7 +11,7 @@ import {
 const images = [
   {
     src: detaching1,
-    title: "Detaching",
+    title: "Dethatching",
   },
   {
     src: lawn1,
@@ -41,7 +41,7 @@ const images = [
 
   {
     src: detaching2,
-    title: "Gardening",
+    title: "Dethatching",
   },
 ];
 export default images;

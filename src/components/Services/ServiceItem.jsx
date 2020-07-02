@@ -36,7 +36,7 @@ const OfferItem = (props) => {
       <div className={gridClass.details}>
         <h5 className="title secondary-font">{service.title}</h5>
 
-        <p className="service-short-description secondary-font">
+        <div className="service-short-description secondary-font">
           {service.shortDescription}
           <div className="service-buttons">
             <Button variant="outline-secondary">
@@ -46,7 +46,7 @@ const OfferItem = (props) => {
               <Link to="/book">Book Now</Link>
             </Button>
           </div>
-        </p>
+        </div>
       </div>
     </div>
   );

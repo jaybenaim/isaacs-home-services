@@ -4,6 +4,7 @@ import { slickSettings } from "./contactSlickSettings";
 import images from "./slickElements";
 
 import "../../assets/stylesheets/contactInfo.css";
+import BootstrapSlider from "../SimpleSlider/BootstrapSlider";
 import SimpleSlider from "../SimpleSlider/SimpleSlider";
 
 const ContactInfo = () => {
@@ -11,9 +12,30 @@ const ContactInfo = () => {
     return images.map((image, i) => {
       const { title, src } = image;
       return (
-        <div key={i} className="slider-image-container ">
-          <img src={src} alt={title} className="contact-slider-img" key={i} />
-          <p className="primary-font-color title">{title}</p>
+        <div
+          key={i}
+          className="slider-image-container carousel-item"
+          style={{ height: "100%" }}
+        >
+          <img
+            src={src}
+            alt={title}
+            className="contact-slider-img"
+            key={i}
+            style={{ height: "400px", width: "400px" }}
+          />
+          <p
+            className="primary-font-color title carousel-caption"
+            style={{
+              marginTop: "40px",
+              position: "absolute",
+              top: "50%",
+              margin: "50% auto",
+              fontSize: "1.4em",
+            }}
+          >
+            {title}
+          </p>
         </div>
       );
     });

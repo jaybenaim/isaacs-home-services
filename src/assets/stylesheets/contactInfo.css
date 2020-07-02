@@ -49,7 +49,16 @@
   width: 200px;
   object-fit: cover;
 }
-
+.slick-dots {
+  font-size: 4em !important;
+  top: 480px !important;
+}
+.slick-dots li {
+  margin: 0 15px;
+}
+.slick-dots li button:before {
+  font-size: 20px;
+}
 @media (max-width: 450px) {
   .contact-info-section .inner-content {
     display: grid;

@@ -11,6 +11,9 @@
 }
 @media (max-width: 450px) {
   #mainContent h1 {
-    margin-top: 3%;
+    color: transparent !important;
+  }
+  #mainContent h1:hover {
+    color: transparent !important;
   }
 }
