@@ -56,7 +56,10 @@ const ContactInfo = () => {
         </div>
         <div className="contact-slider">
           {/* Slider with previous jobs */}
-          <h3 className="primary-font-color secondary-font">
+          <h3
+            className="primary-font-color secondary-font"
+            style={{ marginTop: "-13%" }}
+          >
             Previous Projects
           </h3>
           <SimpleSlider settings={slickSettings} elements={slickElements} />
