@@ -4,7 +4,6 @@ import { slickSettings } from "./contactSlickSettings";
 import images from "./slickElements";
 
 import "../../assets/stylesheets/contactInfo.css";
-import BootstrapSlider from "../SimpleSlider/BootstrapSlider";
 import SimpleSlider from "../SimpleSlider/SimpleSlider";
 
 const ContactInfo = () => {

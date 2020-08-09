@@ -15,6 +15,7 @@ import "../../assets/stylesheets/home.css";
 const Home = (props) => {
   useEffect(() => {
     props.getData();
+    localStorage.removeItem("services");
 
     // !window.location.href.includes("local") && props.refreshData();
     props.refreshData();
