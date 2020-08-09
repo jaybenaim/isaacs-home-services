@@ -9,7 +9,7 @@
     grid-template-rows: 1fr !important;
     position: relative;
     height: 600px;
-    background: url(http://api.thumbr.it/whitenoise-361x370.png?background=fafaf7ff&noise=36a85e&density=11&opacity=44);
+    background: url(../img/whitenoise-361x370.png);
   }
   .services-section .services .service-content img {
     min-width: 100%;
