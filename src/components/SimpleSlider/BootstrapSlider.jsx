@@ -4,11 +4,7 @@ import "../../assets/stylesheets/bootstrapSlider.css";
 
 const BootstrapSlider = ({ elements, id }) => {
   return (
-    <Carousel
-      id="carouselExampleSlidesOnly"
-      className="carousel slide"
-      data-ride="carousel"
-    >
+    <Carousel id={id} className="carousel slide" data-ride="carousel">
       {elements()}
     </Carousel>
   );

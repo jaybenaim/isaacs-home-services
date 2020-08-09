@@ -1,6 +1,16 @@
-.carousel .carousel-item {
+.hero-container .carousel .carousel-item {
   height: 100% !important;
   width: 100% !important;
   position: static;
   visibility: visible;
+}
+.carousel .carousel-item {
+  position: static;
+  visibility: visible;
+}
+.contact-slider .carousel {
+  max-height: 200px !important;
+}
+.contact-slider .carousel ol {
+  display: none;
 }

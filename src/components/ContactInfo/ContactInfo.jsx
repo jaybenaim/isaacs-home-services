@@ -1,29 +1,23 @@
 import React from "react";
 
-import { slickSettings } from "./contactSlickSettings";
 import images from "./slickElements";
 
 import "../../assets/stylesheets/contactInfo.css";
-import SimpleSlider from "../SimpleSlider/SimpleSlider";
+import BootstrapSlider from "../SimpleSlider/BootstrapSlider";
 
 const ContactInfo = () => {
   const slickElements = () => {
     return images.map((image, i) => {
       const { title, src } = image;
       return (
-        <div
-          key={i}
-          className="slider-image-container carousel-item"
-          style={{ height: "100%" }}
-        >
+        <div key={i} className="carousel-item">
           <img
             src={src}
             alt={title}
             className="contact-slider-img"
             key={i}
-            style={{ height: "400px", width: "400px" }}
+            style={{ width: "400px" }}
           />
-          <p className="primary-font-color title carousel-caption">{title}</p>
         </div>
       );
     });
@@ -50,7 +44,7 @@ const ContactInfo = () => {
           >
             Previous Projects
           </h3>
-          <SimpleSlider settings={slickSettings} elements={slickElements} />
+          <BootstrapSlider elements={slickElements} />
         </div>
       </div>
     </div>
