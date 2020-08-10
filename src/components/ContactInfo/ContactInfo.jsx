@@ -11,13 +11,7 @@ const ContactInfo = () => {
       const { title, src } = image;
       return (
         <div key={i} className="carousel-item">
-          <img
-            src={src}
-            alt={title}
-            className="contact-slider-img"
-            key={i}
-            style={{ width: "400px" }}
-          />
+          <img src={src} alt={title} className="contact-slider-img" key={i} />
         </div>
       );
     });
@@ -28,7 +22,7 @@ const ContactInfo = () => {
         <h2 className="primary-font">Contact Us</h2>
         <div className="contact-info">
           <p className="text secondary-font primary-font-color">
-            TEXT OR CALL FOR A FREE QUOTE{" "}
+            TEXT OR CALL FOR A FREE QUOTE
             <span className="phone-number">
               <a href="tel:6472295873" className="primary-font">
                 647-229-5873
