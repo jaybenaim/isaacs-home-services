@@ -36,7 +36,7 @@ const ServiceItem = (props) => {
           </Link>
         </div>
       </div>
-      <div className={gridClass.details}>
+      <Container className={gridClass.details}>
         <h5 className="title secondary-font">{service.title}</h5>
 
         <div className="service-short-description secondary-font">
@@ -54,7 +54,7 @@ const ServiceItem = (props) => {
             </Button>
           </div>
         </div>
-      </div>
+      </Container>
     </div>
   );
 };

@@ -18,29 +18,25 @@
     background-repeat: no-repeat;
     background-position: center;
   }
-  .services-section .services .even {
+
+  .services-section .even {
     grid-column: 2 !important;
   }
-  .services-section .services .odd {
+
+  .services-section .odd {
     grid-column: 1;
     position: absolute;
     width: 50%;
   }
 
   .services-section .services .details {
-    width: 50%;
     height: 600px;
-    padding-left: 4%;
-    padding-top: 5%;
-  }
-  .services-section .services .even .title {
-    padding-left: 4%;
-    width: 200%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
-  .services-section .services .even .service-short-description {
-    padding-left: 10%;
-  }
   .services-section .services .title {
     font-size: 5.2em;
     font-weight: 600;
@@ -50,33 +46,50 @@
     font-size: 2.4em;
     min-width: 660px;
     color: #316b22 !important;
-    padding-left: 3%;
-    padding-right: 20%;
   }
+
   .services-section .services .service-content .img-layover {
     display: none;
   }
   .img-thumb {
     display: none;
   }
+
   #compare-slider {
     object-fit: cover;
     height: 600px !important;
   }
+
   .service-buttons {
     margin-top: 10%;
     display: flex;
     justify-content: center;
   }
+
   .service-buttons button {
     margin-right: 10%;
     width: 208px;
     height: 62px;
     background: #316b22;
+    border: 2px solid #316b22;
     font-size: 0.5em;
-  }
-  .service-buttons button a {
-    color: #fff !important;
+
+    &:hover {
+      background-color: white;
+      border: 2px solid #316b22;
+      transition: all 0.3s ease-in-out;
+    }
+
+    a {
+      color: white;
+    }
+
+    &:hover a {
+      transition: all 0.3s ease-in-out;
+      text-decoration: none;
+      color: #316b22;
+      font-weight: 600;
+    }
   }
 }
 @media (max-width: 450px) {
