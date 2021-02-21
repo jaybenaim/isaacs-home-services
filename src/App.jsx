@@ -1,6 +1,6 @@
 ﻿import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
-import "./App.css";
+import "./app.scss";
 import NavBar from "./components/NavBar/Navbar";
 import Footer from "./components/Footer/Footer";
 
@@ -41,8 +41,9 @@ const App = (props) => {
     // eslint-disable-next-line
   }, []);
   return (
-    <React.Fragment>
+    <div>
       <NavBar />
+      
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/services" component={Services} />
@@ -68,8 +69,9 @@ const App = (props) => {
         />
         <Route exact path="/404" render={(props) => <ErrorPage {...props} />} />
       </Switch>
-      <Footer />
-    </React.Fragment>
+
+      <Footer className="mt-auto" />
+    </div>
   );
 };
 

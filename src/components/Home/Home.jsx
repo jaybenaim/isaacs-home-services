@@ -28,6 +28,7 @@ const Home = (props) => {
 
   return (
     <main id="mainContent">
+      
       <Hero />
 
       {/* Insert testimonials */}

@@ -1,4 +1,4 @@
-@media (min-width: 451px) {
+@media (min-width: 482px) {
   .services-section .services {
     display: grid;
     grid-template-columns: 1fr;
@@ -97,7 +97,15 @@
     }
   }
 }
-@media (max-width: 450px) {
+@media (max-width: 481px) {
+  .services-section { 
+    width: 100%; 
+  }
+  
+  .img-container { 
+    // width: 100%; 
+  }
+
   .services-section .services {
     display: grid;
     grid-template-columns: 1fr;
@@ -109,7 +117,7 @@
 
   .services-section .services .service-content .img-thumb {
     height: 200px;
-    min-width: 90%;
+    width: 90%;
     object-fit: cover;
     position: absolute;
   }
@@ -125,6 +133,11 @@
     text-align: center;
     margin: auto 0;
     padding: 19% 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
   }
   .services-section .services .details {
     padding: 2% 4%;

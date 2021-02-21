@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Auth from "../Auth";
 
 import { Dropdown, Navbar, Nav } from "react-bootstrap";
-import "../../assets/stylesheets/navbar.css";
+import "../../assets/stylesheets/navbar.scss";
 import { connect } from "react-redux";
 import { useState, useEffect } from "react";
 
@@ -120,11 +120,11 @@ const NavBar = (props) => {
           </>
         )}
 
-        <a href="tel:6472295873">
+        <a href="tel:6472295873" className="mobile-icons">
           <i className="fa fa-phone" id="nav-phone"></i>
         </a>
 
-        <a href="mailto:isaac_palomi@outlook.com">
+        <a href="mailto:isaac_palomi@outlook.com" className="mobile-icons">
           <i className="fa fa-envelope" id="nav-mail"></i>
         </a>
 

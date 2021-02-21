@@ -1,6 +1,16 @@
-#main-nav {
+.navbar {
   position: fixed;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  height: 120px; 
+  background: rgba(255, 255, 255, 0.65);
+  position: fixed;
+  z-index: 6;
+  border: none !important;
+  box-shadow: none !important;
 }
+
 .dropdown-toggle {
   border: none !important;
   background-color: transparent !important;
@@ -9,69 +19,59 @@
   font-family: Arial, sans-serif !important;
   text-transform: capitalize;
 }
-nav {
-  background: rgba(255, 255, 255, 0.65);
-  height: 100px;
-  position: fixed;
-  z-index: 6;
-  border: none !important;
-  box-shadow: none !important;
-}
 
 .nav-link {
-  font-size: 1.2em;
+  font-size: 18px;
 }
-nav a {
-  color: #000 !important;
-}
+
 .navbar-collapse {
   margin-left: 74%;
 }
+
 @media (max-width: 992px) {
-  nav {
-    height: 80px;
-  }
+  .navbar {
+    max-width: 100%;
+
   .mobile-nav-links {
     background: rgb(255, 255, 255);
     position: fixed;
+    top: 120px; 
     z-index: 9999;
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    padding: 0 5%;
+
+    .nav-link { 
+      padding: 0 2%;
+
+      .fa { 
+        margin-right: 10px; 
+      }
+
+      .dropdown-toggle { 
+        padding: 0; 
+      }
+    }
   }
+
   .navbar-toggler:focus {
     background: #316b22;
     color: #fff !important;
   }
 
   .nav-link:active {
-    background: transparent;
+    background: #316b22;
   }
 
   .navbar-toggler {
     z-index: 99999;
+    font-size: 25px;
   }
+
   #basic-navbar-nav {
     left: 0;
     position: fixed;
     top: 80px;
   }
 
-  .navbar-brand {
-    font-size: 0.8em;
-  }
-
-  .call-to-action {
-    grid-row: 2;
-  }
-  #cta-phone {
-    grid-column: 1 / span 3;
-  }
-  #cta-email {
-    grid-column: 3 / span 2;
-    margin: auto 0;
-  }
   #account-toggle {
     position: fixed;
     right: 17px;
@@ -80,23 +80,20 @@ nav a {
     grid-column: 4 / span 5;
     grid-row: 3;
   }
+
   .account-dropdown {
     position: fixed !important;
     width: 100%;
     top: 232px;
   }
-  #book-now-btn {
-    grid-column: 1 / span 4;
+
+  .fa {
+    font-size: 50px;
+    color: #316b22;
+    display: flex;
+    align-items: center;
   }
-  #nav-phone,
-  #nav-mail {
-    font-size: 3em;
-    color: #316b22 !important;
-    margin-top: 30%;
-  }
-  #nav-phone {
-    font-size: 3.3em;
-  }
+
   #services-dropdown {
     display: inline-block !important;
     width: 100%;
@@ -106,10 +103,12 @@ nav a {
     padding: 0% 2%;
     background: rgba(255, 255, 255, 0.98);
   }
+
   #services-dropdown .nav-link {
     flex: auto;
     padding: 2%;
   }
+}
 }
 @media (min-width: 992px) {
 
@@ -136,6 +135,29 @@ nav a {
   }
 }
 
+@media (max-width: 481px) { 
+  .navbar { 
+    max-width: 100%;
+
+    .navbar-brand { 
+      font-size: 14px; 
+    }
+
+    .mobile-icons { 
+      i { 
+        font-size: 42px; 
+      }
+    }
+  }
+
+  .mobile-nav-links { 
+    .call-to-action { 
+      display: flex;
+      justify-content: flex-start;
+    }
+  }
+}
+
 @media (max-width: 321px) { 
   .primary-font { 
     font-size: 25px; 
@@ -148,8 +170,4 @@ nav a {
     display: flex;
     align-items: center;
   }
-  /* .fa-phon
-  .fa-envelope { 
-    display: none;
-  } */
 }

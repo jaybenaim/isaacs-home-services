@@ -39,10 +39,10 @@ const homeSlickSliderSettings = {
   slidesToScroll: 3,
   responsive: [
     {
-      breakpoint: 724,
+      breakpoint: 769,
       settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToShow: 2,
+        slidesToScroll: 2,
         infinite: true,
         dots: false,
         arrows: true
@@ -54,7 +54,7 @@ const homeSlickSliderSettings = {
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
-        infinite: true,
+        infinite: true, 
         dots: false,
         arrows: true,
       },

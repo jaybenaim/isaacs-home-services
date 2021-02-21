@@ -29,7 +29,7 @@
   grid-row: 2;
   margin: -8% auto;
   text-align: center;
-  font-size: 1.4em;
+  font-size: 20px;
 }
 .contact-info-section .contact-info p {
   display: flex;
@@ -53,6 +53,10 @@
   }
 }
 @media (max-width: 481px) {
+  .contact-info-section { 
+    margin-top: 40px; 
+  }
+  
   .contact-info-section .inner-content {
     height: 300px;
   }
