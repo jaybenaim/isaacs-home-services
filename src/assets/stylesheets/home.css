@@ -9,6 +9,7 @@
 #mainContent h1:hover {
   color: #fff !important;
 }
+
 @media (max-width: 450px) {
   #mainContent h1 {
     color: transparent !important;
@@ -16,4 +17,7 @@
   #mainContent h1:hover {
     color: transparent !important;
   }
+}
+
+.home-slider-section {
 }

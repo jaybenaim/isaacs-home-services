@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "js": [
+        "src/assets/js/*"
+      ],
+      "sliders": [
+        "src/components/SimpleSlider/*"
+      ]
+    }
+  },
+  "include": [
+    "src"
+  ]
+}

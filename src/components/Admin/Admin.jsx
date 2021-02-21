@@ -44,6 +44,7 @@ const Admin = (props) => {
         {" "}
         Home Page Images{" "}
       </button>
+
       <button
         className="btn btn-outline-primary"
         onClick={() => setShowCalender(!showCalender)}
@@ -51,6 +52,7 @@ const Admin = (props) => {
         {" "}
         {showCalender ? "Hide" : "Show"} Calender{" "}
       </button>
+
       <button className="btn btn-outline-primary">
         <a
           href="https://isaacs-home-services.herokuapp.com/admin"
@@ -60,7 +62,11 @@ const Admin = (props) => {
           Admin Page
         </a>
       </button>
-      {editHeroes && currentImageElements()}
+
+      <div className="container">
+        {editHeroes && currentImageElements()}
+      </div>
+
       {editHeroes && (
         <>
           <img
@@ -68,6 +74,7 @@ const Admin = (props) => {
             src={imageAsUrl.imgUrl}
             alt={imageAsFile.name !== "" ? imageAsFile.name : "No image chosen"}
           />
+
           {props.currentImages.length >= 4 && (
             <div>Max 4 images, Delete an image to add a new image. </div>
           )}
@@ -81,6 +88,7 @@ const Admin = (props) => {
           )}
         </>
       )}
+
       {showCalender && <AdminCalendar />}
     </div>
   );
@@ -91,4 +99,5 @@ const mapStateToProps = (state) => {
     currentImages: state.heroes.currentImages,
   };
 };
+
 export default connect(mapStateToProps, { getHeroes })(Admin);

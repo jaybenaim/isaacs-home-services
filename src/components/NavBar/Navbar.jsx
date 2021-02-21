@@ -56,12 +56,13 @@ const NavBar = (props) => {
                 Email
               </a>
               <Link
-                className="nav-item nav-link active primary-font-color "
+                className="nav-item nav-link active primary-font-color"
                 to="/"
                 onClick={() => setShowDropdown(!showDropdown)}
               >
                 Home
               </Link>
+
               <Dropdown className="nav-item nav-link ">
                 <Dropdown.Toggle
                   id="navbar-toggle-services"
@@ -69,33 +70,37 @@ const NavBar = (props) => {
                 >
                   Services
                 </Dropdown.Toggle>
+
                 <Dropdown.Menu>
                   <div id="services-dropdown">{serviceLinks()}</div>
                 </Dropdown.Menu>
               </Dropdown>
+
               <Link
-                className="nav-item nav-link active primary-font-color "
+                className="nav-item nav-link primary-font-color"
                 to="/calendar"
                 onClick={() => setShowDropdown(!showDropdown)}
               >
                 Calendar
               </Link>
-              <Link
-                className="nav-item nav-link active primary-font-color "
-                to="/book"
+
+              <a
+                className="nav-item nav-link call-to-action  primary-font-color"
+                href="tel:6472295873"
                 onClick={() => setShowDropdown(!showDropdown)}
               >
                 Book Now
-              </Link>
+              </a>
 
               {isAuthenticated && (
-                <Dropdown className="nav-item nav-link ">
+                <Dropdown className="nav-item nav-link">
                   <Dropdown.Toggle
                     id="navbar-toggle"
                     className="primary-font-color"
                   >
                     Account
                   </Dropdown.Toggle>
+
                   <Dropdown.Menu>
                     <Auth />
                   </Dropdown.Menu>
@@ -122,7 +127,7 @@ const NavBar = (props) => {
         </button>
         {showDropdown && window.innerWidth <= 480 && (
           <div id="basic-navbar-nav">
-            <Nav className="mr-auto ">
+            <Nav className="mr-auto">
               <div className="mobile-nav-links">
                 <Link
                   className="nav-item nav-link  primary-font-color "
@@ -131,17 +136,21 @@ const NavBar = (props) => {
                 >
                   Home
                 </Link>
-                <Dropdown className="nav-item nav-link ">
+
+                <Dropdown className="nav-item nav-link">
                   <Dropdown.Toggle
                     id="navbar-toggle-services"
                     className="primary-font-color"
                   >
                     Services
                   </Dropdown.Toggle>
+
                   <Dropdown.Menu>
                     <div id="services-dropdown">{serviceLinks()}</div>
                   </Dropdown.Menu>
+
                 </Dropdown>
+
                 <Link
                   className="nav-item nav-link primary-font-color "
                   to="/calendar"
@@ -149,14 +158,7 @@ const NavBar = (props) => {
                 >
                   Calendar
                 </Link>
-                <Link
-                  className="nav-item nav-link  primary-font-color "
-                  to="/book"
-                  id="book-now-btn"
-                  onClick={() => setShowDropdown(!showDropdown)}
-                >
-                  Book Now
-                </Link>
+
                 <a
                   className="nav-item nav-link call-to-action  primary-font-color"
                   href="tel:6472295873"
@@ -166,6 +168,7 @@ const NavBar = (props) => {
                   <i className="fa fa-phone" style={{ fontSize: "1.4em" }}></i>{" "}
                   647-229-5873
                 </a>
+
                 <a
                   className="nav-item nav-link call-to-action  primary-font-color"
                   href="mailto:isaac_palomi@outlook.com"
@@ -188,6 +191,7 @@ const NavBar = (props) => {
                   >
                     Account
                   </Dropdown.Toggle>
+
                   <Dropdown.Menu className="account-dropdown">
                     <Auth />
                   </Dropdown.Menu>

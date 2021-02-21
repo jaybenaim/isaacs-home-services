@@ -1,7 +1,7 @@
 import lawn1 from "../../assets/img/lawn1.jpg";
 import garden2 from "../../assets/img/garden2.jpg";
 import beforeAfter from "../../assets/img/beforeAfter.jpg";
-import { driveway1 } from "../ContactInfo/sliderImages";
+import { driveway1 } from "./sliderImages";
 
 const images = [
   {

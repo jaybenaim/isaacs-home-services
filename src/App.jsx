@@ -1,7 +1,7 @@
 ﻿import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/Navbar";
 import Footer from "./components/Footer";
 
 import Home from "./components/Home/Home";
@@ -9,7 +9,6 @@ import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import ErrorPage from "./components/ErrorPage";
 import Admin from "./components/Admin/Admin";
-import BookNow from "./components/BookNow/BookNow";
 import ClientCalendar from "./components/ClientCalendar/ClientCalendar";
 
 import { connect } from "react-redux";
@@ -20,12 +19,14 @@ import Services from "./components/Services/Services";
 import OfferItemShow from "./components/Services/ServiceItemShow";
 import PrivacyPolicy from "./components/Policies/PrivacyPolicy/PrivacyPolicy";
 import TermsAndConditions from "./components/Policies/TermsAndConditions/TermsAndConditions";
-
+import PropTypes from "prop-types"
 //TODO Web Template Studio: Add routes for your new pages here.
 const App = (props) => {
   const {
     auth: {
-      user: { role },
+      user: { 
+        role
+       },
     },
   } = props;
 
@@ -51,7 +52,7 @@ const App = (props) => {
           <Route exact path="/admin" render={(props) => <Admin {...props} />} />
         </ProtectedRoute>
         <Route exact path="/calendar" component={ClientCalendar} />
-        <Route exact path="/book" component={BookNow} />
+        {/* <Route exact path="/book" component={BookNow} /> */}
 
         <Route
           exact
@@ -75,6 +76,14 @@ const App = (props) => {
 const mapStateToProps = (state) => {
   return state;
 };
+
+App.propTypes = {
+  auth: { 
+    user: { 
+      role: PropTypes.string
+    }
+  },
+}
 
 export default connect(mapStateToProps, { getData, refreshData, loginUser })(
   App

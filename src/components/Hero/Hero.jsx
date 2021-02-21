@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import HeroImage from "./HeroImage";
-import images from "./heroImages";
+import images from "../../assets/js/heroImages.js";
 import { connect } from "react-redux";
 import { getHeroes } from "../../redux/actions/heroActions";
 
-import BootstrapSlider from "../SimpleSlider/BootstrapSlider";
+import BootstrapSlider from "components/SimpleSlider/BootstrapSlider";
 
 import "../../assets/stylesheets/hero.css";
 
@@ -15,6 +15,7 @@ const Hero = (props) => {
     props.getHeroes();
     // eslint-disable-next-line
   }, []);
+
   const sliderElements = () => {
     return images.map((image, i) => {
       return (
