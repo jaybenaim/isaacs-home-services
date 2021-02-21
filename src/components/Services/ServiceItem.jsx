@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../assets/stylesheets/offerItem.css";
 import lawn1 from "../../assets/img/lawn1.jpg";
 import CompareSlider from "../SimpleSlider/CompareSlider";
 import { Button } from "react-bootstrap";
+import PropTypes from "prop-types" 
+import { Container } from "react-bootstrap";
 
-const OfferItem = (props) => {
+import "assets/stylesheets/serviceItem.scss";
+
+const ServiceItem = (props) => {
   let { service, position } = props;
 
   const gridClass = {
@@ -37,11 +40,15 @@ const OfferItem = (props) => {
         <h5 className="title secondary-font">{service.title}</h5>
 
         <div className="service-short-description secondary-font">
-          {service.shortDescription}
+          <Container>
+            {service.shortDescription}
+          </Container>
+
           <div className="service-buttons">
             <Button variant="outline-secondary">
               <a href="tel:6472295873">Get a Free Quote</a>
             </Button>
+
             <Button variant="outline-secondary">
               <Link to="/book">Book Now</Link>
             </Button>
@@ -52,4 +59,13 @@ const OfferItem = (props) => {
   );
 };
 
-export default OfferItem;
+
+ServiceItem.propTypes = { 
+  service: { 
+    title: PropTypes.string.isRequired, 
+    description: PropTypes.string.isRequired, 
+  },
+  position: PropTypes.number.isRequired
+}
+
+export default ServiceItem;

@@ -52,7 +52,11 @@
     padding: 10% 0;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 481px) {
+  .contact-info-section .inner-content {
+    height: 300px;
+  }
+
   .contact-info-section h2 {
     padding-top: 7%;
   }
@@ -94,9 +98,6 @@
   }
 }
 @media (max-width: 450px) {
-  .contact-info-section {
-    min-height: 600px;
-  }
   .contact-info-section .inner-content {
     display: grid;
     grid-template-columns: 1fr;

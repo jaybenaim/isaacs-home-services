@@ -17,6 +17,6 @@
  
 - Fix auth bugs (refactor to use fb) 
 
-
+- Convert to typescript 
 
 

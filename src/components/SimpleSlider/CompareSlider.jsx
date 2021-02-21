@@ -1,7 +1,7 @@
 import { ResizeSensor } from "css-element-queries";
 import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState } from "react";
-import "../../assets/stylesheets/offerItem.css";
+import "assets/stylesheets/serviceItem.scss";
 
 const propTypes = {
   aspectRatio: PropTypes.oneOf(["taller", "wider"]),
