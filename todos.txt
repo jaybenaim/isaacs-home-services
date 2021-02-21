@@ -30,6 +30,7 @@
 
 - Footer styling on breakpoints 
 
+- Restyle hero section, add heading. Show headings by default? 
 
 
 

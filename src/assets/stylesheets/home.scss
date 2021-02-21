@@ -1,5 +1,4 @@
 main {
-  padding-bottom: 50px;
 
   h1 {
     font-size: 10em !important;
@@ -21,4 +20,9 @@ main {
       color: transparent !important;
     }
   }
+
+  @media (max-width: 321px) { 
+    padding-bottom: 30px; 
+  }
 }
+

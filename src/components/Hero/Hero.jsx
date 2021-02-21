@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import HeroImage from "./HeroImage";
 import images from "../../assets/js/heroImages.js";
 import { connect } from "react-redux";
@@ -9,7 +9,28 @@ import BootstrapSlider from "components/SimpleSlider/BootstrapSlider";
 import "../../assets/stylesheets/hero.css";
 
 const Hero = (props) => {
-  const onMobile = window.innerWidth < 450 && true;
+
+
+  const [windowWidth, setWidth] = useState(window.innerWidth)
+
+  const onMobile = windowWidth < 450 && true;
+
+  const handleResize = (
+    {
+      target: {
+        innerWidth
+      }
+    }) => { 
+    setWidth(innerWidth)
+  }
+
+  useEffect(() => { 
+    window.addEventListener('resize', handleResize)
+
+    return () => { 
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   useEffect(() => {
     props.getHeroes();
@@ -25,6 +46,7 @@ const Hero = (props) => {
             alt={image.innerTitle}
             height={"400px"}
             width={"400px"}
+            loading="lazy"
           />
           <div className="carousel-caption">
             <h3>{image.innerTitle}</h3>

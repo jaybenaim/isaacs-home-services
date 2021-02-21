@@ -2,14 +2,14 @@
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/NavBar/Navbar";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer/Footer";
 
 import Home from "./components/Home/Home";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import ErrorPage from "./components/ErrorPage";
 import Admin from "./components/Admin/Admin";
-import ClientCalendar from "./components/ClientCalendar/ClientCalendar";
+// import ClientCalendar from "./components/ClientCalendar/ClientCalendar";
 
 import { connect } from "react-redux";
 import { getData, refreshData } from "./redux/actions/dataActions";
@@ -51,7 +51,7 @@ const App = (props) => {
         <ProtectedRoute path="/admin" role={role}>
           <Route exact path="/admin" render={(props) => <Admin {...props} />} />
         </ProtectedRoute>
-        <Route exact path="/calendar" component={ClientCalendar} />
+        {/* <Route exact path="/calendar" component={ClientCalendar} /> */}
         {/* <Route exact path="/book" component={BookNow} /> */}
 
         <Route

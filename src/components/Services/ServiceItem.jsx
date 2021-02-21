@@ -12,21 +12,26 @@ const ServiceItem = (props) => {
   let { service, position } = props;
 
   const gridClass = {
-    imgContainer: `img-container ${position % 2 === 0 ? "even" : "odd"}`,
+    imgContainer: `img-container p-0 ${position % 2 === 0 ? "even" : "odd"}`,
     details: `details ${(position + 1) % 2 === 0 ? "even" : "odd"}`,
   };
   const beforeImage = !service.beforeImage ? lawn1 : service.beforeImage;
   const afterImage = !service.afterImage ? lawn1 : service.afterImage;
+
   return (
     <div className="service-content">
-      <div className={gridClass.imgContainer}>
+      <Container className={gridClass.imgContainer}>
         <CompareSlider
           leftImage={beforeImage}
           rightImage={afterImage}
           hover={true}
         />
 
-        <img src={afterImage} alt={service.title} className="img-thumb" />
+        <img 
+          src={afterImage}
+          alt={service.title}
+          className="img-thumb"
+        />
 
         <div className="img-layover">
           <Link
@@ -35,25 +40,22 @@ const ServiceItem = (props) => {
             <h5 className="secondary-font">{service.title}</h5>
           </Link>
         </div>
-      </div>
-      <Container className={gridClass.details}>
+      </Container>
+
+      <Container className={`${gridClass.details} service-item__content`}>
         <h5 className="title secondary-font">{service.title}</h5>
 
-        <div className="service-short-description secondary-font">
-          <Container>
+        <Container className="secondary-font">
+          <div className="description">
             {service.shortDescription}
-          </Container>
+          </div>
 
           <div className="service-buttons">
             <Button variant="outline-secondary">
               <a href="tel:6472295873">Get a Free Quote</a>
             </Button>
-
-            <Button variant="outline-secondary">
-              <Link to="/book">Book Now</Link>
-            </Button>
           </div>
-        </div>
+        </Container>
       </Container>
     </div>
   );

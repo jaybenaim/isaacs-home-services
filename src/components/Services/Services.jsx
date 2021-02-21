@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import ServiceItem from "./ServiceItem";
 
 const Services = (props) => {
-  const getOfferElements = () => {
+  const getServices = () => {
     let { services } = props;
     return services.map((service, i) => {
       return <ServiceItem key={i} position={i} service={service} />;
@@ -17,7 +17,7 @@ const Services = (props) => {
         {window.location.href.includes("services") && (
           <h2 className="primary-font">Services</h2>
         )}
-        <div className="services">{getOfferElements()}</div>
+        <div className="services">{getServices()}</div>
       </div>
     </div>
   );

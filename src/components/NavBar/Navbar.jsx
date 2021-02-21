@@ -5,11 +5,12 @@ import Auth from "../Auth";
 import { Dropdown, Navbar, Nav } from "react-bootstrap";
 import "../../assets/stylesheets/navbar.css";
 import { connect } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const NavBar = (props) => {
   const { isAuthenticated } = props.auth;
   const [showDropdown, setShowDropdown] = useState(false);
+  const [windowWidth, setWidth] = useState(window.innerWidth)
 
   const serviceLinks = () => {
     const { services } = props;
@@ -24,12 +25,30 @@ const NavBar = (props) => {
       </Link>
     ));
   };
+
+  const handleResize = (
+    {
+      target: {
+        innerWidth
+      }
+    }) => { 
+    setWidth(innerWidth)
+  }
+
+  useEffect(() => { 
+    window.addEventListener('resize', handleResize)
+
+    return () => { 
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
   return (
       <Navbar bg="light" expand="lg" id="main-nav">
         <Link className="navbar-brand primary-font-color" to="/">
           <span className="primary-font">Highly Handy</span>
         </Link>
-        {window.innerWidth >= 450 && (
+        {windowWidth >= 992 && (
           <>
             <div className="desktop-nav-items">
               <a
@@ -75,14 +94,6 @@ const NavBar = (props) => {
                 </Dropdown.Menu>
               </Dropdown>
 
-              <Link
-                className="nav-item nav-link primary-font-color"
-                to="/calendar"
-                onClick={() => setShowDropdown(!showDropdown)}
-              >
-                Calendar
-              </Link>
-
               <a
                 className="nav-item nav-link call-to-action  primary-font-color"
                 href="tel:6472295873"
@@ -108,12 +119,15 @@ const NavBar = (props) => {
             </div>
           </>
         )}
+
         <a href="tel:6472295873">
           <i className="fa fa-phone" id="nav-phone"></i>
         </a>
+
         <a href="mailto:isaac_palomi@outlook.com">
-          <i className="fa fa-envelope" id="nav-mail"></i>{" "}
+          <i className="fa fa-envelope" id="nav-mail"></i>
         </a>
+
         <button
           type="button"
           aria-label="Toggle navigation"
@@ -124,7 +138,8 @@ const NavBar = (props) => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        {showDropdown && window.innerWidth <= 480 && (
+
+        {showDropdown && windowWidth <= 992 && (
           <div id="basic-navbar-nav">
             <Nav className="mr-auto">
               <div className="mobile-nav-links">
@@ -148,14 +163,6 @@ const NavBar = (props) => {
                     <div id="services-dropdown">{serviceLinks()}</div>
                   </Dropdown.Menu>
                 </Dropdown>
-
-                <Link
-                  className="nav-item nav-link primary-font-color "
-                  to="/calendar"
-                  onClick={() => setShowDropdown(!showDropdown)}
-                >
-                  Calendar
-                </Link>
 
                 <a
                   className="nav-item nav-link call-to-action  primary-font-color"
@@ -181,7 +188,7 @@ const NavBar = (props) => {
                 </a>
               </div>
 
-              {isAuthenticated && window.innerWidth <= 450 && (
+              {isAuthenticated && windowWidth <= 450 && (
                 <Dropdown className="nav-item nav-link">
                   <Dropdown.Toggle
                     id="account-toggle"

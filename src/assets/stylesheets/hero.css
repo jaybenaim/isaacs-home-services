@@ -15,3 +15,9 @@
     min-width: 100%;
   }
 }
+
+@media (max-height: 321px) { 
+  .hero-container { 
+    padding-top: 0; 
+  }
+}
