@@ -25,7 +25,6 @@ const NavBar = (props) => {
     ));
   };
   return (
-    <React.Fragment>
       <Navbar bg="light" expand="lg" id="main-nav">
         <Link className="navbar-brand primary-font-color" to="/">
           <span className="primary-font">Highly Handy</span>
@@ -148,7 +147,6 @@ const NavBar = (props) => {
                   <Dropdown.Menu>
                     <div id="services-dropdown">{serviceLinks()}</div>
                   </Dropdown.Menu>
-
                 </Dropdown>
 
                 <Link
@@ -201,7 +199,6 @@ const NavBar = (props) => {
           </div>
         )}
       </Navbar>
-    </React.Fragment>
   );
 };
 const mapStateToProps = (state) => {
