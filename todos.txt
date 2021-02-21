@@ -8,11 +8,14 @@
     - Change breakpoints to use event listeners 
     - Change format between 480px - 992px to use one column with small description 
 
+
 - Refactor Hero component to use event listeners for breakpoints 
 
 - Refactor navbar styles to fix opening issues 
     - Refactor window width to use event listeners 
-
+    - Fix dropdown styles 
+    - Breakpoints 
+    
 - Add testimonials or quotes section 
 
 - Add home slider to db 
