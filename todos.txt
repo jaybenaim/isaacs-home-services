@@ -1,4 +1,22 @@
-Categories 
-    - Services (need)
-    - Products (want- no selling required)
+- Refactor all css to use sass 
+
+- Refactor all imports to use aliases 
+
+- Refactor services component 
+    - Buttons hover color reverse 
+    - Keep text inside containers on all breakpoints 
+
+- Refactor navbar styles to fix opening issues 
+    - Refactor window width to use event listeners 
+
+- Add testimonials or quotes section 
+
+- Add home slider to db 
+
+- Remove backend from heroku and convert to use fb 
+ 
+- Fix auth bugs (refactor to use fb) 
+
+
+
 

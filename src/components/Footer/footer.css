@@ -4,6 +4,16 @@ footer {
   padding-bottom: 4rem;
   display: flex;
 }
+
+footer a {
+  opacity: 0.9;
+}
+
+footer a:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
 footer .row {
   justify-content: space-around;
 }
@@ -39,6 +49,10 @@ footer .link-text {
 }
 footer .link-text:first-of-type {
   margin-left: 2%;
+}
+
+footer .phone-number a {
+  color: white;
 }
 
 @media (max-width: 450px) {
