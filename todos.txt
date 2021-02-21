@@ -15,7 +15,7 @@
     - Refactor window width to use event listeners 
     - Fix dropdown styles 
     - Breakpoints 
-    
+
 - Add testimonials or quotes section 
 
 - Add home slider to db 
@@ -25,6 +25,11 @@
 - Fix auth bugs (refactor to use fb) 
 
 - Convert to typescript 
+
+- Refactor individual service page 
+
+- Footer styling on breakpoints 
+
 
 
 
