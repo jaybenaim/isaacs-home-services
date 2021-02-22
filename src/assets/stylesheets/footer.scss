@@ -6,7 +6,8 @@
   padding: 40px 10px;
   height: 320px; 
   font-size: 18px;
-  position: relative;
+  position: absolute;
+  bottom: 0; 
 
   a { 
     color: #fff;
@@ -63,6 +64,8 @@
           margin-right: 10px; 
           text-align: right; 
           font-size: 18px;
+          display: flex; 
+          justify-content: flex-end;
         }
 
         .fa { 
@@ -167,3 +170,9 @@
   }
 }
 
+@media (max-width: 768px) { 
+  .footer-link { 
+    display: flex; 
+    justify-content: flex-end;
+  }
+}

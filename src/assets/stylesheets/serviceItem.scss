@@ -10,6 +10,10 @@
     position: relative;
     height: 600px;
     background: url(../img/whitenoise-361x370.png);
+
+    a:hover { 
+      text-decoration: none;
+    }
   }
 
   .services-section .services .service-content img {
@@ -150,8 +154,29 @@
     display: none !important;
   }
 }
+
+@media (max-width: 768px) { 
+  .services-section .services {
+
+  .title { 
+    font-size: 50px; 
+  }
+
+  .service-buttons { 
+    width: 350px; 
+    display: block; 
+    padding: 0; 
+  }
+}
+
+}
+
 .services-section .services .title {
   color: #f77a0f;
+
+  &:hover a { 
+    text-decoration: none;
+  }
 }
 .services-section .services .service-short-description {
   color: #fff;

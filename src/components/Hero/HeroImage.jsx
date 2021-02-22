@@ -59,7 +59,7 @@ const HeroImage = (props) => {
 };
 
 HeroImage.propTypes = { 
-  imageClassId: PropTypes.string.isRequired, 
+  imageClassId: PropTypes.number.isRequired, 
   innerTitle: PropTypes.string.isRequired,
   innerDetails: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired 

@@ -9,6 +9,10 @@ import { Container } from "react-bootstrap";
 import "assets/stylesheets/serviceItem.scss";
 
 const ServiceItem = (props) => {
+  /**
+   * @todo Get item from firebase on load to fix refresh bug 
+   */
+  
   let { service, position } = props;
 
   const gridClass = {
@@ -43,7 +47,11 @@ const ServiceItem = (props) => {
       </Container>
 
       <Container className={`${gridClass.details} service-item__content`}>
-        <h5 className="title secondary-font">{service.title}</h5>
+        <Link
+            to={{ pathname: `/services/${service.title}`, state: { service } }}
+          >
+            <h5 className="title secondary-font">{service.title}</h5>
+          </Link>
 
         <Container className="secondary-font">
           <div className="description">
