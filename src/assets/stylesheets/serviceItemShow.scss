@@ -69,8 +69,46 @@ $mainColor: #316b22;
     }
   }
 }
-// @media (max-width: 768px) { 
-// } 
+@media (max-width: 768px) { 
+  .service-page { 
+    flex-direction: column;
+    padding: 20px 10px; 
+
+    &__left, 
+    &__center, 
+    &__right { 
+      flex-basis: 100%; 
+    }
+
+    &__left { 
+      order: 2;
+
+      img { 
+        width: 100%; 
+        padding: 0 10px; 
+      }
+    }
+
+    &__center { 
+      order: 3; 
+      display: flex;
+      justify-content: center;
+
+      .btn { 
+        width: 200px; 
+      }
+    }
+
+    &__right { 
+      order: 1; 
+      width: 100%; 
+
+      .sub-title { 
+        font-size: 30px;
+      }
+    }
+  }
+} 
 // @media (min-width: 480px) {
 //   .offer-item-show-page {
 //     display: grid;
