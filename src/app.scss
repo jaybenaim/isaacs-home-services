@@ -1,6 +1,9 @@
-﻿:root {
-  $mainColor: #316b22; 
---main-color: $mainColor; 
+﻿$mainColor: #316b22; 
+$secondaryColor: #f77a0f; 
+
+:root {
+  --main-color: $mainColor; 
+  --secondary-color: $secondaryColor; 
 }
 
 html {
@@ -29,7 +32,7 @@ button:active {
 .primary-font {
   /* font-family: "Balsamiq Sans", cursive; */
   font-family: "Piedra", cursive;
-  color: #316b22 !important;
+  color: $mainColor !important;
   font-size: 3.3em;
   letter-spacing: 2px;
 }
@@ -37,5 +40,8 @@ button:active {
   font-family: "Barlow Semi Condensed", sans-serif;
 }
 .primary-font-color {
-  color: #316b22 !important;
+  color: $mainColor !important;
+}
+.secondary-font-color { 
+  color: $secondaryColor !important; 
 }

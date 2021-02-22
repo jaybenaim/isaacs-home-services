@@ -12,7 +12,7 @@ const SimpleSlider = ({ settings, elements, id }) => {
 
 SimpleSlider.propTypes = {
   id: PropTypes.string.isRequired,
-  elements: PropTypes.object.isRequired, 
+  elements: PropTypes.any.isRequired, 
   settings: PropTypes.object, 
 }
 export default SimpleSlider;

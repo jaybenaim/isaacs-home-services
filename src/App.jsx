@@ -20,6 +20,7 @@ import OfferItemShow from "./components/Services/ServiceItemShow";
 import PrivacyPolicy from "./components/Policies/PrivacyPolicy/PrivacyPolicy";
 import TermsAndConditions from "./components/Policies/TermsAndConditions/TermsAndConditions";
 import PropTypes from "prop-types"
+
 //TODO Web Template Studio: Add routes for your new pages here.
 const App = (props) => {
   const {
@@ -80,11 +81,7 @@ const mapStateToProps = (state) => {
 };
 
 App.propTypes = {
-  auth: { 
-    user: { 
-      role: PropTypes.string
-    }
-  },
+  auth: PropTypes.object,
 }
 
 export default connect(mapStateToProps, { getData, refreshData, loginUser })(

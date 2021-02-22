@@ -6,14 +6,13 @@ import { getHeroes } from "../../redux/actions/heroActions";
 
 import BootstrapSlider from "components/SimpleSlider/BootstrapSlider";
 
-import "../../assets/stylesheets/hero.css";
+import "assets/stylesheets/hero.scss";
 
 const Hero = (props) => {
 
-
   const [windowWidth, setWidth] = useState(window.innerWidth)
 
-  const onMobile = windowWidth < 450 && true;
+  const onMobile = windowWidth <= 768;
 
   const handleResize = (
     {
@@ -44,8 +43,6 @@ const Hero = (props) => {
           <img
             src={image.src}
             alt={image.innerTitle}
-            height={"400px"}
-            width={"400px"}
             loading="lazy"
           />
           <div className="carousel-caption">

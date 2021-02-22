@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import "../../assets/stylesheets/heroImages.css";
+import PropTypes from "prop-types"
+import "assets/stylesheets/heroImages.scss";
+import { Container } from "react-bootstrap"
 
 const HeroImage = (props) => {
   const getClassName = () => {
@@ -28,13 +30,20 @@ const HeroImage = (props) => {
       onMouseLeave={() => setIsShown(false)}
     >
       {isShown && (
-        <div className="hero-image-content">
-          <h4 className="hero-image-title">{props.innerTitle}</h4>
-          <p className="hero-image-details">{props.innerDetails}</p>
-        </div>
+        <Container className="hero-image__content">
+          <h4 className="hero-image-title primary-font secondary-font-color">{props.innerTitle}</h4>
+          <p className="hero-image-details secondary-font primary-font-color">{props.innerDetails}</p>
+        </Container>
       )}
     </div>
   );
 };
+
+HeroImage.propTypes = { 
+  imageClassId: PropTypes.string.isRequired, 
+  innerTitle: PropTypes.string.isRequired,
+  innerDetails: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired 
+}
 
 export default HeroImage;

@@ -27,6 +27,7 @@ const HomeSlider = () => {
       </h2>
 
       <SlickSlider
+        id="home-bottom-slider"
         elements={slickElements} 
         settings={homeSlickSliderSettings}
       />
