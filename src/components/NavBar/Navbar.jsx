@@ -3,28 +3,16 @@ import { Link } from "react-router-dom";
 import Auth from "../Auth";
 
 import { Dropdown, Navbar, Nav } from "react-bootstrap";
-import "../../assets/stylesheets/navbar.scss";
 import { connect } from "react-redux";
 import { useState, useEffect } from "react";
+
+import "assets/stylesheets/navbar.scss";
+import { Button } from "react-bootstrap";
 
 const NavBar = (props) => {
   const { isAuthenticated } = props.auth;
   const [showDropdown, setShowDropdown] = useState(false);
   const [windowWidth, setWidth] = useState(window.innerWidth)
-
-  const serviceLinks = () => {
-    const { services } = props;
-    return services.map((service, i) => (
-      <Link
-        key={i}
-        className="nav-item nav-link  primary-font-color "
-        onClick={() => setShowDropdown(!showDropdown)}
-        to={{ pathname: `/services/${service.title}`, state: { service } }}
-      >
-        {service.title}
-      </Link>
-    ));
-  };
 
   const handleResize = (
     {
@@ -42,6 +30,20 @@ const NavBar = (props) => {
       window.removeEventListener('resize', handleResize)
     }
   }, [])
+
+  const serviceLinks = () => {
+    const { services } = props;
+    return services.map((service, i) => (
+      <Link
+        key={i}
+        className="nav-item nav-link  primary-font-color "
+        onClick={() => setShowDropdown(!showDropdown)}
+        to={{ pathname: `/services/${service.title}`, state: { service } }}
+      >
+        {service.title}
+      </Link>
+    ));
+  };
 
   return (
       <Navbar bg="light" expand="lg" id="main-nav">
@@ -122,22 +124,32 @@ const NavBar = (props) => {
 
         <a href="tel:6472295873" className="mobile-icons">
           <i className="fa fa-phone" id="nav-phone"></i>
+
+          <span className="mobile-icons__text">
+            647-229-5873
+          </span>
         </a>
 
         <a href="mailto:isaac_palomi@outlook.com" className="mobile-icons">
           <i className="fa fa-envelope" id="nav-mail"></i>
+          <span className="mobile-icons__text">
+            isaac_palomi@outlook.com
+          </span>
         </a>
 
-        <button
-          type="button"
-          aria-label="Toggle navigation"
+        <Button
           className={
-            showDropdown ? "navbar-toggler collapsed" : "navbar-toggler"
+            showDropdown ? "collapsed bars" : "bars"
           }
+          aria-pressed="menuOpen"
+          role="button"
+          tabIndex="0"
           onClick={() => setShowDropdown(!showDropdown)}
         >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+          <div></div>
+          <div></div>
+          <div></div>
+        </Button>
 
         {showDropdown && windowWidth <= 992 && (
           <div id="basic-navbar-nav">

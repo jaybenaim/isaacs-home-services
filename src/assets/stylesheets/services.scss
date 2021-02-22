@@ -8,23 +8,27 @@
   font-size: 6em;
   text-align: center;
   color: #316b22 !important;
-  padding: 10%;
   padding-bottom: 5%;
-  width: 80%;
   margin: 0 auto;
   text-transform: uppercase;
   letter-spacing: 2px;
+  background: linear-gradient(rgba(255, 255, 255, 0.8), 80%, #0a770e61);
+  width: 100%; 
+  padding: 60px; 
 }
-@media (max-width: 450px) {
+
+
+@media (max-width: 481px) {
   .services-section {
     background: none !important;
     width: 100%;
     padding: 0 5%;
+
+    h2 { 
+      display: list-item; 
+    }
   }
-  .services-section h2 {
-    color: #316b22 !important;
-    font-size: 4em;
-  }
+  
   .inner-container {
     background: none !important;
     border: none !important;

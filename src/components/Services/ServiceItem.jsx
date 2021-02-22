@@ -12,7 +12,7 @@ const ServiceItem = (props) => {
   let { service, position } = props;
 
   const gridClass = {
-    imgContainer: `img-container p-0 ${position % 2 === 0 ? "even" : "odd"}`,
+    imgContainer: `img-container ${position % 2 === 0 ? "even" : "odd"}`,
     details: `details ${(position + 1) % 2 === 0 ? "even" : "odd"}`,
   };
   const beforeImage = !service.beforeImage ? lawn1 : service.beforeImage;

@@ -123,6 +123,7 @@
     }
 
     &__socials { 
+      
       ul { 
         display: flex;
         justify-content: flex-start;
@@ -156,6 +157,11 @@
 
       &__developed-by { 
         width: 80%; 
+
+        span { 
+          text-align: left; 
+          font-size: 16px; 
+        }
       }
     }
   }

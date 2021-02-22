@@ -19,7 +19,9 @@
   background: transparent !important;
   border: none;
   box-shadow: none;
+  margin-top: 40px; 
 }
+
 @media (max-width: 480px) {
   .auth-content {
     display: flex;

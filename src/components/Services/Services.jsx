@@ -1,5 +1,5 @@
 import React from "react";
-import "../../assets/stylesheets/whatWeOffer.css";
+import "assets/stylesheets/services.scss";
 import { connect } from "react-redux";
 import ServiceItem from "./ServiceItem";
 
@@ -17,7 +17,12 @@ const Services = (props) => {
         {window.location.href.includes("services") && (
           <h2 className="primary-font">Services</h2>
         )}
-        <div className="services">{getServices()}</div>
+        <div className="services">
+          <h2 className="services__mobile-heading primary-font primary-font-color">
+            Services
+            </h2>
+          {getServices()}
+          </div>
       </div>
     </div>
   );
