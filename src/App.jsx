@@ -43,7 +43,7 @@ const App = (props) => {
   }, []);
 
   return (
-    <div >
+    <div className="main">
       <NavBar />
       
       <Switch>

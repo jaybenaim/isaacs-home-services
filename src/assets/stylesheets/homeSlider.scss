@@ -2,7 +2,7 @@
   background-color: #0a770e61;
   min-height: 570px;
   max-height: 100%;
-  padding-bottom: 20px; 
+  margin-bottom: -105px; 
 
   h2 { 
     text-align: center; 
@@ -44,6 +44,7 @@
   .home-slider-section {
     height: unset;
     text-align: center;
+    padding-top: 4rem; 
 
     &__carousel-item {
       height: unset;

@@ -53,6 +53,10 @@ const NavBar = (props) => {
       }
 
       event.currentTarget.classList.add('nav-link--active')
+
+      if (windowWidth < 992) { 
+        setShowDropdown(false)
+      }
     }
 
     return services.map((service, i) => (
@@ -68,7 +72,12 @@ const NavBar = (props) => {
   };
 
   return (
-      <Navbar bg="light" expand="lg" id="main-nav">
+      <Navbar 
+        bg="light" 
+        expand="lg" 
+        id="main-nav" 
+        fixed="top"
+        >
         <Link className="navbar-brand primary-font-color" to="/">
           <span className="primary-font">Highly Handy</span>
         </Link>

@@ -29,11 +29,11 @@ const ServiceItem = (props) => {
         <img src={mainImage} alt={title} />
       </div>
 
-      <div className="service-page__center">
+      {/* <div className="service-page__center">
         <Button variant="info" className="service-page__book-btn">
           <a href="tel:6472295873">Book A Quote</a>
         </Button>
-      </div>
+      </div> */}
 
       <div className="service-page__right">
       <h1 className="primary-font title">{title}</h1>
@@ -41,6 +41,10 @@ const ServiceItem = (props) => {
       <h2 className="secondary-font primary-font-color sub-title">{heading}</h2>
 
       <p className="secondary-font description">{description}</p>
+
+      <Button variant="info" className="service-page__book-btn mt-4">
+        <a href="tel:6472295873">Book A Quote</a>
+      </Button>
       </div>
     </Container>
   );
