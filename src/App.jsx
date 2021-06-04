@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from "react";
+﻿import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import "./app.scss";
 import NavBar from "./components/NavBar/Navbar";
@@ -35,14 +35,15 @@ const App = (props) => {
     // Refresh services
     props.getData();
 
-    !window.location.href.includes("local") && props.refreshData();
-    // props.refreshData();
+    // !window.location.href.includes("local") && props.refreshData();
+    props.refreshData();
     props.loginUser();
     // use to keep data synced in production
     // eslint-disable-next-line
   }, []);
+
   return (
-    <div>
+    <div >
       <NavBar />
       
       <Switch>
@@ -82,6 +83,7 @@ const mapStateToProps = (state) => {
 
 App.propTypes = {
   auth: PropTypes.object,
+  refreshData: PropTypes.func
 }
 
 export default connect(mapStateToProps, { getData, refreshData, loginUser })(

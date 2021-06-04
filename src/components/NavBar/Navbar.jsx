@@ -8,9 +8,10 @@ import { useState, useEffect } from "react";
 
 import "assets/stylesheets/navbar.scss";
 import { Button } from "react-bootstrap";
+import PropTypes from "prop-types"
 
 const NavBar = (props) => {
-  const { isAuthenticated } = props.auth;
+  const { auth: {isAuthenticated}, hideDropdown } = props;
   const [showDropdown, setShowDropdown] = useState(false);
   const [windowWidth, setWidth] = useState(window.innerWidth)
 
@@ -23,11 +24,23 @@ const NavBar = (props) => {
     setWidth(innerWidth)
   }
 
+  const handleScroll = () => { 
+    const elementTarget = document.querySelector('.navbar-nav')
+    if (elementTarget) { 
+      if (document.querySelector('html').scrollTop > 250) {
+        setShowDropdown(false)
+      }
+    }
+  }
+
   useEffect(() => { 
     window.addEventListener('resize', handleResize)
+    window.addEventListener('scroll', handleScroll)
+
 
     return () => { 
       window.removeEventListener('resize', handleResize)
+      window.removeEventListener('scroll', handleScroll)
     }
   }, [])
 
@@ -83,7 +96,7 @@ const NavBar = (props) => {
                 Home
               </Link>
 
-              <Dropdown className="nav-item nav-link ">
+              <Dropdown className="nav-item nav-link">
                 <Dropdown.Toggle
                   id="navbar-toggle-services"
                   className="primary-font-color"
@@ -91,9 +104,11 @@ const NavBar = (props) => {
                   Services
                 </Dropdown.Toggle>
 
-                <Dropdown.Menu>
-                  <div id="services-dropdown">{serviceLinks()}</div>
-                </Dropdown.Menu>
+                {!hideDropdown && 
+                  (<Dropdown.Menu>
+                    <div id="services-dropdown">{serviceLinks()}</div>
+                  </Dropdown.Menu>)
+                  }
               </Dropdown>
 
               <a
@@ -137,6 +152,8 @@ const NavBar = (props) => {
           </span>
         </a>
 
+
+        <div className="navbar-dropdown--right"> 
         <Button
           className={
             showDropdown ? "collapsed bars" : "bars"
@@ -150,6 +167,8 @@ const NavBar = (props) => {
           <div></div>
           <div></div>
         </Button>
+        </div>
+
 
         {showDropdown && windowWidth <= 992 && (
           <div id="basic-navbar-nav">
@@ -220,7 +239,14 @@ const NavBar = (props) => {
       </Navbar>
   );
 };
+
+NavBar.propTypes = {
+  auth: PropTypes.object,
+  hideDropdown: PropTypes.bool
+}
+
 const mapStateToProps = (state) => {
   return { auth: state.auth, services: state.data.services };
 };
+
 export default connect(mapStateToProps, {})(NavBar);

@@ -4,7 +4,7 @@ import "assets/stylesheets/footer.scss";
 
 const Footer = () => {
   return (
-    <footer className="footer container-fluid">
+    <footer className="footer container-fluid position-sticky">
         <div className="footer__left"> 
         <h5 className="footer__title">Isaac's Home Services</h5>
 

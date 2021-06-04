@@ -10,12 +10,14 @@ html {
   position: relative;
   min-height: 100%;
   overflow-x: hidden; 
+  min-width: 100%; 
 }
 
 body {
   padding: 0;
-  height: 100%; 
+  min-height: 100%; 
   overflow-x: hidden; 
+  min-width: 100%; 
 }
 
 /* Override Bootstrap Styling */

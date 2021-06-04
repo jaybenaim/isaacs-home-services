@@ -18,9 +18,9 @@ const Services = (props) => {
           <h2 className="primary-font">Services</h2>
         )}
         <div className="services">
-          <h2 className="services__mobile-heading primary-font primary-font-color">
+          {/* <h2 className="services__mobile-heading primary-font primary-font-color">
             Services
-            </h2>
+            </h2> */}
           {getServices()}
           </div>
       </div>

@@ -1,15 +1,28 @@
 $mainColor: #316b22 !important; 
 
 .navbar {
+  overflow: hidden; 
   max-width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 120px; 
   background: rgba(255, 255, 255, 0.65);
   position: sticky;
   z-index: 6;
   border: none !important;
   box-shadow: none !important;
+  padding: 0; 
+}
+
+.navbar-brand { 
+  padding-left: 1rem; 
+}
+
+.navbar-dropdown { 
+  &--right { 
+    padding-right: 1rem; 
+  }
 }
 
 .dropdown-toggle {
@@ -48,7 +61,6 @@ $mainColor: #316b22 !important;
   .mobile-nav-links {
     background: rgb(255, 255, 255);
     position: fixed;
-    top: 120px; 
     z-index: 9999;
     width: 100%;
 
@@ -89,9 +101,9 @@ $mainColor: #316b22 !important;
 
 
   #basic-navbar-nav {
-    left: 0;
     position: fixed;
-    top: 80px;
+    top: 118px; 
+    min-width: 100%;
   }
 
   #account-toggle {
