@@ -6,7 +6,11 @@ const Footer = () => {
   return (
     <footer className="footer container-fluid position-sticky">
         <div className="footer__left"> 
-        <h5 className="footer__title">Isaac's Home Services</h5>
+        <h5 className="footer__title pb-2"> 
+          <Link to="/"> 
+            Isaac's Home Services
+          </Link>
+        </h5>
 
         <div className="footer__description">
           <p className="text secondary-font">
@@ -17,6 +21,7 @@ const Footer = () => {
               </a>
             </span>
           </p>
+
           <p className="footer__policies">
             <Link
               to="/privacy-policy"
@@ -67,15 +72,15 @@ const Footer = () => {
               </li>
 
               <li className="footer__socials__developed-by">
-              <a
-                className="footer-link developed-by"
-                id="developed-by"
-                href="https://jacobbenaim.ca/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="">Website Made by Jacob Benaim ©</span>
-              </a>
+                <a
+                  className="footer-link developed-by"
+                  id="developed-by"
+                  href="https://jacobbenaim.ca/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="">Website Made by Jacob Benaim ©</span>
+                </a>
             </li>
             </ul>
           </div>

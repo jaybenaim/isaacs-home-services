@@ -11,7 +11,7 @@ import { Button } from "react-bootstrap";
 import PropTypes from "prop-types"
 
 const NavBar = (props) => {
-  const { auth: {isAuthenticated}, hideDropdown } = props;
+  const { auth: { isAuthenticated } } = props;
   const [showDropdown, setShowDropdown] = useState(false);
   const [windowWidth, setWidth] = useState(window.innerWidth)
 
@@ -25,12 +25,10 @@ const NavBar = (props) => {
   }
 
   const handleScroll = () => { 
-    const elementTarget = document.querySelector('.navbar-nav')
-    if (elementTarget) { 
       if (document.querySelector('html').scrollTop > 250) {
         setShowDropdown(false)
+        document.querySelector('.navbar').scroll = 0
       }
-    }
   }
 
   useEffect(() => { 
@@ -46,11 +44,22 @@ const NavBar = (props) => {
 
   const serviceLinks = () => {
     const { services } = props;
+
+    const handleLinkClick = (event) => { 
+      const elements = document.querySelectorAll('.nav-link') 
+
+      for (const el of elements) { 
+        el.classList.remove('nav-link--active')
+      }
+
+      event.currentTarget.classList.add('nav-link--active')
+    }
+
     return services.map((service, i) => (
       <Link
         key={i}
-        className="nav-item nav-link  primary-font-color "
-        onClick={() => setShowDropdown(!showDropdown)}
+        className="nav-item nav-link primary-font-color"
+        onClick={(event) => handleLinkClick(event)}
         to={{ pathname: `/services/${service.title}`, state: { service } }}
       >
         {service.title}
@@ -66,6 +75,33 @@ const NavBar = (props) => {
         {windowWidth >= 992 && (
           <>
             <div className="desktop-nav-items">
+              <Link
+                className="nav-item nav-link active primary-font-color"
+                to="/"
+                onClick={() => setShowDropdown(!showDropdown)}
+              >
+                Home
+              </Link>
+
+              <Dropdown 
+                className="nav-item nav-link"
+                focusFirstItemOnShow={true}
+                navbar={true}
+                onToggle={() => setShowDropdown(!showDropdown)}
+                show={showDropdown}
+              >
+                <Dropdown.Toggle
+                  id="navbar-toggle-services"
+                  className="primary-font-color"
+                  >
+                  Services
+                </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <div id="services-dropdown">{serviceLinks()}</div>
+                  </Dropdown.Menu>
+              </Dropdown>
+
               <a
                 className="nav-item nav-link call-to-action  primary-font-color"
                 href="tel:6472295873"
@@ -77,6 +113,7 @@ const NavBar = (props) => {
                 ></i>{" "}
                 647-229-5873
               </a>
+              
               <a
                 className="nav-item nav-link call-to-action  primary-font-color"
                 href="mailto:isaac_palomi@outlook.com"
@@ -88,28 +125,6 @@ const NavBar = (props) => {
                 ></i>{" "}
                 Email
               </a>
-              <Link
-                className="nav-item nav-link active primary-font-color"
-                to="/"
-                onClick={() => setShowDropdown(!showDropdown)}
-              >
-                Home
-              </Link>
-
-              <Dropdown className="nav-item nav-link">
-                <Dropdown.Toggle
-                  id="navbar-toggle-services"
-                  className="primary-font-color"
-                >
-                  Services
-                </Dropdown.Toggle>
-
-                {!hideDropdown && 
-                  (<Dropdown.Menu>
-                    <div id="services-dropdown">{serviceLinks()}</div>
-                  </Dropdown.Menu>)
-                  }
-              </Dropdown>
 
               <a
                 className="nav-item nav-link call-to-action  primary-font-color"
@@ -154,19 +169,19 @@ const NavBar = (props) => {
 
 
         <div className="navbar-dropdown--right"> 
-        <Button
-          className={
-            showDropdown ? "collapsed bars" : "bars"
-          }
-          aria-pressed="menuOpen"
-          role="button"
-          tabIndex="0"
-          onClick={() => setShowDropdown(!showDropdown)}
-        >
-          <div></div>
-          <div></div>
-          <div></div>
-        </Button>
+          <Button
+            className={
+              showDropdown ? "collapsed bars" : "bars"
+            }
+            aria-pressed="menuOpen"
+            role="button"
+            tabIndex="0"
+            onClick={() => setShowDropdown(!showDropdown)}
+          >
+            <div></div>
+            <div></div>
+            <div></div>
+          </Button>
         </div>
 
 
@@ -241,8 +256,8 @@ const NavBar = (props) => {
 };
 
 NavBar.propTypes = {
-  auth: PropTypes.object,
-  hideDropdown: PropTypes.bool
+  auth: PropTypes.object, 
+  services: PropTypes.array
 }
 
 const mapStateToProps = (state) => {

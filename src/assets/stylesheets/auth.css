@@ -11,9 +11,11 @@
   color: initial;
   background: rgba(0, 0, 0, 0.07);
 }
+
 .dropdown-menu {
   padding: 0 !important;
 }
+
 #logout {
   background: none;
   background: transparent !important;

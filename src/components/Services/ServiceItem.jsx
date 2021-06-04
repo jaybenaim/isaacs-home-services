@@ -71,10 +71,7 @@ const ServiceItem = (props) => {
 
 
 ServiceItem.propTypes = { 
-  service: { 
-    title: PropTypes.string.isRequired, 
-    description: PropTypes.string.isRequired, 
-  },
+  service: PropTypes.object.isRequired,
   position: PropTypes.number.isRequired
 }
 

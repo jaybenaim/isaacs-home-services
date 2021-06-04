@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from "react";
+﻿import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import "./app.scss";
 import NavBar from "./components/NavBar/Navbar";
@@ -83,7 +83,9 @@ const mapStateToProps = (state) => {
 
 App.propTypes = {
   auth: PropTypes.object,
-  refreshData: PropTypes.func
+  refreshData: PropTypes.func,
+  getData: PropTypes.func,
+  loginUser: PropTypes.func
 }
 
 export default connect(mapStateToProps, { getData, refreshData, loginUser })(

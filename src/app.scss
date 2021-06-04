@@ -4,6 +4,8 @@ $secondaryColor: #f77a0f;
 :root {
   --main-color: $mainColor; 
   --secondary-color: $secondaryColor; 
+  --main-hover-background: rgba(49, 107, 34, 0.8); 
+  --main-hover-text: white; 
 }
 
 html {
