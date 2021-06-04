@@ -30,3 +30,5 @@ Install Heroku CLI `brew tap heroku/brew && brew install heroku`
 4. Set Heroku remote `heroku git:remote -a <APP-NAME>`
 5. Set Heroku config vars `heroku config:set "MONGO_URI='<MONGO-URI>'"`
 6. Push to heroku `git push heroku master`
+
+*Favourites
