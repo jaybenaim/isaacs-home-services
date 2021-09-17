@@ -5,9 +5,9 @@ import ServiceItem from "./ServiceItem";
 import PropTypes from 'prop-types'
 
 const Services = (props) => {
-  const getServices = () => {
-    let { services } = props;
+  let { services } = props;
 
+  const getServices = () => {
     return services.map((service, i) => {
       return <ServiceItem key={i} position={i} service={service} />;
     });
@@ -31,7 +31,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-Services.propTypes = { 
+Services.propTypes = {
   services: PropTypes.array
 }
 
