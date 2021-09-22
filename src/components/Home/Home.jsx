@@ -10,7 +10,7 @@ import Hero from "../Hero/Hero";
 import Services from "../Services/Services";
 import ContactInfo from "../ContactInfo/ContactInfo";
 import HomeSlider from "components/HomeSlider/HomeSlider";
-
+import PropTypes from "prop-types"
 
 import "assets/stylesheets/home.scss";
 
@@ -28,7 +28,7 @@ const Home = (props) => {
 
   return (
     <main id="mainContent">
-      
+
       <Hero />
 
       {/* Insert testimonials */}
@@ -36,11 +36,18 @@ const Home = (props) => {
       <Services />
 
       <ContactInfo />
-    
+
       <HomeSlider />
     </main>
   );
 };
+
+Home.propTypes = {
+  getData: PropTypes.func,
+  refreshData: PropTypes.func,
+  loginUser: PropTypes.func
+}
+
 const mapStateToProps = (state) => {
   return {
     services: state.services,

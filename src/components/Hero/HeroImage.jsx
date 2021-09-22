@@ -11,14 +11,14 @@ const HeroImage = (props) => {
       target: {
         innerWidth
       }
-    }) => { 
+    }) => {
     setWidth(innerWidth)
   }
 
-  useEffect(() => { 
+  useEffect(() => {
     window.addEventListener('resize', handleResize)
 
-    return () => { 
+    return () => {
       window.removeEventListener('resize', handleResize)
     }
   }, [])
@@ -49,7 +49,7 @@ const HeroImage = (props) => {
       onMouseLeave={() => setIsShown(false)}
     >
       {isShown && (
-        <Container className="hero-image__content">
+        <Container className="hero-image__content animate__animated animate__fadeInUp">
           <h4 className="hero-image-title primary-font secondary-font-color">{props.innerTitle}</h4>
           <p className="hero-image-details secondary-font primary-font-color">{props.innerDetails}</p>
         </Container>
@@ -58,11 +58,11 @@ const HeroImage = (props) => {
   );
 };
 
-HeroImage.propTypes = { 
-  imageClassId: PropTypes.number.isRequired, 
+HeroImage.propTypes = {
+  imageClassId: PropTypes.number.isRequired,
   innerTitle: PropTypes.string.isRequired,
   innerDetails: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired 
+  image: PropTypes.string.isRequired
 }
 
 export default HeroImage;

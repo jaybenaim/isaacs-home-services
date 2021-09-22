@@ -3,7 +3,7 @@ import HeroImage from "./HeroImage";
 import images from "../../assets/js/heroImages.js";
 import { connect } from "react-redux";
 import { getHeroes } from "../../redux/actions/heroActions";
-
+import PropTypes from 'prop-types'
 import BootstrapSlider from "components/SimpleSlider/BootstrapSlider";
 
 import "assets/stylesheets/hero.scss";
@@ -19,14 +19,14 @@ const Hero = (props) => {
       target: {
         innerWidth
       }
-    }) => { 
+    }) => {
     setWidth(innerWidth)
   }
 
-  useEffect(() => { 
+  useEffect(() => {
     window.addEventListener('resize', handleResize)
 
-    return () => { 
+    return () => {
       window.removeEventListener('resize', handleResize)
     }
   }, [])
@@ -74,11 +74,16 @@ const Hero = (props) => {
       {onMobile ? (
         <BootstrapSlider elements={sliderElements} />
       ) : (
-        heroImageElements
+        props.currentImages && heroImageElements
       )}
     </div>
   );
 };
+
+Hero.propTypes = {
+  currentImages: PropTypes.array,
+  getHeroes: PropTypes.func
+}
 
 const mapStateToProps = (state) => {
   return {
