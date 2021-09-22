@@ -33,10 +33,11 @@ const App = (props) => {
 
   useEffect(() => {
     // Refresh services
+    // Pass in 'true' to refresh the data
     props.getData();
 
     // !window.location.href.includes("local") && props.refreshData();
-    props.refreshData();
+    // props.refreshData();
     props.loginUser();
     // use to keep data synced in production
     // eslint-disable-next-line

@@ -1,9 +1,8 @@
-﻿import React, { useEffect } from "react";
+﻿import React from "react";
 
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-import { refreshData, getData } from "../../redux/actions/dataActions";
 import { loginUser } from "../../redux/actions/authActions";
 
 import Hero from "../Hero/Hero";
@@ -14,18 +13,7 @@ import PropTypes from "prop-types"
 
 import "assets/stylesheets/home.scss";
 
-const Home = (props) => {
-  useEffect(() => {
-    props.getData();
-    localStorage.removeItem("services");
-
-    // !window.location.href.includes("local") && props.refreshData();
-    props.refreshData();
-    props.loginUser();
-    // use to keep data synced in production
-    // eslint-disable-next-line
-  }, []);
-
+const Home = () => {
   return (
     <main id="mainContent">
 
@@ -43,8 +31,6 @@ const Home = (props) => {
 };
 
 Home.propTypes = {
-  getData: PropTypes.func,
-  refreshData: PropTypes.func,
   loginUser: PropTypes.func
 }
 
@@ -55,5 +41,5 @@ const mapStateToProps = (state) => {
 };
 
 export default withRouter(
-  connect(mapStateToProps, { refreshData, getData, loginUser })(Home)
+  connect(mapStateToProps, { loginUser })(Home)
 );
