@@ -1,6 +1,7 @@
 // Pass all configuration settings to AdminBro
 const AdminBro = require("admin-bro");
 const axios = require("axios");
+const bcrypt = require("bcrypt");
 const { query } = require("express");
 const { database } = require("firebase");
 
@@ -356,9 +357,6 @@ const adminBro = new AdminBro({
     //   options: {
     //     properties: {
     //       password: {
-    //         isVisible: false,
-    //       },
-    //       password: {
     //         type: "string",
     //         isVisible: {
     //           list: false,
@@ -371,11 +369,11 @@ const adminBro = new AdminBro({
     //     actions: {
     //       new: {
     //         before: async (request) => {
-    //           if (request.payload.record.password) {
-    //             request.payload.record = {
-    //               ...request.payload.record,
+    //           if (request.payload.password) {
+    //             request.payload = {
+    //               ...request.payload,
     //               encryptedPassword: await bcrypt.hash(
-    //                 request.payload.record.password,
+    //                 request.payload.password,
     //                 10
     //               ),
     //               password: undefined,

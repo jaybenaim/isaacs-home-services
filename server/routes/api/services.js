@@ -7,18 +7,23 @@ const cloudinary = require("cloudinary");
 const { database } = require("firebase");
 // remove multer
 // Refresh firebase db with mongo db data (used for admin updates to keep adminbro and firebase)
-router.get("/",  (req, res) => {
+router.get("/", (req, res) => {
   const { refresh } = req.query;
   refresh === "true"
     ? // Find all services in mongo
       Service.find()
         .select("-__v -_id")
-        .then(async (response) => {
+        .then((response) => {
 
-          let serviceFilter = [...new Set(response)];
+          let serviceFilter = [];
+
+          for (const service of response) {
+            console.log(service)
+            !serviceFilter.includes(service) && serviceFilter.push(service)
+          }
 
           try {
-           await axios.delete("https://network-king-5740f.firebaseio.com/services.json")
+            axios.delete("https://network-king-5740f.firebaseio.com/services.json")
             // Create each item in firebase
               serviceFilter.forEach((r) => {
                 setTimeout(() => {}, 300)
@@ -28,10 +33,12 @@ router.get("/",  (req, res) => {
                     r
                   )
               });
+            res.send(serviceFilter)
           } catch (err) {
             console.log(err)
             res.send(err)
           }
+
         })
     : // Return all mongo only if no refresh needed
       Service.find()

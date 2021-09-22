@@ -20,6 +20,7 @@ const firebase = require("firebase");
 const formData = require("express-form-data");
 
 const cloudinary = require("cloudinary");
+const User = require("./models/User");
 
 require("dotenv").config();
 require("./config/db");
@@ -55,6 +56,8 @@ const adminRouter = AdminBroExpressjs.buildAuthenticatedRouter(adminBro, {
   },
   cookiePassword: process.env.SECRET,
 });
+
+// Enable to use without auth
 // const adminRouter = AdminBroExpressjs.buildRouter(adminBro);
 app.use(adminBro.options.rootPath, adminRouter);
 // Bodyparser middleware
