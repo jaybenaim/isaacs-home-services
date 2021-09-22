@@ -20,23 +20,23 @@ const NavBar = (props) => {
       target: {
         innerWidth
       }
-    }) => { 
+    }) => {
     setWidth(innerWidth)
   }
 
-  const handleScroll = () => { 
+  const handleScroll = () => {
       if (document.querySelector('html').scrollTop > 250) {
         setShowDropdown(false)
         document.querySelector('.navbar').scroll = 0
       }
   }
 
-  useEffect(() => { 
+  useEffect(() => {
     window.addEventListener('resize', handleResize)
     window.addEventListener('scroll', handleScroll)
 
 
-    return () => { 
+    return () => {
       window.removeEventListener('resize', handleResize)
       window.removeEventListener('scroll', handleScroll)
     }
@@ -45,16 +45,16 @@ const NavBar = (props) => {
   const serviceLinks = () => {
     const { services } = props;
 
-    const handleLinkClick = (event) => { 
-      const elements = document.querySelectorAll('.nav-link') 
+    const handleLinkClick = (event) => {
+      const elements = document.querySelectorAll('.nav-link')
 
-      for (const el of elements) { 
+      for (const el of elements) {
         el.classList.remove('nav-link--active')
       }
 
       event.currentTarget.classList.add('nav-link--active')
 
-      if (windowWidth < 992) { 
+      if (windowWidth < 992) {
         setShowDropdown(false)
       }
     }
@@ -72,10 +72,10 @@ const NavBar = (props) => {
   };
 
   return (
-      <Navbar 
-        bg="light" 
-        expand="lg" 
-        id="main-nav" 
+      <Navbar
+        bg="light"
+        expand="lg"
+        id="main-nav"
         fixed="top"
         >
         <Link className="navbar-brand primary-font-color" to="/">
@@ -92,7 +92,7 @@ const NavBar = (props) => {
                 Home
               </Link>
 
-              <Dropdown 
+              <Dropdown
                 className="nav-item nav-link"
                 focusFirstItemOnShow={true}
                 navbar={true}
@@ -122,7 +122,7 @@ const NavBar = (props) => {
                 ></i>{" "}
                 647-229-5873
               </a>
-              
+
               <a
                 className="nav-item nav-link call-to-action  primary-font-color"
                 href="mailto:isaac_palomi@outlook.com"
@@ -177,7 +177,7 @@ const NavBar = (props) => {
         </a>
 
 
-        <div className="navbar-dropdown--right"> 
+        <div className="navbar-dropdown--right">
           <Button
             className={
               showDropdown ? "collapsed bars" : "bars"
@@ -265,7 +265,7 @@ const NavBar = (props) => {
 };
 
 NavBar.propTypes = {
-  auth: PropTypes.object, 
+  auth: PropTypes.object,
   services: PropTypes.array
 }
 
