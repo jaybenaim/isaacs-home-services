@@ -31,6 +31,13 @@ export const getData = (refresh = false) => async (dispatch) => {
     url += "?refresh=true"
   }
 
+  // Load cached data
+  dispatch({
+    type: SET_DATA,
+    payload: JSON.parse(localStorage.getItem('services'))
+  });
+
+  // Get fresh data once heroku is running
   try {
     await backend
     .get(url)
