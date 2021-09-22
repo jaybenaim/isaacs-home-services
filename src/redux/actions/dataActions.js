@@ -1,9 +1,10 @@
 import { SET_DATA, GET_ERRORS } from "./types";
 import backend from "../../api/backend";
 import firebaseDb from "../../api/firebase";
+import local from "api/local";
 
 export const refreshData = () => (dispatch) => {
-  backend
+  local
     .get("/services?refresh=true")
     .then((res) => {
       let jsonData = JSON.stringify(res.data);

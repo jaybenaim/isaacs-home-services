@@ -7,6 +7,7 @@ import PropTypes from 'prop-types'
 import BootstrapSlider from "components/SimpleSlider/BootstrapSlider";
 
 import "assets/stylesheets/hero.scss";
+import { Container } from "react-bootstrap";
 
 const Hero = (props) => {
 
@@ -47,6 +48,10 @@ const Hero = (props) => {
           />
           <div className="carousel-caption">
             <h3>{image.innerTitle}</h3>
+            <Container className="hero-image__content animate__animated animate__fadeInUp">
+              <h4 className="hero-image-title primary-font secondary-font-color">{image.innerTitle}</h4>
+              <p className="hero-image-details secondary-font primary-font-color">{image.innerDetails}</p>
+            </Container>
           </div>
         </div>
       );
@@ -74,7 +79,7 @@ const Hero = (props) => {
       {onMobile ? (
         <BootstrapSlider elements={sliderElements} />
       ) : (
-        props.currentImages && heroImageElements
+        <BootstrapSlider elements={sliderElements} />
       )}
     </div>
   );
