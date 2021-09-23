@@ -26,16 +26,43 @@ export const refreshData = () => async (dispatch) => {
 };
 
 export const getData = (refresh = false) => async (dispatch) => {
+  const cachedServices = localStorage.getItem('services')
+
   let url = "/services"
   if (refresh) {
     url += "?refresh=true"
   }
 
   // Load cached data
-  dispatch({
-    type: SET_DATA,
-    payload: JSON.parse(localStorage.getItem('services'))
-  });
+  if (cachedServices) {
+    dispatch({
+      type: SET_DATA,
+      payload: JSON.parse(cachedServices)
+    });
+  } else {
+    try {
+     const response = await firebaseDb
+      .get("/services.json")
+
+      const services = []
+
+      for (const serviceId of Object.keys(response.data)) {
+        services.push(response.data[serviceId])
+      }
+
+      dispatch({
+        type: SET_DATA,
+        payload: services
+      })
+    } catch (err) {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err
+      })
+    }
+
+  }
+
 
   // Get fresh data once heroku is running
   try {

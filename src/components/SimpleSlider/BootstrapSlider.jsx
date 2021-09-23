@@ -19,7 +19,7 @@ const BootstrapSlider = ({ elements, id }) => {
 };
 
 BootstrapSlider.propTypes = {
-  elements: PropTypes.object,
+  elements: PropTypes.func,
   id: PropTypes.number
 }
 export default BootstrapSlider;
