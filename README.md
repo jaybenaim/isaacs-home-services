@@ -1,34 +1,12 @@
-﻿This is a starter template for a full-stack MERN app
-(Mongo, Express, React, Node)
+﻿View Live on https://highlyhandy.com/#/
 
-Ready to be deployed on Heroku.
+This SPA was built using a MERN stack.
 
-## Getting Started
+The app includes capability for booking, and calender events using SetMore for booking and React-big-calender to display the admins current availability.
+(Both of which are currently disabled)
 
-In the root directory of the project...
+Google Analytics and SEO best practices.
 
-1. Install node modules `npm i`.
-2. Start development server `npm run start`.
-3. Create .env add two variables
+Integrated custom admin panel using Admin bro for Node.js.
 
-- SECRET=<SECRET-GOES-HERE>
-- MONOGO_URI=<MONGO-URI-GOES-HERE> (recieved from mongo atlas when creating db)
-
-## Next Steps
-
-Assuming you use Hub for github command line tools, and Heroku cli tools
-
-Install hub with homebrew. `brew install hub`
-Install Heroku CLI `brew tap heroku/brew && brew install heroku`
-
-<!-- Docs at https://hub.github.com/ -->
-
-1. Remove git folder and add new remote
-   `git init; git add -A; git commit -m 'initial commit'; hub create <APP-NAME>`
-2. Set remote `git push --set-upstream origin master`
-3. Create Heroku app with `heroku create <APP-NAME>`
-4. Set Heroku remote `heroku git:remote -a <APP-NAME>`
-5. Set Heroku config vars `heroku config:set "MONGO_URI='<MONGO-URI>'"`
-6. Push to heroku `git push heroku master`
-
-*Favourites
+\*Favourites
