@@ -48,10 +48,13 @@ const Hero = (props) => {
           />
           <div className="carousel-caption">
             <h3>{image.innerTitle}</h3>
-            <Container className="hero-image__content animate__animated animate__fadeInUp">
-              <h4 className="hero-image-title primary-font secondary-font-color">{image.innerTitle}</h4>
-              <p className="hero-image-details secondary-font primary-font-color">{image.innerDetails}</p>
-            </Container>
+
+            {!onMobile && (
+              <Container className="hero-image__content animate__animated animate__fadeInUp">
+                <h4 className="hero-image-title primary-font secondary-font-color">{image.innerTitle}</h4>
+                <p className="hero-image-details secondary-font primary-font-color">{image.innerDetails}</p>
+              </Container>
+            )}
           </div>
         </div>
       );
