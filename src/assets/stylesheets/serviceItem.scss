@@ -124,7 +124,7 @@
   }
 
   .services-section .service-content {
-    margin-bottom: 5%;
+    margin-bottom: 0.5em;
   }
 
   .services-section .services .service-content .img-thumb {
@@ -139,6 +139,11 @@
     background-color: rgba(0, 0, 0, 0.5);
     height: 200px;
     width: 100vw;
+
+    a,
+    a:hover {
+      text-decoration: none;
+    }
   }
 
   .service-content .img-layover h5 {

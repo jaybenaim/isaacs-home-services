@@ -21,9 +21,9 @@
 
 @media (max-width: 481px) {
   .services-section {
-    background: none !important;
     width: 100%;
     padding: 0 5%;
+    background: url(../img/whitenoise-361x370.png);
 
     h2 {
       display: list-item;
@@ -33,7 +33,6 @@
   }
 
   .inner-container {
-    background: none !important;
     border: none !important;
   }
 }
