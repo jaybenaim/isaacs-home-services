@@ -36,7 +36,7 @@ const Admin = (props) => {
   }, []);
 
   return (
-    <div className="container admin-page">
+    <div className="container admin-page" style={{ minHeight: "100vh" }}>
       <button
         className="btn btn-outline-primary"
         onClick={() => setEditHeroes(!editHeroes)}
@@ -63,9 +63,7 @@ const Admin = (props) => {
         </a>
       </button>
 
-      <div className="container">
-        {editHeroes && currentImageElements()}
-      </div>
+      <div className="container">{editHeroes && currentImageElements()}</div>
 
       {editHeroes && (
         <>

@@ -17,15 +17,14 @@ import Services from "./components/Services/Services";
 import OfferItemShow from "./components/Services/ServiceItemShow";
 import PrivacyPolicy from "./components/Policies/PrivacyPolicy/PrivacyPolicy";
 import TermsAndConditions from "./components/Policies/TermsAndConditions/TermsAndConditions";
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
+import Register from "components/Auth/Register";
 
 //TODO Web Template Studio: Add routes for your new pages here.
 const App = (props) => {
   const {
     auth: {
-      user: {
-        role
-       },
+      user: { role },
     },
   } = props;
 
@@ -33,7 +32,6 @@ const App = (props) => {
     // Refresh services
     // Pass in 'true' to refresh the data
     props.getData();
-
 
     // !window.location.href.includes("local") && props.refreshData();
     // props.refreshData();
@@ -57,11 +55,11 @@ const App = (props) => {
         {/* <Route exact path="/calendar" component={ClientCalendar} /> */}
         {/* <Route exact path="/book" component={BookNow} /> */}
 
-        {/* <Route
+        <Route
           exact
           path="/register"
           render={(props) => <Register {...props} />}
-        /> */}
+        />
         <Route exact path="/login" render={(props) => <Login {...props} />} />
         <Route exact path="/privacy-policy" component={PrivacyPolicy} />
         <Route
@@ -85,8 +83,8 @@ App.propTypes = {
   auth: PropTypes.object,
   refreshData: PropTypes.func,
   getData: PropTypes.func,
-  loginUser: PropTypes.func
-}
+  loginUser: PropTypes.func,
+};
 
 export default connect(mapStateToProps, { getData, refreshData, loginUser })(
   App

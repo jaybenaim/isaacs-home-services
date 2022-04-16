@@ -43,21 +43,25 @@ class Register extends Component {
   render() {
     const { errors } = this.state;
     return (
-      <div className="container register-container">
-        <div className="row">
-          <div className="col s8 offset-s2">
-            <Link to="/" className="btn-flat waves-effect">
-              <i className="material-icons left">keyboard_backspace</i> Back to
-              home
-            </Link>
-            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-              <h4>
-                <b>Register</b> below
-              </h4>
-              <p className="grey-text text-darken-1">
-                Already have an account? <Link to="/login">Log in</Link>
-              </p>
-            </div>
+      <div
+        className="container register-container"
+        style={{ padding: "4em", marginTop: "8em" }}
+      >
+        <div className="col s8 offset-s2 mt-4">
+          <Link to="/" className="btn-flat waves-effect">
+            <i className="material-icons left">keyboard_backspace</i> Back to
+            home
+          </Link>
+          <div
+            className="col s12 mt-4"
+            style={{ paddingLeft: "11.250px", marginTop: "220px" }}
+          >
+            <h4>
+              <b>Register</b> below
+            </h4>
+            <p className="grey-text text-darken-1">
+              Already have an account? <Link to="/login">Log in</Link>
+            </p>
             <form noValidate onSubmit={this.onSubmit}>
               <div className="input-field col s12">
                 <input

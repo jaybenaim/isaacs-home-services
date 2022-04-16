@@ -37,20 +37,21 @@ const Auth = (props) => {
     </div>
   ) : (
     <div className="auth-content">
-      <Button
-        id="logout"
-        onClick={(e) => onLogoutClick(e)}
-        className="btn button-outline auth-link nav-item nav-link primary-font-color"
-      >
-        Logout <span className="auth-content--name "> {name}?</span>
-      </Button>
+      <div className="auth-link">
+        <Link to="/admin" className="primary-font-color">
+          Admin
+        </Link>
+      </div>
 
-      <Link
-        to="/admin"
-        className="auth-link nav-item nav-link primary-font-color"
-      >
-        Admin
-      </Link>
+      <div className="auth-link">
+        <Button
+          id="logout"
+          onClick={(e) => onLogoutClick(e)}
+          className="btn button-outline primary-font-color"
+        >
+          Logout <span className="auth-content--name"> {name}?</span>
+        </Button>
+      </div>
     </div>
   );
 };

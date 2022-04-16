@@ -1,19 +1,19 @@
 .auth-content {
   display: flex;
   flex-direction: column;
+  position: fixed;
+  top: 120px;
+  right: 20px;
+  background: white;
 }
 
-.auth-content a {
-  color: #000;
-}
-.auth-content a:hover {
-  text-decoration: none;
-  color: initial;
-  background: rgba(0, 0, 0, 0.07);
+.auth-link {
+  padding: 1em;
 }
 
 .dropdown-menu {
   padding: 0 !important;
+  z-index: 999999;
 }
 
 #logout {
@@ -21,10 +21,9 @@
   background: transparent !important;
   border: none;
   box-shadow: none;
-  margin-top: 40px; 
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
   .auth-content {
     display: flex;
     flex-direction: column;
@@ -32,4 +31,4 @@
     text-align: right;
     margin-right: 5%;
   }
-}
+} */

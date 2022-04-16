@@ -22,7 +22,7 @@ export const refreshData = () => (dispatch) => {
     });
 };
 
-export const getHeroes = () => (dispatch) => {
+export const getHeroes = () => async (dispatch) => {
   // let localData = localStorage.getItem("heroes");
   // // Get data from local storage if available if not make api call
   // if (!localData) {
@@ -40,12 +40,26 @@ export const getHeroes = () => (dispatch) => {
   // }
   // let parsedData = JSON.parse(localData);
   // dispatch(setCurrentImages(parsedData));
-  firebase
+
+  // Preload firebase images to hurry initial load times while heruoku powers up
+  await firebase
     .get("/heroes.json")
     .then((res) => {
       dispatch(setCurrentImages(res.data));
     })
     .catch((err) => console.log(err));
+
+  try {
+    await backend
+      .get("/heroes")
+      .then((res) => dispatch(setCurrentImages(res.data)));
+  } catch (err) {
+    console.log(err);
+    dispatch({
+      type: GET_ERRORS,
+      payload: err,
+    });
+  }
 };
 export const setCurrentImages = (data) => {
   return {

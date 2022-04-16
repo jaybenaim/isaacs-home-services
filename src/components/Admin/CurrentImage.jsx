@@ -3,13 +3,13 @@ import firebase from "../../api/firebase";
 import { useHistory } from "react-router";
 
 const CurrentImage = ({ currentImage: ci, imageNum }) => {
-  const history = useHistory();
+  // const history = useHistory();
 
   const deleteImage = (id) => {
     firebase
       .delete(`/heroes/${id}.json`)
       .then((res) => {
-        history.go();
+        // history.go();
         console.log("deleted item ");
       })
       .catch((err) => console.log(err));

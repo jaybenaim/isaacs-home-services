@@ -3,34 +3,28 @@ import HeroImage from "./HeroImage";
 import images from "../../assets/js/heroImages.js";
 import { connect } from "react-redux";
 import { getHeroes } from "../../redux/actions/heroActions";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 import BootstrapSlider from "components/SimpleSlider/BootstrapSlider";
 
 import "assets/stylesheets/hero.scss";
 import { Container } from "react-bootstrap";
 
 const Hero = (props) => {
-
-  const [windowWidth, setWidth] = useState(window.innerWidth)
+  const [windowWidth, setWidth] = useState(window.innerWidth);
 
   const onMobile = windowWidth <= 768;
 
-  const handleResize = (
-    {
-      target: {
-        innerWidth
-      }
-    }) => {
-    setWidth(innerWidth)
-  }
+  const handleResize = ({ target: { innerWidth } }) => {
+    setWidth(innerWidth);
+  };
 
   useEffect(() => {
-    window.addEventListener('resize', handleResize)
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     props.getHeroes();
@@ -38,21 +32,27 @@ const Hero = (props) => {
   }, []);
 
   const sliderElements = () => {
-    return images.map((image, i) => {
+    return props.currentImages.map((image, i) => {
       return (
         <div key={i} className="carousel-item">
           <img
             src={image.src}
             alt={image.innerTitle}
+            className="animate__animated animate__fadeIn animate__slower"
             loading="lazy"
           />
+
           <div className="carousel-caption">
             <h3>{image.innerTitle}</h3>
 
             {!onMobile && (
               <Container className="hero-image__content animate__animated animate__fadeInUp">
-                <h4 className="hero-image-title primary-font secondary-font-color">{image.innerTitle}</h4>
-                <p className="hero-image-details secondary-font primary-font-color">{image.innerDetails}</p>
+                <h4 className="hero-image-title primary-font secondary-font-color">
+                  {image.innerTitle}
+                </h4>
+                <p className="hero-image-details secondary-font primary-font-color">
+                  {image.innerDetails}
+                </p>
               </Container>
             )}
           </div>
@@ -90,8 +90,8 @@ const Hero = (props) => {
 
 Hero.propTypes = {
   currentImages: PropTypes.array,
-  getHeroes: PropTypes.func
-}
+  getHeroes: PropTypes.func,
+};
 
 const mapStateToProps = (state) => {
   return {
