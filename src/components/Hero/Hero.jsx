@@ -43,7 +43,7 @@ const Hero = (props) => {
           <img
             src={image.src}
             alt={image.innerTitle}
-            className="animate__animated animate__fadeIn animate__slower"
+            className="" // animate__animated animate__fadeIn animate__slower
             loading="lazy"
           />
 

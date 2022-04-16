@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.de2b79ef.chunk.css",
-    "main.js": "/static/js/main.8e54d7c9.chunk.js",
-    "main.js.map": "/static/js/main.8e54d7c9.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.efae2fd7.js",
-    "runtime-main.js.map": "/static/js/runtime-main.efae2fd7.js.map",
-    "static/css/2.25b83785.chunk.css": "/static/css/2.25b83785.chunk.css",
-    "static/js/2.60a13251.chunk.js": "/static/js/2.60a13251.chunk.js",
-    "static/js/2.60a13251.chunk.js.map": "/static/js/2.60a13251.chunk.js.map",
+    "main.css": "/static/css/main.e61085f1.chunk.css",
+    "main.js": "/static/js/main.539507cd.chunk.js",
+    "main.js.map": "/static/js/main.539507cd.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.6a281b28.js",
+    "runtime-main.js.map": "/static/js/runtime-main.6a281b28.js.map",
+    "static/css/2.2d9b0522.chunk.css": "/static/css/2.2d9b0522.chunk.css",
+    "static/js/2.7e2dcd9c.chunk.js": "/static/js/2.7e2dcd9c.chunk.js",
+    "static/js/2.7e2dcd9c.chunk.js.map": "/static/js/2.7e2dcd9c.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.009988ea1e0fdfd2cb5ab585df650cb9.js": "/precache-manifest.009988ea1e0fdfd2cb5ab585df650cb9.js",
+    "precache-manifest.718e59b9b7f0b69b3f6de0a5a2863e6f.js": "/precache-manifest.718e59b9b7f0b69b3f6de0a5a2863e6f.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/2.25b83785.chunk.css.map": "/static/css/2.25b83785.chunk.css.map",
-    "static/css/main.de2b79ef.chunk.css.map": "/static/css/main.de2b79ef.chunk.css.map",
-    "static/js/2.60a13251.chunk.js.LICENSE.txt": "/static/js/2.60a13251.chunk.js.LICENSE.txt",
+    "static/css/2.2d9b0522.chunk.css.map": "/static/css/2.2d9b0522.chunk.css.map",
+    "static/css/main.e61085f1.chunk.css.map": "/static/css/main.e61085f1.chunk.css.map",
+    "static/js/2.7e2dcd9c.chunk.js.LICENSE.txt": "/static/js/2.7e2dcd9c.chunk.js.LICENSE.txt",
     "static/media/beforeAfter.jpg": "/static/media/beforeAfter.67273821.jpg",
     "static/media/detaching1.jpg": "/static/media/detaching1.fa7c85a2.jpg",
     "static/media/detaching2.jpg": "/static/media/detaching2.0317c4be.jpg",
@@ -26,10 +26,10 @@
     "static/media/serviceItemShow.scss": "/static/media/whitenoise-361x370.c1a81378.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.efae2fd7.js",
-    "static/css/2.25b83785.chunk.css",
-    "static/js/2.60a13251.chunk.js",
-    "static/css/main.de2b79ef.chunk.css",
-    "static/js/main.8e54d7c9.chunk.js"
+    "static/js/runtime-main.6a281b28.js",
+    "static/css/2.2d9b0522.chunk.css",
+    "static/js/2.7e2dcd9c.chunk.js",
+    "static/css/main.e61085f1.chunk.css",
+    "static/js/main.539507cd.chunk.js"
   ]
 }
