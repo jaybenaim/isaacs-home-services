@@ -12,7 +12,7 @@ const Admin = (props) => {
   const [imageAsFile, setImageAsFile] = useState("");
   const [imageAsUrl, setImageAsUrl] = useState(allInputs);
 
-  const [editHeroes, setEditHeroes] = useState(false);
+  const [editHeroes, setEditHeroes] = useState(true);
   const [showCalender, setShowCalender] = useState(false);
 
   const handleImageAsFile = (e) => {
@@ -43,32 +43,39 @@ const Admin = (props) => {
   }, []);
 
   return (
-    <div className="container admin-page" style={{ minHeight: "100vh" }}>
-      <button
-        className="btn btn-outline-primary"
-        onClick={() => setEditHeroes(!editHeroes)}
-      >
-        {" "}
-        Home Page Images{" "}
-      </button>
+    <div className="container admin-page min-h-screen">
+      <div className="flex justify-center w-full pb-4 mx-4">
+        <button
+          className="flex btn btn-outline-primary mx-2"
+          onClick={() => setEditHeroes(!editHeroes)}
+        >
+          {" "}
+          Home Page Images{" "}
+        </button>
 
-      <button
-        className="btn btn-outline-primary"
-        onClick={() => setShowCalender(!showCalender)}
-      >
-        {" "}
-        {showCalender ? "Hide" : "Show"} Calender{" "}
-      </button>
+        <button
+          className="flex btn btn-outline-primary mx-2"
+          onClick={() => {
+            setEditHeroes(false);
+            setShowCalender(!showCalender);
+          }}
+        >
+          {" "}
+          {showCalender ? "Hide" : "Show"} Calender{" "}
+        </button>
 
-      <button className="btn btn-outline-primary">
-        <a
-          href="https://isaacs-home-services.herokuapp.com/admin"
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          className="flex btn btn-outline-primary mx-2"
+          onClick={() => {
+            window.open(
+              "https://isaacs-home-services.herokuapp.com/admin",
+              "_blank"
+            );
+          }}
         >
           Admin Page
-        </a>
-      </button>
+        </button>
+      </div>
 
       <div className="container">{editHeroes && currentImageElements()}</div>
 

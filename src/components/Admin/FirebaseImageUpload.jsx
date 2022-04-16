@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button } from "react-bootstrap";
 import backend from "../../api/backend";
 import { storage } from "../../firebase/firebase";
 
@@ -69,22 +70,36 @@ const FirebaseImageUpload = ({
   };
 
   return (
-    <form onSubmit={handleFireBaseUpload}>
-      <input
-        name="setInnerTitle"
-        value={innerTitle}
-        onChange={(e) => setInnerTitle(e.target.value)}
-        placeholder="Inner Title"
-      />
-      <textarea
-        className="input-group-text"
-        name="setInnerTitle"
-        value={innerDetails}
-        onChange={(e) => setInnerDetails(e.target.value)}
-        placeholder="Inner Details"
-      />
-      <input type="file" onChange={onChange} />
-      <button>Add</button>
+    <form
+      onSubmit={handleFireBaseUpload}
+      className="flex flex-col space-y-4 p-4"
+    >
+      <div className="flex mt-2">
+        <input
+          name="setInnerTitle"
+          value={innerTitle}
+          onChange={(e) => setInnerTitle(e.target.value)}
+          placeholder="Inner Title"
+        />
+      </div>
+
+      <div className="flex mt-2">
+        <textarea
+          className="input-group-text"
+          name="setInnerTitle"
+          value={innerDetails}
+          onChange={(e) => setInnerDetails(e.target.value)}
+          placeholder="Inner Details"
+        />
+      </div>
+
+      <div className="flex mt-2">
+        <input type="file" onChange={onChange} />
+      </div>
+
+      <div className="flex mt-2">
+        <Button>Add</Button>
+      </div>
     </form>
   );
 };

@@ -1,4 +1,8 @@
-﻿$mainColor: #316b22;
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$mainColor: #316b22;
 $secondaryColor: #f77a0f;
 
 :root {

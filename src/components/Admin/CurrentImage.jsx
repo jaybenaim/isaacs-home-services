@@ -28,10 +28,13 @@ const CurrentImage = ({ currentImage: ci, imageNum, onSuccess }) => {
     }
   };
   return (
-    <div style={{ border: "2px solid #000", padding: "4%" }}>
+    <div
+      style={{ padding: "4%" }}
+      className="border-t-gray-200 border border-2"
+    >
       <strong>Image {imageNum + 1}</strong>
-      <p>Title: {ci.innerTitle}</p>
-      <p>Details: {ci.innerDetails}</p>
+      <p>{ci.innerTitle}</p>
+      <p>{ci.innerDetails}</p>
       <p>
         <a
           href={`https://isaacs-home-services.herokuapp.com/admin/resources/homeImages`}
