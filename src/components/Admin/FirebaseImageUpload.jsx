@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import backend from "../../api/backend";
 import { storage } from "../../firebase/firebase";
 
-const FirebaseImageUpload = ({ onChange, imageAsFile, setImageAsUrl }) => {
+const FirebaseImageUpload = ({
+  onChange,
+  imageAsFile,
+  setImageAsUrl,
+  onSuccess,
+}) => {
   const [innerTitle, setInnerTitle] = useState("");
   const [innerDetails, setInnerDetails] = useState("");
 
@@ -54,6 +59,10 @@ const FirebaseImageUpload = ({ onChange, imageAsFile, setImageAsUrl }) => {
               ...prevObject,
               imgUrl: fireBaseUrl,
             }));
+
+            if (onSuccess) {
+              onSuccess();
+            }
           });
       }
     );

@@ -9,16 +9,16 @@ router.get("/firebase", (req, res) => {
   axios
     .get("https://network-king-5740f.firebaseio.com/heroes.json")
     .then((response) => {
-      let homeImages = response.data;
-      let results = [];
-      for (let id in homeImages) {
+      const homeImages = response.data;
+      const results = [];
+      for (const id in homeImages) {
         console.log(homeImages[id]);
         results.push(homeImages[id]);
       }
 
       res.send(results);
       results.forEach((hero) => {
-        let newHomeImage = new HomeImage(hero);
+        const newHomeImage = new HomeImage(hero);
         setTimeout(() => {
           newHomeImage
             .save()
@@ -30,6 +30,7 @@ router.get("/firebase", (req, res) => {
       });
     });
 });
+
 router.get("/", (req, res) => {
   const { refresh } = req.query;
   refresh === "true"
@@ -43,18 +44,14 @@ router.get("/", (req, res) => {
             .then((response) => {
               // Create each item in firebase
               homeImageFilter.forEach((r) => {
-                axios
-                  .post(
-                    "https://network-king-5740f.firebaseio.com/heroes.json",
-                    r
-                  )
-                  .then((d) => res.send(homeImageFilter))
-                  .catch((err) => console.log(err));
+                axios.post(
+                  "https://network-king-5740f.firebaseio.com/heroes.json",
+                  r
+                );
               });
             })
-            .catch((err) => console.log(err));
+            .finally(() => res.send(homeImageFilter));
         })
-        .catch((err) => console.log(err))
     : // Return all mongo only if no refresh needed
       HomeImage.find()
         .then((r) => res.send(r))
@@ -77,6 +74,21 @@ router.post("/", (req, res) => {
         });
     })
     .catch((err) => res.send(err));
+});
+
+router.delete("/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    console.log("id to delete", id);
+
+    const deleteResponse = await HomeImage.deleteOne({ _id: id });
+
+    res.send(deleteResponse);
+  } catch (err) {
+    console.log("err", err);
+    return res.send(err);
+  }
 });
 
 module.exports = router;

@@ -42,12 +42,12 @@ export const getHeroes = () => async (dispatch) => {
   // dispatch(setCurrentImages(parsedData));
 
   // Preload firebase images to hurry initial load times while heruoku powers up
-  await firebase
-    .get("/heroes.json")
-    .then((res) => {
-      dispatch(setCurrentImages(res.data));
-    })
-    .catch((err) => console.log(err));
+  // await firebase
+  //   .get("/heroes.json")
+  //   .then((res) => {
+  //     dispatch(setCurrentImages(res.data));
+  //   })
+  //   .catch((err) => console.log(err));
 
   try {
     await backend

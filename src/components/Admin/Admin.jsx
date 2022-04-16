@@ -26,7 +26,14 @@ const Admin = (props) => {
     return (
       currentImages.length >= 1 &&
       currentImages.map((ci, i) => {
-        return <CurrentImage key={i} currentImage={ci} imageNum={i} />;
+        return (
+          <CurrentImage
+            key={i}
+            currentImage={ci}
+            imageNum={i}
+            onSuccess={() => props.getHeroes()}
+          />
+        );
       })
     );
   };
@@ -67,23 +74,20 @@ const Admin = (props) => {
 
       {editHeroes && (
         <>
-          <img
+          {/* <img
             style={{ maxHeight: "400px", maxWidth: "400px" }}
             src={imageAsUrl.imgUrl}
             alt={imageAsFile.name !== "" ? imageAsFile.name : "No image chosen"}
+          /> */}
+
+          <FirebaseImageUpload
+            onChange={handleImageAsFile}
+            imageAsFile={imageAsFile}
+            setImageAsUrl={setImageAsUrl}
+            onSuccess={() => {
+              props.getHeroes();
+            }}
           />
-
-          {props.currentImages.length >= 4 && (
-            <div>Max 4 images, Delete an image to add a new image. </div>
-          )}
-
-          {props.currentImages.length <= 3 && (
-            <FirebaseImageUpload
-              onChange={handleImageAsFile}
-              imageAsFile={imageAsFile}
-              setImageAsUrl={setImageAsUrl}
-            />
-          )}
         </>
       )}
 

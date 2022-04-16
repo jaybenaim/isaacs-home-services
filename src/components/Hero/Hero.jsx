@@ -32,7 +32,12 @@ const Hero = (props) => {
   }, []);
 
   const sliderElements = () => {
-    return props.currentImages.map((image, i) => {
+    let readyImages = images;
+    if (props.currentImages.length > 0) {
+      readyImages = props.currentImages;
+    }
+
+    return readyImages.map((image, i) => {
       return (
         <div key={i} className="carousel-item">
           <img
