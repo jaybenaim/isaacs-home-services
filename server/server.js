@@ -27,21 +27,25 @@ require("./config/db");
 
 const app = express();
 // Firebase Admin
-const config = {
-  apiKey: process.env.FIREBASE_KEY,
-  authDomain: process.env.AUTH_DOMAIN,
-  databaseURL: process.env.DATABASE_URL,
-  projectId: process.env.PROJECT_ID,
-  storageBucket: process.env.STORAGE_BUCKET,
-  messagingSenderId: process.env.MESSAGING_SENDER_ID,
-};
-firebase.initializeApp(config);
-const firebaseDB = firebase.database();
+// const config = {
+//   apiKey: process.env.FIREBASE_KEY,
+//   authDomain: process.env.AUTH_DOMAIN,
+//   databaseURL: process.env.DATABASE_URL,
+//   projectId: process.env.PROJECT_ID,
+//   storageBucket: process.env.STORAGE_BUCKET,
+//   messagingSenderId: process.env.MESSAGING_SENDER_ID,
+// };
+
+// firebase.initializeApp(config);
+
+// const firebaseDB = firebase.database();
+
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_KEY,
   api_secret: process.env.CLOUDINARY_SECRET,
 });
+
 // Admin
 const adminRouter = AdminBroExpressjs.buildAuthenticatedRouter(adminBro, {
   authenticate: async (email, password) => {
