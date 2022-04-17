@@ -40,7 +40,7 @@ const ShowImage = (props) => {
         width="250px"
         style={{
           // padding: "4%",
-          margin: "2em",
+          margin: "1em",
         }}
       />
     </div>

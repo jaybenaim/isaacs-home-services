@@ -16,8 +16,16 @@ const UploadImage = (props) => {
   const previousImage =
     name === "beforeImage" ? params.beforeImage : params.afterImage;
   const [imageFile, setImageFile] = useState(previousImage);
+  const [errors, setErrors] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   const onChange = (e) => {
+    if (!recordId) {
+      console.log("no record id");
+      setErrors("Add the title and save first before adding an image.");
+      return;
+    }
+    setIsLoading(true);
     const errs = [];
     const files = Array.from(e.target.files);
 
@@ -75,21 +83,29 @@ const UploadImage = (props) => {
   };
   return (
     <div
-      style={{ padding: "2% 0 4% 0", display: "flex", flexDirection: "row" }}
+      style={{ padding: "2% 0 4% 0", display: "flex", flexDirection: "column" }}
     >
-      <input type="file" name="imageUpload" onChange={onChange} />
+      {errors && <p style={{ margin: "10px 0", color: "red" }}>{errors}</p>}
+      {isLoading && <p style={{ margin: "10px 0" }}>Loading...</p>}
+      <input
+        type="file"
+        name="imageUpload"
+        onChange={onChange}
+        style={{ margin: "2em 0" }}
+      />
+      {/* eslint-disable-next-line multiline-ternary */}
       {previousImage ? (
         <>
           <div>Current Image: </div>
           <img
             src={!imageFile ? previousImage : imageFile}
             alt={recordTitle}
-            height="50px"
-            width="50px"
+            height="150px"
+            width="150px"
             style={{
-              border: "1px solid #000",
-              padding: "4%",
-              marginLeft: "4%",
+              // border: "1px solid #000",
+              // padding: "4%",
+              margin: "1em",
             }}
           />
         </>

@@ -7,16 +7,15 @@ const ShowImage = (props) => {
     },
   } = props;
   return (
-    <div style={{ display: "flex", flexDirection: "row" }}>
-      <p>Image</p>
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <p>Main Page Image</p>
       <img
         src={recordImage}
         alt={recordTitle}
-        height="50px"
-        width="50px"
+        height="150px"
+        width="150px"
         style={{
-          padding: "4%",
-          marginLeft: "4%",
+          marginLeft: "1em",
         }}
       />
     </div>

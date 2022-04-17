@@ -16,11 +16,12 @@ const UploadHero = (props) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const onChange = (e) => {
-    // if (!recordId) {
-    //   console.log("no record id");
-    //   setErrors("Add the title and save first before adding an image.");
-    //   return;
-    // }
+    if (!recordId) {
+      console.log("no record id");
+      setErrors("Add the title and save first before adding an image.");
+      return;
+    }
+    setIsLoading(true);
     const errs = [];
     const files = Array.from(e.target.files);
 
@@ -89,7 +90,7 @@ const UploadHero = (props) => {
             style={{
               //   border: "1px solid #000",
               //   padding: "4",
-              marginLeft: "2em",
+              marginLeft: "1em",
             }}
           />
         </>

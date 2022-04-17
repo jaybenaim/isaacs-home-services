@@ -56,21 +56,22 @@ const UploadMainImage = (props) => {
 
   return (
     <div
-      style={{ padding: "2% 0 4% 0", display: "flex", flexDirection: "row" }}
+      style={{ padding: "2% 0 4% 0", display: "flex", flexDirection: "column" }}
     >
       <input type="file" name="imageUpload" onChange={onChange} />
+      {/* eslint-disable-next-line multiline-ternary */}
       {recordImage ? (
         <>
           <div>Current Image: </div>
           <img
             src={imageFile}
             alt={recordTitle}
-            height="50px"
-            width="50px"
+            height="150px"
+            width="150px"
             style={{
-              border: "1px solid #000",
-              padding: "4%",
-              marginLeft: "4%",
+              // border: "1px solid #000",
+              // padding: "4%",
+              margin: "1em",
             }}
           />
         </>
