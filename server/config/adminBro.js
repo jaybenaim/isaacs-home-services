@@ -15,7 +15,7 @@ AdminBro.registerAdapter(require("admin-bro-mongoose"));
 const adminBro = new AdminBro({
   //   Custom dashboard
   dashboard: {
-    handler: async () => {},
+    handler: () => {},
     component: AdminBro.require("../components/Dashboard/index.jsx"),
   },
   branding: {
@@ -131,7 +131,6 @@ const adminBro = new AdminBro({
             before: async (request) => {
               let data = request.payload;
               // create service in firebase db
-              console.log(data);
               data.start = new Date(data.start);
               data.end = new Date(!data.end ? data.start : data.end);
               await axios
