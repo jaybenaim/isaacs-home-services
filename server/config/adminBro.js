@@ -1,11 +1,11 @@
 // Pass all configuration settings to AdminBro
 const AdminBro = require("admin-bro");
 const axios = require("axios");
-const bcrypt = require("bcrypt");
-const { query } = require("express");
-const { database } = require("firebase");
+// const bcrypt = require("bcrypt");
+// const { query } = require("express");
+// const { database } = require("firebase");
 
-const User = require("../models/User");
+// const User = require("../models/User");
 const Service = require("../models/Service");
 const HomeImage = require("../models/HomeImage");
 const Event = require("../models/Event");
@@ -385,12 +385,11 @@ const adminBro = new AdminBro({
     //   },
     // },
   ],
-
   rootPath: "/admin",
 });
 
 const convertData = (data) => {
-  let serviceDetails = {
+  const serviceDetails = {
     heading: data["details.heading"],
     description: data["details.description"],
     mainImage: data["details.mainImage"],

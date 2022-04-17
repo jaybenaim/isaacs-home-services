@@ -47,7 +47,11 @@ const App = (props) => {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/services" component={Services} />
-        <Route exact path="/services/:title" component={OfferItemShow} />
+        <Route
+          exact
+          path="/services/:title"
+          render={(props) => <OfferItemShow {...props} />}
+        />
 
         <ProtectedRoute path="/admin" role={role}>
           <Route exact path="/admin" render={(props) => <Admin {...props} />} />

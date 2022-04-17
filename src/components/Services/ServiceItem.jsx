@@ -13,7 +13,7 @@ const ServiceItem = (props) => {
    * @todo Get item from firebase on load to fix refresh bug
    */
 
-  let { service, position } = props;
+  const { service, position } = props;
 
   const gridClass = {
     imgContainer: `img-container ${position % 2 === 0 ? "even" : "odd"}`,
@@ -25,11 +25,7 @@ const ServiceItem = (props) => {
   return (
     <div className="service-content">
       <Container className={gridClass.imgContainer}>
-        <CompareSlider
-          leftImage={beforeImage}
-          rightImage={afterImage}
-          hover={true}
-        />
+        <CompareSlider leftImage={beforeImage} rightImage={afterImage} hover />
 
         <img src={afterImage} alt={service.title} className="img-thumb" />
 

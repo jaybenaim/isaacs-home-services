@@ -1,9 +1,9 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import "assets/stylesheets/serviceItemShow.scss";
 import { Button } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import PropTypes from "prop-types";
+import "assets/stylesheets/serviceItemShow.scss";
 
 const ServiceItem = (props) => {
   if (!props.location.state) {
