@@ -55,11 +55,11 @@ const App = (props) => {
         {/* <Route exact path="/calendar" component={ClientCalendar} /> */}
         {/* <Route exact path="/book" component={BookNow} /> */}
 
-        <Route
+        {/* <Route
           exact
           path="/register"
           render={(props) => <Register {...props} />}
-        />
+        /> */}
         <Route exact path="/login" render={(props) => <Login {...props} />} />
         <Route exact path="/privacy-policy" component={PrivacyPolicy} />
         <Route

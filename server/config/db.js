@@ -3,6 +3,7 @@ require("dotenv").config();
 //  Connect to DB
 const db = process.env.MONGO_URI;
 
+console.log("");
 // Mongo options
 
 const dbOptions = {

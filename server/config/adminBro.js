@@ -351,39 +351,39 @@ const adminBro = new AdminBro({
       },
     },
     // Show users on sidebar
-    // {
-    //   resource: User,
-    //   options: {
-    //     properties: {
-    //       password: {
-    //         type: "string",
-    //         isVisible: {
-    //           list: false,
-    //           edit: true,
-    //           filter: false,
-    //           show: false,
-    //         },
-    //       },
-    //     },
-    //     actions: {
-    //       new: {
-    //         before: async (request) => {
-    //           if (request.payload.password) {
-    //             request.payload = {
-    //               ...request.payload,
-    //               encryptedPassword: await bcrypt.hash(
-    //                 request.payload.password,
-    //                 10
-    //               ),
-    //               password: undefined,
-    //             };
-    //           }
-    //           return request;
-    //         },
-    //       },
-    //     },
-    //   },
-    // },
+    {
+      resource: User,
+      options: {
+        properties: {
+          password: {
+            type: "string",
+            isVisible: {
+              list: false,
+              edit: true,
+              filter: false,
+              show: false,
+            },
+          },
+        },
+        actions: {
+          new: {
+            before: async (request) => {
+              if (request.payload.password) {
+                request.payload = {
+                  ...request.payload,
+                  encryptedPassword: await bcrypt.hash(
+                    request.payload.password,
+                    10
+                  ),
+                  password: undefined,
+                };
+              }
+              return request;
+            },
+          },
+        },
+      },
+    },
   ],
 
   rootPath: "/admin",

@@ -23,7 +23,7 @@ class Register extends Component {
     return null;
   }
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.auth.isAuthenticated) {
+    if (!prevProps.auth.isAuthenticated) {
       prevProps.history.push("/");
     }
   }
