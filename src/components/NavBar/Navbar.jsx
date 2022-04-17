@@ -221,22 +221,22 @@ const NavBar = (props) => {
                 <i className="fa fa-envelope" style={{ fontSize: "1.4em" }}></i>{" "}
                 Email
               </a>
+
+              {isAuthenticated && (
+                <Dropdown className="nav-item nav-link">
+                  <Dropdown.Toggle
+                    id="navbar-toggle"
+                    className="primary-font-color"
+                  >
+                    Account
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Auth />
+                  </Dropdown.Menu>
+                </Dropdown>
+              )}
             </div>
-
-            {isAuthenticated && windowWidth <= 450 && (
-              <Dropdown className="nav-item nav-link">
-                <Dropdown.Toggle
-                  id="account-toggle"
-                  className="primary-font-color"
-                >
-                  Account
-                </Dropdown.Toggle>
-
-                <Dropdown.Menu className="account-dropdown">
-                  <Auth />
-                </Dropdown.Menu>
-              </Dropdown>
-            )}
           </Nav>
         </div>
       )}

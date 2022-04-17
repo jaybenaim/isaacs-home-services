@@ -16,18 +16,13 @@ router.get("/firebase", (req, res) => {
         results.push(homeImages[id]);
       }
 
-      res.send(results);
       results.forEach((hero) => {
         const newHomeImage = new HomeImage(hero);
         setTimeout(() => {
-          newHomeImage
-            .save()
-            .then((results) => {
-              console.log("Saved in db");
-            })
-            .catch((err) => console.log(err));
+          newHomeImage.save().catch((err) => console.log(err));
         }, 100);
       });
+      res.send(results);
     });
 });
 

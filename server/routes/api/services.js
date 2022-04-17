@@ -14,31 +14,29 @@ router.get("/", (req, res) => {
       Service.find()
         .select("-__v -_id")
         .then((response) => {
-
           let serviceFilter = [];
 
           for (const service of response) {
-            console.log(service)
-            !serviceFilter.includes(service) && serviceFilter.push(service)
+            !serviceFilter.includes(service) && serviceFilter.push(service);
           }
 
           try {
-            axios.delete("https://network-king-5740f.firebaseio.com/services.json")
+            axios.delete(
+              "https://network-king-5740f.firebaseio.com/services.json"
+            );
             // Create each item in firebase
-              serviceFilter.forEach((r) => {
-                setTimeout(() => {}, 300)
-                axios
-                  .post(
-                    "https://network-king-5740f.firebaseio.com/services.json",
-                    r
-                  )
-              });
-            res.send(serviceFilter)
+            serviceFilter.forEach((r) => {
+              setTimeout(() => {}, 300);
+              axios.post(
+                "https://network-king-5740f.firebaseio.com/services.json",
+                r
+              );
+            });
+            res.send(serviceFilter);
           } catch (err) {
-            console.log(err)
-            res.send(err)
+            console.log(err);
+            res.send(err);
           }
-
         })
     : // Return all mongo only if no refresh needed
       Service.find()
@@ -58,14 +56,10 @@ router.post("/upload-image", (req, res, next) => {
         recordId,
         { $set: { [name]: imageData.secure_url } },
         { new: true }
-      )
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((err) => {
-          console.log(err);
-          res.send(err);
-        });
+      ).catch((err) => {
+        console.log(err);
+        res.send(err);
+      });
       return res.send(imageData);
     })
     .catch((err) => res.send(err));
@@ -81,14 +75,10 @@ router.post("/upload-main-image", (req, res, next) => {
         recordId,
         { $set: { ["details.mainImage"]: imageData.secure_url } },
         { new: true }
-      )
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((err) => {
-          console.log(err);
-          res.send(err);
-        });
+      ).catch((err) => {
+        console.log(err);
+        res.send(err);
+      });
       return res.send(imageData);
     })
     .catch((err) => res.send(err));

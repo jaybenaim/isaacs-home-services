@@ -28,12 +28,6 @@ const Auth = (props) => {
       >
         Log In
       </Link>
-      <Link
-        to="/register"
-        className="auth-link nav-item nav-link primary-font-color"
-      >
-        Register
-      </Link>
     </div>
   ) : (
     <div className="auth-content">

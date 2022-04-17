@@ -16,7 +16,7 @@ const events = require("./routes/api/events");
 const adminBro = require("./config/adminBro");
 const AdminBroExpressjs = require("admin-bro-expressjs");
 const bcrypt = require("bcrypt");
-const firebase = require("firebase");
+// const firebase = require("firebase");
 const formData = require("express-form-data");
 
 const cloudinary = require("cloudinary");
@@ -49,14 +49,18 @@ cloudinary.config({
 // Admin
 const adminRouter = AdminBroExpressjs.buildAuthenticatedRouter(adminBro, {
   authenticate: async (email, password) => {
-    const user = await User.findOne({ email });
-    if (user.role === "admin") {
-      const matched = await bcrypt.compare(password, user.password);
-      if (matched) {
-        return user;
+    try {
+      const user = await User.findOne({ email });
+      if (user.role === "admin") {
+        const matched = await bcrypt.compare(password, user.password);
+        if (matched) {
+          return user;
+        }
       }
+      return false;
+    } catch (err) {
+      return false;
     }
-    return false;
   },
   cookiePassword: process.env.SECRET,
 });
@@ -69,23 +73,23 @@ app.use(adminBro.options.rootPath, adminRouter);
 app.use(bodyParser.json());
 app.use(formData.parse());
 // Cors
-const whitelist = [
-  "https://jaybenaim.github.io",
-  "http://localhost:3000",
-  "http://localhost:5000",
-  "http://localhost:5000",
-];
+// const whitelist = [
+//   "https://jaybenaim.github.io",
+//   "http://localhost:3000",
+//   "http://localhost:5000",
+//   "http://localhost:5000",
+// ];
 
-const corsOptions = {
-  credentials: true,
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-};
+// const corsOptions = {
+//   credentials: true,
+//   origin: function (origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   },
+// };
 
 app.use(cors());
 
