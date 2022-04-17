@@ -351,39 +351,39 @@ const adminBro = new AdminBro({
       },
     },
     // Show users on sidebar
-    {
-      resource: User,
-      options: {
-        properties: {
-          password: {
-            type: "string",
-            isVisible: {
-              list: false,
-              edit: true,
-              filter: false,
-              show: false,
-            },
-          },
-        },
-        actions: {
-          new: {
-            before: async (request) => {
-              if (request.payload.password) {
-                request.payload = {
-                  ...request.payload,
-                  encryptedPassword: await bcrypt.hash(
-                    request.payload.password,
-                    10
-                  ),
-                  password: undefined,
-                };
-              }
-              return request;
-            },
-          },
-        },
-      },
-    },
+    // {
+    //   resource: User,
+    //   options: {
+    //     properties: {
+    //       password: {
+    //         type: "string",
+    //         isVisible: {
+    //           list: false,
+    //           edit: true,
+    //           filter: false,
+    //           show: false,
+    //         },
+    //       },
+    //     },
+    //     actions: {
+    //       new: {
+    //         before: async (request) => {
+    //           if (request.payload.password) {
+    //             request.payload = {
+    //               ...request.payload,
+    //               encryptedPassword: await bcrypt.hash(
+    //                 request.payload.password,
+    //                 10
+    //               ),
+    //               password: undefined,
+    //             };
+    //           }
+    //           return request;
+    //         },
+    //       },
+    //     },
+    //   },
+    // },
   ],
 
   rootPath: "/admin",
@@ -407,13 +407,13 @@ const convertData = (data) => {
   };
 };
 const refreshData = async () => {
-  return await axios.get(
-    `https://isaacs-home-services.herokuapp.com/api/heroes?refresh=true`
-  );
+  return await axios
+    .get(`https://isaacs-home-services.herokuapp.com/api/heroes?refresh=true`)
+    .catch((err) => console.log(err));
 };
 const refreshEvents = async () => {
-  return await axios.get(
-    "htts://isaacs-home-services.herokuapp.com/api/events?refresh=true"
-  );
+  return await axios
+    .get("htts://isaacs-home-services.herokuapp.com/api/events?refresh=true")
+    .catch((err) => console.log(err));
 };
 module.exports = adminBro;
