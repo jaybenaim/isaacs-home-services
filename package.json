@@ -64,7 +64,7 @@
   },
   "scripts": {
     "start": "node server/server.js",
-    "start-all": "concurrently \"npm run start-frontend\" \"npm run start-backend\"",
+    "start-all": "concurrently \"yarn run start-frontend\" \"yarn run start-backend\"",
     "start-backend": "node server/server.js",
     "start-frontend": "react-scripts start",
     "build": "react-scripts build",
@@ -72,7 +72,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.js src/**/*.jsx",
     "deploy": "gh-pages -d build",
-    "heroku-predeploy": "npm install && cd server && npm install"
+    "heroku-predeploy": "yarn install && cd server && yarn install"
   },
   "homepage": "https://highlyhandy.com",
   "browserslist": [

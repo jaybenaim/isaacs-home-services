@@ -5,12 +5,13 @@ const db = process.env.MONGO_URI;
 
 // Mongo options
 
-var dbOptions = {
+const dbOptions = {
   useNewUrlParser: true,
   useFindAndModify: false,
-  useUnifiedTopology: false,
+  useUnifiedTopology: true,
   useCreateIndex: true,
 };
+
 // Connect to MongoDB
 mongoose
   .connect(db, dbOptions)

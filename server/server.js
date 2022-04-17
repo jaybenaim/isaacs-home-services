@@ -13,8 +13,8 @@ const indexRouter = require("./routes");
 const services = require("./routes/api/services");
 const heroes = require("./routes/api/heroes");
 const events = require("./routes/api/events");
-const adminBro = require("./config/adminBro");
 const AdminBroExpressjs = require("admin-bro-expressjs");
+const adminBro = require("./config/adminBro");
 const bcrypt = require("bcrypt");
 // const firebase = require("firebase");
 const formData = require("express-form-data");
@@ -116,7 +116,8 @@ app.use("/api/events", events);
 // });
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-  next(createError(404));
+  // next(createError(404));
+  res.sendStatus(500);
 });
 
 // TODO Web Template Studio: Add your own error handler here.
