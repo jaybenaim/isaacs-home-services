@@ -101,10 +101,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 // app.use(express.static(path.resolve(__dirname, "build")));
 
-// Passport middleware
-app.use(passport.initialize());
 // Passport config
 require("./config/passport")(passport);
+
+// Passport middleware
+app.use(passport.initialize());
 
 // Routes
 app.use("/api", indexRouter);
