@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 import lawn1 from "../../assets/img/lawn1.jpg";
 import CompareSlider from "../SimpleSlider/CompareSlider";
 import { Button } from "react-bootstrap";
-import PropTypes from "prop-types" 
+import PropTypes from "prop-types";
 import { Container } from "react-bootstrap";
 
 import "assets/stylesheets/serviceItem.scss";
 
 const ServiceItem = (props) => {
   /**
-   * @todo Get item from firebase on load to fix refresh bug 
+   * @todo Get item from firebase on load to fix refresh bug
    */
-  
+
   let { service, position } = props;
 
   const gridClass = {
@@ -31,11 +31,7 @@ const ServiceItem = (props) => {
           hover={true}
         />
 
-        <img 
-          src={afterImage}
-          alt={service.title}
-          className="img-thumb"
-        />
+        <img src={afterImage} alt={service.title} className="img-thumb" />
 
         <div className="img-layover">
           <Link
@@ -48,19 +44,25 @@ const ServiceItem = (props) => {
 
       <Container className={`${gridClass.details} service-item__content`}>
         <Link
-            to={{ pathname: `/services/${service.title}`, state: { service } }}
-          >
-            <h5 className="title secondary-font">{service.title}</h5>
-          </Link>
+          to={{ pathname: `/services/${service.title}`, state: { service } }}
+        >
+          <h5 className="title secondary-font">{service.title}</h5>
+        </Link>
 
         <Container className="secondary-font">
-          <div className="description">
-            {service.shortDescription}
-          </div>
+          <div className="description">{service.shortDescription}</div>
 
           <div className="service-buttons">
             <Button variant="outline-secondary">
-              <a href="tel:6472295873">Get a Free Quote</a>
+              <a
+                href={
+                  service.title?.toLowerCase().includes("window")
+                    ? "tel:6472410832"
+                    : "tel:6472295873"
+                }
+              >
+                Get a Free Quote
+              </a>
             </Button>
           </div>
         </Container>
@@ -69,10 +71,9 @@ const ServiceItem = (props) => {
   );
 };
 
-
-ServiceItem.propTypes = { 
+ServiceItem.propTypes = {
   service: PropTypes.object.isRequired,
-  position: PropTypes.number.isRequired
-}
+  position: PropTypes.number.isRequired,
+};
 
 export default ServiceItem;
