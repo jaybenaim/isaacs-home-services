@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
+const cloudinary = require("cloudinary");
 
 const HomeImage = require("../../models/HomeImage");
 
@@ -84,6 +85,31 @@ router.delete("/:id", async (req, res) => {
     console.log("err", err);
     return res.send(err);
   }
+});
+
+router.post("/upload-image", async (req, res, next) => {
+  const recordId = req.query.recordId;
+  const imageFile = req.files[0];
+
+  console.log("recordId", recordId);
+  console.log("imageFile", imageFile);
+  await cloudinary.uploader
+    .upload(imageFile.path)
+    .then(async (imageData) => {
+      console.log("image data", imageData);
+      await HomeImage.findByIdAndUpdate(
+        recordId,
+        { $set: { src: imageData.secure_url } },
+        { upsert: true, new: true }
+      );
+      console.log("Updated hero");
+
+      return res.send(imageData);
+    })
+    .catch((err) => {
+      console.log("cloudinary err", err);
+      res.send(err);
+    });
 });
 
 module.exports = router;

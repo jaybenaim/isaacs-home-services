@@ -11,11 +11,14 @@ const ShowImage = (props) => {
   } = props;
   const [image, setImage] = useState("");
 
+  console.log("paramr", params);
   const getImage = () => {
     if (name === "beforeImage") {
       setImage(params.beforeImage);
-    } else {
+    } else if (name === "afterImage") {
       setImage(params.afterImage);
+    } else {
+      setImage(params.src);
     }
   };
   useEffect(() => {
@@ -24,7 +27,13 @@ const ShowImage = (props) => {
 
   return (
     <div style={{ display: "flex", flexDirection: "row" }}>
-      <p>{name === "beforeImage" ? "Before Image" : "After Image"}</p>
+      <p>
+        {name === "beforeImage"
+          ? "Before Image"
+          : name === "afterImage"
+          ? "After Image"
+          : "Image"}
+      </p>
       <img
         src={image}
         alt={recordTitle}

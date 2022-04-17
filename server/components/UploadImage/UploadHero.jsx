@@ -2,17 +2,24 @@ import React, { useState } from "react";
 
 import backend from "../../../src/api/backend";
 
-const UploadMainImage = (props) => {
+const UploadHero = (props) => {
   const {
     resource: { id: resourceId },
     record: {
       id: recordId,
-      params: { ["details.mainImage"]: recordImage, title: recordTitle },
+      params: { title: recordTitle, src: recordImage },
     },
   } = props;
+  console.log("props", props);
+
   const [imageFile, setImageFile] = useState(recordImage);
+  const [errors, setErrors] = useState();
 
   const onChange = (e) => {
+    if (!recordId) {
+      setErrors("Add the title and save first before adding an image.");
+      return;
+    }
     const errs = [];
     const files = Array.from(e.target.files);
 
@@ -28,6 +35,7 @@ const UploadMainImage = (props) => {
       }
       formData.append(i, file);
     });
+
     if (errs.length) {
       return errs.forEach((err) => alert(err));
     }
@@ -37,7 +45,7 @@ const UploadMainImage = (props) => {
         console.log(res.data);
 
         setImageFile(res.data.secure_url);
-        window.location.href = window.location.href;
+        // window.location.href = window.location.href;
       })
       .catch((err) => {
         console.log(err);
@@ -46,7 +54,7 @@ const UploadMainImage = (props) => {
 
   const saveImageInMongo = async (image, recordId) => {
     return await backend.post(
-      `/services/upload-main-image?recordId=${recordId}`,
+      `/heroes/upload-image?recordId=${recordId}`,
       image,
       {
         "content-type": "multipart/form-data",
@@ -56,9 +64,17 @@ const UploadMainImage = (props) => {
 
   return (
     <div
-      style={{ padding: "2% 0 4% 0", display: "flex", flexDirection: "row" }}
+      style={{ padding: "2% 0 4% 0", display: "flex", flexDirection: "column" }}
     >
-      <input type="file" name="imageUpload" onChange={onChange} />
+      {errors && <p style={{ margin: "10px 0", color: "red" }}>{errors}</p>}
+
+      <input
+        type="file"
+        name="imageUpload"
+        onChange={onChange}
+        style={{ margin: "10px 0" }}
+      />
+      {/* eslint-disable-next-line multiline-ternary */}
       {recordImage ? (
         <>
           <div>Current Image: </div>
@@ -76,9 +92,9 @@ const UploadMainImage = (props) => {
         </>
       ) : (
         <div>Select a file to upload</div>
-      )}{" "}
+      )}
     </div>
   );
 };
 
-export default UploadMainImage;
+export default UploadHero;

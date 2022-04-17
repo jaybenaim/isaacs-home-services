@@ -41,8 +41,8 @@ const Hero = (props) => {
       return (
         <div key={i} className="carousel-item">
           <img
-            src={image.src}
-            alt={image.innerTitle}
+            src={image.src || images[0].src}
+            alt={image.innerTitle || image.innerTitle}
             className="" // animate__animated animate__fadeIn animate__slower
             loading="lazy"
           />

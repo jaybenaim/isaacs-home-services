@@ -29,6 +29,11 @@ const adminBro = new AdminBro({
       options: {
         properties: {
           src: {
+            components: {
+              edit: AdminBro.bundle("../components/UploadImage/UploadHero.jsx"),
+              new: AdminBro.bundle("../components/UploadImage/UploadHero.jsx"),
+              show: AdminBro.bundle("../components/ShowImage/index.jsx"),
+            },
             isVisible: {
               list: false,
               show: true,
@@ -83,6 +88,7 @@ const adminBro = new AdminBro({
           },
           delete: {
             after: async (request) => {
+              console.log("request delete", request);
               await refreshData()
                 .then((res) => {
                   console.log(res.data, "items refreshed");
