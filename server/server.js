@@ -47,26 +47,26 @@ cloudinary.config({
 });
 
 // Admin
-// const adminRouter = AdminBroExpressjs.buildAuthenticatedRouter(adminBro, {
-//   authenticate: async (email, password) => {
-//     try {
-//       const user = await User.findOne({ email });
-//       if (user.role === "admin") {
-//         const matched = await bcrypt.compare(password, user.password);
-//         if (matched) {
-//           return user;
-//         }
-//       }
-//       return false;
-//     } catch (err) {
-//       return false;
-//     }
-//   },
-//   cookiePassword: process.env.SECRET,
-// });
+const adminRouter = AdminBroExpressjs.buildAuthenticatedRouter(adminBro, {
+  authenticate: async (email, password) => {
+    try {
+      const user = await User.findOne({ email });
+      if (user.role === "admin") {
+        const matched = await bcrypt.compare(password, user.password);
+        if (matched) {
+          return user;
+        }
+      }
+      return false;
+    } catch (err) {
+      return false;
+    }
+  },
+  cookiePassword: process.env.SECRET,
+});
 
 // Enable to use without auth
-const adminRouter = AdminBroExpressjs.buildRouter(adminBro);
+// const adminRouter = AdminBroExpressjs.buildRouter(adminBro);
 app.use(adminBro.options.rootPath, adminRouter);
 // Bodyparser middleware
 
