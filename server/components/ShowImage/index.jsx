@@ -11,7 +11,6 @@ const ShowImage = (props) => {
   } = props;
   const [image, setImage] = useState("");
 
-  console.log("paramr", params);
   const getImage = () => {
     if (name === "beforeImage") {
       setImage(params.beforeImage);
@@ -26,7 +25,7 @@ const ShowImage = (props) => {
   });
 
   return (
-    <div style={{ display: "flex", flexDirection: "row" }}>
+    <div style={{ display: "flex", flexDirection: "column" }}>
       <p>
         {name === "beforeImage"
           ? "Before Image"
@@ -37,11 +36,11 @@ const ShowImage = (props) => {
       <img
         src={image}
         alt={recordTitle}
-        height="50px"
-        width="50px"
+        height="250px"
+        width="250px"
         style={{
-          padding: "4%",
-          marginLeft: "4%",
+          // padding: "4%",
+          margin: "2em",
         }}
       />
     </div>

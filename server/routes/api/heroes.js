@@ -34,15 +34,15 @@ router.get("/", (req, res) => {
       HomeImage.find()
         .select("-__v -_id")
         .then((response) => {
-          let homeImageFilter = [...new Set(response)];
+          const homeImageFilter = [...new Set(response)];
           axios
             .delete("https://network-king-5740f.firebaseio.com/heroes.json")
-            .then((response) => {
+            .then(() => {
               // Create each item in firebase
-              homeImageFilter.forEach((r) => {
+              homeImageFilter.forEach((hero) => {
                 axios.post(
                   "https://network-king-5740f.firebaseio.com/heroes.json",
-                  r
+                  hero
                 );
               });
             })
@@ -92,17 +92,18 @@ router.post("/upload-image", async (req, res, next) => {
   const imageFile = req.files[0];
 
   console.log("recordId", recordId);
-  console.log("imageFile", imageFile);
+  console.log("imageFile", imageFile.originalFilename);
+
   await cloudinary.uploader
     .upload(imageFile.path)
     .then(async (imageData) => {
-      console.log("image data", imageData);
-      await HomeImage.findByIdAndUpdate(
-        recordId,
+      console.log("image url", imageData.secure_url);
+      const hero = await HomeImage.findByIdAndUpdate(
+        { _id: recordId },
         { $set: { src: imageData.secure_url } },
-        { upsert: true, new: true }
+        { new: true }
       );
-      console.log("Updated hero");
+      console.log("Updated hero", hero);
 
       return res.send(imageData);
     })

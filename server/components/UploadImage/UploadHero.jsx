@@ -10,16 +10,17 @@ const UploadHero = (props) => {
       params: { title: recordTitle, src: recordImage },
     },
   } = props;
-  console.log("props", props);
 
   const [imageFile, setImageFile] = useState(recordImage);
   const [errors, setErrors] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   const onChange = (e) => {
-    if (!recordId) {
-      setErrors("Add the title and save first before adding an image.");
-      return;
-    }
+    // if (!recordId) {
+    //   console.log("no record id");
+    //   setErrors("Add the title and save first before adding an image.");
+    //   return;
+    // }
     const errs = [];
     const files = Array.from(e.target.files);
 
@@ -42,10 +43,10 @@ const UploadHero = (props) => {
 
     saveImageInMongo(formData, recordId)
       .then((res) => {
-        console.log(res.data);
+        console.log("Saved image response:", res.data);
 
         setImageFile(res.data.secure_url);
-        // window.location.href = window.location.href;
+        window.location.href = window.location.href;
       })
       .catch((err) => {
         console.log(err);
@@ -53,6 +54,7 @@ const UploadHero = (props) => {
   };
 
   const saveImageInMongo = async (image, recordId) => {
+    console.log("Saving image");
     return await backend.post(
       `/heroes/upload-image?recordId=${recordId}`,
       image,
@@ -67,6 +69,7 @@ const UploadHero = (props) => {
       style={{ padding: "2% 0 4% 0", display: "flex", flexDirection: "column" }}
     >
       {errors && <p style={{ margin: "10px 0", color: "red" }}>{errors}</p>}
+      {isLoading && <p style={{ margin: "10px 0" }}>Loading...</p>}
 
       <input
         type="file"
@@ -77,16 +80,16 @@ const UploadHero = (props) => {
       {/* eslint-disable-next-line multiline-ternary */}
       {recordImage ? (
         <>
-          <div>Current Image: </div>
+          <div style={{ margin: "10px 0" }}>Current Image: </div>
           <img
             src={imageFile}
             alt={recordTitle}
-            height="50px"
-            width="50px"
+            height="250px"
+            width="250px"
             style={{
-              border: "1px solid #000",
-              padding: "4%",
-              marginLeft: "4%",
+              //   border: "1px solid #000",
+              //   padding: "4",
+              marginLeft: "2em",
             }}
           />
         </>

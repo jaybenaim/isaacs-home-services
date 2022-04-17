@@ -57,8 +57,9 @@ const adminBro = new AdminBro({
         },
         actions: {
           new: {
-            before: async (request) => {
+            after: async (request) => {
               let data = request.payload;
+              console.log("New hero", data);
               // create service in firebase db
               await axios
                 .post(
@@ -76,6 +77,8 @@ const adminBro = new AdminBro({
           },
           edit: {
             after: async (request) => {
+              console.log("Edit hero", request);
+
               await refreshData()
                 .then((res) => {
                   console.log(res.data, "items refreshed");
