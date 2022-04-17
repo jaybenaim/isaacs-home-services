@@ -1,6 +1,6 @@
 ﻿const createError = require("http-errors");
 const express = require("express");
-const path = require("path");
+// const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const bodyParser = require("body-parser");
@@ -13,8 +13,8 @@ const indexRouter = require("./routes");
 const services = require("./routes/api/services");
 const heroes = require("./routes/api/heroes");
 const events = require("./routes/api/events");
-const AdminBroExpressjs = require("admin-bro-expressjs");
 const adminBro = require("./config/adminBro");
+const AdminBroExpressjs = require("admin-bro-expressjs");
 const bcrypt = require("bcrypt");
 // const firebase = require("firebase");
 const formData = require("express-form-data");
@@ -35,77 +35,71 @@ const app = express();
 //   storageBucket: process.env.STORAGE_BUCKET,
 //   messagingSenderId: process.env.MESSAGING_SENDER_ID,
 // };
-
 // firebase.initializeApp(config);
-
 // const firebaseDB = firebase.database();
-
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_KEY,
   api_secret: process.env.CLOUDINARY_SECRET,
 });
-
 // Admin
-// const adminRouter = AdminBroExpressjs.buildAuthenticatedRouter(adminBro, {
-//   authenticate: async (email, password) => {
-//     try {
-//       const user = await User.findOne({ email });
-//       if (user.role === "admin") {
-//         const matched = await bcrypt.compare(password, user.password);
-//         if (matched) {
-//           return user;
-//         }
-//       }
-//       return false;
-//     } catch (err) {
-//       return false;
-//     }
-//   },
-//   cookiePassword: process.env.SECRET,
-// });
+const adminRouter = AdminBroExpressjs.buildAuthenticatedRouter(adminBro, {
+  authenticate: async (email, password) => {
+    try {
+      const user = await User.findOne({ email });
+      if (user.role === "admin") {
+        const matched = await bcrypt.compare(password, user.password);
+        if (matched) {
+          return user;
+        }
+      }
+      return false;
+    } catch (err) {
+      console.log("error", err);
+      return false;
+    }
+  },
+  cookiePassword: process.env.SECRET,
+});
 
 // Enable to use without auth
-const adminRouter = AdminBroExpressjs.buildRouter(adminBro);
+// const adminRouter = AdminBroExpressjs.buildRouter(adminBro);
 app.use(adminBro.options.rootPath, adminRouter);
 // Bodyparser middleware
 
 app.use(bodyParser.json());
 app.use(formData.parse());
 // Cors
-// const whitelist = [
-//   "https://jaybenaim.github.io",
-//   "http://localhost:3000",
-//   "http://localhost:5000",
-//   "http://localhost:5000",
-// ];
+const whitelist = [
+  "https://jaybenaim.github.io",
+  "http://localhost:3000",
+  "http://localhost:5000",
+  "http://localhost:5000",
+];
 
-// const corsOptions = {
-//   credentials: true,
-//   origin: function (origin, callback) {
-//     if (whitelist.indexOf(origin) !== -1) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error("Not allowed by CORS"));
-//     }
-//   },
-// };
+const corsOptions = {
+  credentials: true,
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
 
 app.use(cors());
 
 app.use(logger("dev"));
 app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
 app.use(express.urlencoded({ extended: false }));
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 // app.use(express.static(path.resolve(__dirname, "build")));
 
-// Passport config
-require("./config/passport")(passport);
-
 // Passport middleware
 app.use(passport.initialize());
+// Passport config
+require("./config/passport")(passport);
 
 // Routes
 app.use("/api", indexRouter);
@@ -119,8 +113,7 @@ app.use("/api/events", events);
 // });
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-  // next(createError(404));
-  res.sendStatus(500);
+  next(createError(404));
 });
 
 // TODO Web Template Studio: Add your own error handler here.
